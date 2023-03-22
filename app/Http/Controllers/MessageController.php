@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\view;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreMessageRequest;
+use App\Http\Requests\UpdateMessageRequest;
+use App\Models\Message;
 
-class ViewController extends Controller
+class MessageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -30,10 +31,10 @@ class ViewController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StoreMessageRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreMessageRequest $request)
     {
         //
     }
@@ -41,10 +42,10 @@ class ViewController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\view  $view
+     * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function show(view $view)
+    public function show(Message $message)
     {
         //
     }
@@ -52,10 +53,10 @@ class ViewController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\view  $view
+     * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function edit(view $view)
+    public function edit(Message $message)
     {
         //
     }
@@ -63,11 +64,11 @@ class ViewController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\view  $view
+     * @param  \App\Http\Requests\UpdateMessageRequest  $request
+     * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, view $view)
+    public function update(UpdateMessageRequest $request, Message $message)
     {
         //
     }
@@ -75,10 +76,10 @@ class ViewController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\view  $view
+     * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function destroy(view $view)
+    public function destroy(Message $message)
     {
         //
     }
