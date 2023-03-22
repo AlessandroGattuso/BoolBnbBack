@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('positions', function (Blueprint $table) {
             $table->id();
+            $table->string('indirizzo');
+            $table->unsignedTinyInteger('N_civico');
+            $table->float('Latitudine');
+            $table->float('Longitudine');
+            $table->string('città', 50);
+            $table->string('Nazione',20);
             $table->timestamps();
         });
     }
