@@ -21,7 +21,7 @@ return new class extends Migration
 			$table->unsignedSmallInteger('metri_quadri');
 			$table->string('cover')->nullable();
 			$table->boolean('visible')->default(true);
-			$table->float('prezzo', 12, 2);
+			$table->decimal('prezzo', 12, 2);
 			$table->timestamps();
 		});
 	}
