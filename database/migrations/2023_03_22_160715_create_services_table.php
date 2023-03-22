@@ -13,14 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('positions', function (Blueprint $table) {
+        Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->string('indirizzo');
-            $table->unsignedTinyInteger('N_civico');
-            $table->float('Latitudine');
-            $table->float('Longitudine');
-            $table->string('città', 50);
-            $table->string('Nazione',20);
+            $table->string('nome')->unique();
             $table->timestamps();
         });
     }
@@ -32,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('positions');
+        Schema::dropIfExists('services');
     }
 };

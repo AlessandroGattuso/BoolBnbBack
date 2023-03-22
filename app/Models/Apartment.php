@@ -10,7 +10,7 @@ use App\Models\View;
 
 class Apartment extends Model
 {
-	use HasFactory;
+	
 	public function user()
 	{
 		return $this->belongsTo(User::class);
@@ -20,4 +20,5 @@ class Apartment extends Model
 	{
 		return $this->hasMany(View::class);
 	}
+
 }
