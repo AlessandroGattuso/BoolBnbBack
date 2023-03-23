@@ -21,18 +21,21 @@ class MessageSeeder extends Seeder
                 'contenuto' => 'Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullamco laboriosam, nisi ut aliquid ex ea commodi consequatur.',
                 'nome' => 'Rosa',
                 'cognome' => 'Ceschi',
-                'email' => 'rosa.ceschi@mail.com'
+                'email' => 'rosa.ceschi@mail.com',
+                'apartment_id' => 1
             ],
             [
                 'contenuto' => 'Duis aute irure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
                 'nome' => 'Francesco',
                 'cognome' => 'Scotto',
-                'email' => 'francesco.scotto@mail.com'
+                'email' => 'francesco.scotto@mail.com',
+                'apartment_id' => 2
             ],
         ];
 
         foreach($message as $item){
             $newMessage = new Message();
+            $newMessage->apartment_id = $item['apartment_id'];
             $newMessage->contenuto = $item['contenuto'];
             $newMessage->nome = $item['nome'];
             $newMessage->cognome = $item['cognome'];
