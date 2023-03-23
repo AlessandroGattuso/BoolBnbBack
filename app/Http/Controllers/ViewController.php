@@ -37,7 +37,16 @@ class ViewController extends Controller
 	 */
 	public function store(Request $request)
 	{
-		//
+		$data = $request->validated();
+
+		$clientIp = request()->ip();
+
+		$data['clientIp'] = $clientIp;
+
+		$newView = new View();
+		$newView->fill($data);
+
+		$newView->save();
 	}
 
 	/**
