@@ -10,6 +10,16 @@ use App\Models\View;
 
 class Apartment extends Model
 {
+	protected $fillable = [
+		'user_id',
+		'descrizione',
+		'numero_di_stanze',
+		'numero_di_bagni',
+		'metri_quadri',
+		'cover',
+		'visible',
+		'prezzo'
+	];
 
 	public function user()
 	{

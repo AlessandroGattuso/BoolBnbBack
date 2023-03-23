@@ -7,10 +7,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
 	use HasApiTokens, HasFactory, Notifiable;
+
+	public static function generateSlug($title)
+	{
+		return Str::slug($title, '-');
+	}
 
 	public function apartments()
 	{
@@ -22,7 +28,10 @@ class User extends Authenticatable
 	 * @var array<int, string>
 	 */
 	protected $fillable = [
-		'name',
+		'nome',
+		'cognome',
+		'data_di_nascita',
+		'slug',
 		'email',
 		'password',
 	];
