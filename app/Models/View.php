@@ -11,7 +11,7 @@ class view extends Model
 {
 	use HasFactory;
 	
-	protected $fillable = ['IP'];
+	protected $fillable = ['apartment_id', 'IP'];
 	
 	public function apartments()
 	{
