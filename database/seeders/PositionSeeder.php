@@ -23,7 +23,8 @@ class PositionSeeder extends Seeder
                 'Latitudine' => 42.632231,
                 'Longitudine' => 13.267348,
                 'città'       =>  'Milano',
-                'Nazione'    => 'Italia'
+                'Nazione'    => 'Italia',
+                'apartment_id' => 1
 
             ],
             [
@@ -32,15 +33,8 @@ class PositionSeeder extends Seeder
                 'Latitudine' => 78.453231,
                 'Longitudine' => 27.39848,
                 'città'       =>  'Roma',
-                'Nazione'    => 'Italia'
-
-            ],    [
-                'indirizzo'  => 'Via isacco newton',
-                'N_civico'   => 78,
-                'Latitudine' => 87.209817,
-                'Longitudine' => 23.459102,
-                'città'       =>  'Napoli',
-                'Nazione'    => 'Italia'
+                'Nazione'    => 'Italia',
+                'apartment_id' => 2
 
             ]
         ];
@@ -54,6 +48,7 @@ class PositionSeeder extends Seeder
             $newPosition->Longitudine = $item['Longitudine'];
             $newPosition->città= $item['città'];
             $newPosition->Nazione= $item['Nazione'];
+            $newPosition->apartment_id= $item['apartment_id'];
 
             $newPosition->save();
         }

@@ -4,6 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+use App\Models\Position;
+
 return new class extends Migration
 {
     /**
@@ -21,7 +23,12 @@ return new class extends Migration
             $table->double('Longitudine');
             $table->string('città', 50);
             $table->string('Nazione',20);
+            $table->unsignedBigInteger('apartment_id');
             $table->timestamps();
+
+            $table->foreign('apartment_id')->references('id')->on('apartments')
+ 
+        ->onDelete('cascade');
         });
     }
 
