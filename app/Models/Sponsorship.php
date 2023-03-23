@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sponsorship extends Model
 {
+    protected $fillable = ['titolo', 'prezzo', 'ore_valide'];
+
 	use HasFactory;
 
 	public function apartments()
