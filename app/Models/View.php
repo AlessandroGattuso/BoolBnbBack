@@ -10,7 +10,9 @@ use App\Models\Appartment;
 class view extends Model
 {
 	use HasFactory;
-
+	
+	protected $fillable = ['IP'];
+	
 	public function apartments()
 	{
 		return $this->belongsTo(Apartment::class);
