@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('sponsorships', function (Blueprint $table) {
             $table->id();
-            $table->string('Titolo', 20);
-            $table->decimal('Prezzo',3,2);
-            $table->UnsignedTinyInteger('Ore_valide');
+            $table->string('titolo', 20);
+            $table->decimal('prezzo',8,2);
+            $table->UnsignedTinyInteger('ore_valide');
             $table->timestamps();
         });
     }
