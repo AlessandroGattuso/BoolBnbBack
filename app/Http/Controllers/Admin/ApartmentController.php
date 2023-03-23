@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\StoreApartmentRequest;
 use App\Http\Requests\UpdateApartmentRequest;
-use App\Models\Apartment;
 use App\Http\Controllers\Controller;
+use App\Models\Apartment;
+use App\Models\Sponsorhip;
+use App\Models\Service;
+use App\Models\Position;
 
 class ApartmentController extends Controller
 {
@@ -16,8 +19,8 @@ class ApartmentController extends Controller
 	 */
 	public function index()
 	{
-		$apartments = Apartments::all();
-		return view('admin.projects.index', compact('apartments'));
+		$apartments = Apartment::all();
+		return view('admin.Apartments.index', compact('apartments'));
 	}
 
 	/**
@@ -27,7 +30,9 @@ class ApartmentController extends Controller
 	 */
 	public function create()
 	{
-		//
+		$services = Service::all(); 
+		$sponsorships = Sponsorship::all();
+		return view('admin.Apartments.create', compact('services','sponsorships'));
 	}
 
 	/**
@@ -38,7 +43,31 @@ class ApartmentController extends Controller
 	 */
 	public function store(StoreApartmentRequest $request)
 	{
-		//
+		$data = $request->validated();
+
+		$data['slug'] = Apartment::generateSlug($request->nome.' '.$request->cognome);
+
+		// if($request->hasFile('cover')){
+		// 		$path = Storage::disk('public')->put('Apartment_images', $request->cover);
+		// 		$data['cover'] = $path;
+		// }
+
+		$newApartment = Apartment::create($data);
+
+		$newPosition = new Position();
+		$newPosition->indirizzo = $request->indirizzo;
+		$newPosition->N_civico = $request->N_civico;
+		$newPosition->Latitudite = $request->Latitudine;
+		$newPosition->Longitudine = $request->Longitudine;
+		$newPosition->città = $request->città;
+		$newPosition->Nazione = $request->Nazione;
+
+    $newPosition->position()->save($newPosition);
+
+		if($request->has('services'))
+				$newApartment->services()->attach($request->services);
+			
+		return redirect()->route('admin.apartments.show')->with('message', 'Hai aggiunto un nuovo appartamento con successo');
 	}
 
 	/**
@@ -49,7 +78,9 @@ class ApartmentController extends Controller
 	 */
 	public function show(Apartment $apartment)
 	{
-		//
+		//Controllo sulle view in un determinato periodo
+
+		return view('admin.apartments.show', compact('apartment'));
 	}
 
 	/**
@@ -60,7 +91,8 @@ class ApartmentController extends Controller
 	 */
 	public function edit(Apartment $apartment)
 	{
-		//
+		$services = Service::all(); 
+		return view('admin.apartments.edit', compact('apartment', 'services'));
 	}
 
 	/**
@@ -72,7 +104,30 @@ class ApartmentController extends Controller
 	 */
 	public function update(UpdateApartmentRequest $request, Apartment $apartment)
 	{
-		//
+		$data = $request->validated();
+
+		$data['slug'] = apartment::generateSlug($request->title);
+
+		// if($request->hasFile('cover_image')){
+
+		// 		if($apartment->cover_image)
+		// 				Storage::delete($apartment->cover_image);  
+				
+
+		// 		$path = Storage::disk('public')->put('apartment_images', $request->cover); 
+		// 		$data['cover'] = $path;
+
+		// }
+
+		$apartment->update($data);
+		
+		if($request->has('services'))
+				$apartment->services()->sync($request->services);
+		else
+				$apartment->services()->detach();
+
+
+		return redirect()->route('admin.apartments.index')->with('message', "Le modifiche all'appartamento sono state salvate correttamente");
 	}
 
 	/**
@@ -83,6 +138,7 @@ class ApartmentController extends Controller
 	 */
 	public function destroy(Apartment $apartment)
 	{
-		//
+		$apartment->delete();
+    return redirect()->route('admin.apartments.index')->with('message',"L'appartmanento è rimosso correttamente");
 	}
 }

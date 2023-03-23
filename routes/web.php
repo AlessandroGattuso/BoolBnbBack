@@ -2,6 +2,10 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\DashboardController as DashboardController;
+use App\Http\Controllers\Admin\ApartmentController as ApartmentController;
+use App\Http\Controller\MessagesController as MessageController;
+use App\Http\Controllers\ViewController as ViewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +18,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(function(){
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    Route::resource('/apartments', ApartmentController::class)->parameters(['apartment' => 'project:slug']);
+    Route::resource('/messages', MessageController::class)->parameters(['services' => 'service:nome']);
+    Route::resource('/views', ViewController::class);
 });
 
 Route::get('/dashboard', function () {
