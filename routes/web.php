@@ -18,8 +18,11 @@ use App\Http\Controllers\ViewController as ViewController;
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
 Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(function(){
-    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('/apartments', ApartmentController::class)->parameters(['apartments' => 'project:slug']);
     Route::resource('/messages', MessageController::class)->parameters(['services' => 'service:nome']);
     Route::resource('/views', ViewController::class);
