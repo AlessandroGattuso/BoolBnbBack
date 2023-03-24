@@ -13,11 +13,6 @@ class User extends Authenticatable
 {
 	use HasApiTokens, HasFactory, Notifiable;
 
-	public static function generateSlug($title)
-	{
-		return Str::slug($title, '-');
-	}
-
 	public function apartments()
 	{
 		return $this->hasMany(Apartment::class);
@@ -31,7 +26,6 @@ class User extends Authenticatable
 		'nome',
 		'cognome',
 		'data_di_nascita',
-		'slug',
 		'email',
 		'password',
 	];
