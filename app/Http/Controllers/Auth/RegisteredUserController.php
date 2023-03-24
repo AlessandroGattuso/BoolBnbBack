@@ -31,7 +31,6 @@ class RegisteredUserController extends Controller
 	 */
 	public function store(Request $request): RedirectResponse
 	{
-		$slug = User::generateSlug($request->nome . ' ' . $request->cognome);
 		$request->validate([
 			'nome' => ['required', 'string', 'max:255'],
 			'cognome' => ['required', 'string', 'max:255'],
@@ -43,7 +42,6 @@ class RegisteredUserController extends Controller
 		$user = User::create([
 			'nome' => $request->nome,
 			'cognome' => $request->cognome,
-			'slug' => $slug,
 			'data_di_nascita' => $request->data_di_nascita,
 			'email' => $request->email,
 			'password' => Hash::make($request->password),
