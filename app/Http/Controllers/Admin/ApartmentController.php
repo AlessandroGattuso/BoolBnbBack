@@ -6,7 +6,7 @@ use App\Http\Requests\StoreApartmentRequest;
 use App\Http\Requests\UpdateApartmentRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Apartment;
-use App\Models\Sponsorhip;
+use App\Models\Sponsorship;
 use App\Models\Service;
 use App\Models\Position;
 
