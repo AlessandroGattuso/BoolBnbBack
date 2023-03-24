@@ -23,14 +23,11 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(function(){
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('/apartments', ApartmentController::class)->parameters(['apartments' => 'project:slug']);
     Route::resource('/messages', MessageController::class)->parameters(['services' => 'service:nome']);
     Route::resource('/views', ViewController::class);
 });
-
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
