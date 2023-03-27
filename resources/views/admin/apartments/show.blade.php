@@ -3,10 +3,10 @@
 @section('content')
     <div class="container pb-3">
         <div class="row mt-5">
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-9">
                 <h2 class="fw-bolder">{{ $apartment->descrizione ? $apartment->descrizione : 'Nome non specificato' }}</h2>
             </div>
-            <div class="col-6 d-flex justify-content-end align-items-center">
+            <div class="col-12 col-md-3 d-flex justify-content-end align-items-center">
                 <a class="btn btn-sm btn-primary me-3" href="{{ route('admin.apartments.index') }}" role="button">Elenco appartamenti</a>
                 <a class="btn btn-sm btn-warning" href="{{ route('admin.apartments.edit', $apartment->slug) }}" role="button" title="Modifica il progetto">
                     <i class="fa-solid fa-edit"></i>
