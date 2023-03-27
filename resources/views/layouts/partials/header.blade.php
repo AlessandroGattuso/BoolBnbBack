@@ -4,7 +4,7 @@
 			<a class="navbar-brand d-flex align-items-center py-0" href="{{ url('/') }}">
 				<div id="logo-container" class="d-flex align-items-center">
 					<img src="{{ URL::asset('/img/bnb-logo.png')}}" alt="bnb-logo" style="width: 60px" class="me-2">
-					<h2 class="me-1">bool</h2>
+					<h2>bool</h2>
 					<h2 class="color-blue">b</h2>
 					<h2 class="color-yellow">n</h2>
 					<h2 class="color-red">b</h2>
