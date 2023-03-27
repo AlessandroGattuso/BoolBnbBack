@@ -59,5 +59,14 @@
 
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-12 col-md-6 pt-4">
+            <div class="mb-3">
+                    <h5 class="fw-bold">Sponsorship:</h5>
+                    <p class="">{{ count($apartment->sponsorships) > 0 ? $apartment->sponsorships : 'Nessuna sponsorships attiva' }}</p>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
