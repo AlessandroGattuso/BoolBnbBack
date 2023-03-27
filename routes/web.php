@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\Admin\ProfileController as ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\DashboardController as DashboardController;
 use App\Http\Controllers\Admin\ApartmentController as ApartmentController;
 
 /*
@@ -21,7 +20,7 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(function () {
-	Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+	Route::get('/', [ApartmentController::class, 'index'])->name('dashboard');
 	Route::resource('/apartments', ApartmentController::class)->parameters(['apartments' => 'apartment:slug']);
 });
 
