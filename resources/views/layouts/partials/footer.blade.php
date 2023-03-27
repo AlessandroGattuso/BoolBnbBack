@@ -1,4 +1,4 @@
-<footer>
+<footer class="bg-white">
 	<div class="container">
 		<div class="row justify-content-between py-4">
 			{{-- right --}}
