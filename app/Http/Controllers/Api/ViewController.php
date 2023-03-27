@@ -15,9 +15,9 @@ class ViewController extends Controller
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
-	public function index()
+	public function index(Request $request)
 	{
-	    
+	  
 	}
 
 	/**
@@ -39,24 +39,26 @@ class ViewController extends Controller
 	public function store(Request $request)
 	{
 		$data = $request->validated();
-
+		
 		$clientIp = request()->ip();
 
-		$data['clientIp'] = $clientIp;
-
-		$newView = new View();
-		$newView->fill($data);
-
-		$newView->save();
+		if(!(View::where('IP', $clientIp)->count())){
+			$data['clientIp'] = $clientIp;
+	
+			$newView = new View();
+			$newView->fill($data);
+	
+			$newView->save();
+		}
 	}
 
 	/**
 	 * Display the specified resource.
 	 *
-	 * @param  \App\Models\view  $view
+	 * @param  \App\Models\View  $View
 	 * @return \Illuminate\Http\Response
 	 */
-	public function show(view $view)
+	public function show(View $View)
 	{
 		//
 	}
@@ -64,10 +66,10 @@ class ViewController extends Controller
 	/**
 	 * Show the form for editing the specified resource.
 	 *
-	 * @param  \App\Models\view  $view
+	 * @param  \App\Models\View  $View
 	 * @return \Illuminate\Http\Response
 	 */
-	public function edit(view $view)
+	public function edit(View $View)
 	{
 		//
 	}
@@ -76,10 +78,10 @@ class ViewController extends Controller
 	 * Update the specified resource in storage.
 	 *
 	 * @param  \Illuminate\Http\Request  $request
-	 * @param  \App\Models\view  $view
+	 * @param  \App\Models\View  $View
 	 * @return \Illuminate\Http\Response
 	 */
-	public function update(Request $request, view $view)
+	public function update(Request $request, View $View)
 	{
 		//
 	}
@@ -87,10 +89,10 @@ class ViewController extends Controller
 	/**
 	 * Remove the specified resource from storage.
 	 *
-	 * @param  \App\Models\view  $view
+	 * @param  \App\Models\View  $View
 	 * @return \Illuminate\Http\Response
 	 */
-	public function destroy(view $view)
+	public function destroy(View $View)
 	{
 		//
 	}
