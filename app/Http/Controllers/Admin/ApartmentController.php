@@ -9,6 +9,7 @@ use App\Models\Apartment;
 use App\Models\Sponsorship;
 use App\Models\Service;
 use App\Models\Position;
+use App\Models\View;
 
 class ApartmentController extends Controller
 {
@@ -19,8 +20,9 @@ class ApartmentController extends Controller
 	 */
 	public function index()
 	{
-		$apartments = Apartment::all();
-		return view('admin.Apartments.index', compact('apartments'));
+		// $apartments = Apartment::all();
+		// dd($apartments);
+		// return view('admin.dashboard', compact('apartments'));
 	}
 
 	/**
@@ -79,8 +81,16 @@ class ApartmentController extends Controller
 	public function show(Apartment $apartment)
 	{
 		//Controllo sulle view in un determinato periodo
+		$apartment_views = [];
+		$views = View::all();
 
-		return view('admin.apartments.show', compact('apartment'));
+		foreach($views as $view){
+			if($apartment->id == $view->apartment_id){
+				$apartment_views[] = $view;
+			}
+		}
+
+		return view('admin.apartments.show', compact('apartment', 'apartment_views'));
 	}
 
 	/**

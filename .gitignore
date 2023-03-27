@@ -18,3 +18,5 @@ yarn-error.log
 /.vscode
 .gitignore
 .gitattributes
+/resources/views/vendor/
+/public/vendor/

@@ -4,8 +4,6 @@ use App\Http\Controllers\Admin\ProfileController as ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController as DashboardController;
 use App\Http\Controllers\Admin\ApartmentController as ApartmentController;
-use App\Http\Controller\MessagesController as MessageController;
-use App\Http\Controllers\ViewController as ViewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,8 +23,6 @@ Route::get('/', function () {
 Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(function () {
 	Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 	Route::resource('/apartments', ApartmentController::class)->parameters(['apartments' => 'apartment:slug']);
-	Route::resource('/messages', MessageController::class)->parameters(['services' => 'service:nome']);
-	Route::resource('/views', ViewController::class);
 });
 
 Route::middleware('auth')->group(function () {
