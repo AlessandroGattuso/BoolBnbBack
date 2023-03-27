@@ -9,6 +9,9 @@
                 <h2 class="title-dash">I tuoi appartamenti</h2>
             </div>
             <div>
+                <a href="{{route('admin.apartments.create')}}">
+                    <button class="btn btn-success p-2 mb-3">Aggiungi appartamento</button>
+                </a>
                 <h4 class="num-appartamenti">Tutti i tuoi appartamenti:(0)</h4>
             </div>
         </div>
