@@ -16,8 +16,9 @@
             </div>
         @endif
         <div class="col-12">
-            <form class="was-validated" ction="{{route('admin.apartments.store')}}" method="POST" enctype="multipart/form-data" >
+            <form class="was-validated" action="{{route('admin.apartments.store')}}" method="POST" enctype="multipart/form-data" >
                 @csrf
+
                 <div class="form-group my-3">
                     <label for="" class="control-label">
                         <strong>Titolo:</strong> 
@@ -30,14 +31,14 @@
 
                 <div class="form-group my-3">
                     <label class="form-label" for="">Immagine:</label>
-                    <input type="file" name="" id="" class="form-control">
+                    <input type="file" name="cover" id="" class="form-control">
                 </div>
 
                 <div class="form-group my-3">
                     <label for="validationTextarea" class="form-label">
                         <strong>Descrizione:</strong> 
                     </label>
-                    <textarea class="form-control" id="" placeholder="Inserisci descrizione" required></textarea>
+                    <textarea class="form-control" name="descrizione" id="" placeholder="Inserisci descrizione" required></textarea>
                     <div class="invalid-feedback">
                         Devi inserire una descrizione
                     </div>                
@@ -46,19 +47,19 @@
                 <div class="form-group my-3">
                     <div>
                         <label  class="control-label" for="quantity">Stanze</label>
-                        <input type="number" id="quantity" name="quantity" min="" max="">
+                        <input type="number" id="quantity" name="numero_di_stanze" min="" max="">
                     </div>
                     <div>
                         <label  class="control-label" for="quantity">Camere</label>
-                        <input type="number" id="quantity" name="quantity" min="" max="">
+                        <input type="number" id="quantity" name="numero_di_camere" min="" max="">
                     </div>
                     <div>
                         <label  class="control-label" for="quantity">Bagni</label>
-                        <input type="number" id="quantity" name="quantity" min="" max="">
+                        <input type="number" id="quantity" name="numero_di_bagni" min="" max="">
                     </div>
                     <div>
                         <label  class="control-label" for="quantity">Metri quadri</label>
-                        <input type="number" id="quantity" name="quantity">
+                        <input type="number" id="quantity" name="metri_quadri">
                     </div>
                 </div>
 
@@ -93,27 +94,8 @@
                         Non Visualizzare
                         </label>
                     </div>
-                </div>
-
-                <div class="form-group my-3">
-                    <button type="submit" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Salva</button>
-
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h1 class="modal-title fs-5" id="exampleModalLabel">Richiesta salvataggio</h1>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                              Conferma di voler salvare questo appartamento
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-                              <button type="button" class="btn btn-primary">Salva</button>
-                            </div>
-                          </div>
-                        </div>                      
+                    <div>
+                        <button type="submit" class="btn btn-primary">Salva</button>
                     </div>
                 </div>
             </form>
