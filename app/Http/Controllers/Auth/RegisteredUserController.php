@@ -8,11 +8,11 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
-
 
 class RegisteredUserController extends Controller
 {
@@ -29,16 +29,17 @@ class RegisteredUserController extends Controller
 	 *
 	 * @throws \Illuminate\Validation\ValidationException
 	 */
-	public function store(Request $request): RedirectResponse
+	public function store(UserRequest $request): RedirectResponse
 	{
-		$request->validate([
-			'nome' => ['string', 'max:255'],
-			'cognome' => ['string', 'max:255'],
-			'data_di_nascita' => ['date'],
-			'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
-			'password' => ['required', 'confirmed', Rules\Password::defaults()],
-		]);
-
+		dd('ciao');
+		//$request->validated();
+		// $request->validate([
+		// 	'nome' => ['string', 'max:255'],
+		// 	'cognome' => ['string', 'max:255'],
+		// 	'data_di_nascita' => ['date'],
+		// 	'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
+		// 	'password' => ['required', 'confirmed', Rules\Password::defaults()],
+		// ]);
 		$user = User::create([
 			'nome' => $request->nome,
 			'cognome' => $request->cognome,

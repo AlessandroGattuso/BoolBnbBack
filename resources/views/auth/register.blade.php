@@ -10,12 +10,12 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}" id="register-form">
                         @csrf
-
+                        
                         <div class="mb-4 row">
                             <label for="nome" class="col-md-4 col-form-label text-md-right">{{ __('Nome') }}</label>
 
                             <div class="col-md-6">
-                                <input id="nome" type="text" class="form-control @error('nome') is-invalid @enderror" name="nome" value="{{ old('nome') }}" required autocomplete="nome" autofocus>
+                                <input id="nome" type="text" class="form-control @error('nome') is-invalid @enderror" name="nome" value="{{ old('nome') }}" autocomplete="nome" autofocus>
 
                                 @error('nome')
                                 <span class="invalid-feedback" role="alert">
@@ -29,7 +29,7 @@
                             <label for="cognome" class="col-md-4 col-form-label text-md-right">{{ __('Cognome') }}</label>
 
                             <div class="col-md-6">
-                                <input id="cognome" type="text" class="form-control @error('cognome') is-invalid @enderror" name="cognome" value="{{ old('cognome') }}" required autocomplete="cognome" autofocus>
+                                <input id="cognome" type="text" class="form-control @error('cognome') is-invalid @enderror" name="cognome" value="{{ old('cognome') }}" autocomplete="cognome" autofocus>
 
                                 @error('cognome')
                                 <span class="invalid-feedback" role="alert">
@@ -57,7 +57,7 @@
                             <label for="data_di_nascita" class="col-md-4 col-form-label text-md-right">{{ __('Data di nascita') }}</label>
 
                             <div class="col-md-6">
-                                <input id="data_di_nascita" type="date" class="form-control @error('data_di_nascita') is-invalid @enderror" name="data_di_nascita" value="{{ old('data_di_nascita') }}" required autocomplete="data_di_nascita">
+                                <input id="data_di_nascita" type="date" class="form-control @error('data_di_nascita') is-invalid @enderror" name="data_di_nascita" value="{{ old('data_di_nascita') }}" autocomplete="data_di_nascita">
 
                                 @error('data_di_nascita')
                                 <span class="invalid-feedback" role="alert">
@@ -105,4 +105,9 @@
         </div>
     </div>
 </div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
+{!! JsValidator::formRequest("App\Http\Requests\UserRequest") !!}
+
 @endsection
