@@ -2,24 +2,27 @@
 
 @section('content')
 <div class="container">
-    <h2 class="fs-4 text-secondary my-4">
-        {{ __('Dashboard') }}
-    </h2>
-    <div class="row justify-content-center">
-        <div class="col">
-            <div class="card">
-                <div class="card-header">{{ __('User Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                    </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
+    <div class="row">
+        <div class="col-12  my-3 d-flex justify-content-between">
+            <div>
+                <h2>Ciao....</h2>
+                <h2 class="title-dash">I tuoi appartamenti</h2>
+            </div>
+            <div>
+                <h4 class="num-appartamenti">Tutti i tuoi appartamenti:(0)</h4>
+            </div>
+        </div>
+            @foreach ($apartments as $item)
+            <div class="col-12">
+            <div class="my-5 d-md-flex text-lg-left justify-content-lg-start">
+                <img class="rounded" src="{{$item->cover}}" alt="{{$item->slug}}">
+                <div class="ms-md-3">
+                    <h5 id="2">ID: {{$item->id}}</h5>
+                    <p>Descrizione: {{$item->descrizione}}</p>
+                    <p>{{$item->slug}}</p>
                 </div>
             </div>
+            @endforeach
         </div>
     </div>
 </div>
