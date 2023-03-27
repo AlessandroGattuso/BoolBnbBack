@@ -31,8 +31,7 @@ class RegisteredUserController extends Controller
 	 */
 	public function store(UserRequest $request): RedirectResponse
 	{
-		dd('ciao');
-		//$request->validated();
+		$request->validated();
 		// $request->validate([
 		// 	'nome' => ['string', 'max:255'],
 		// 	'cognome' => ['string', 'max:255'],
