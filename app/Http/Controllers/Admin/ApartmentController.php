@@ -11,6 +11,8 @@ use App\Models\Service;
 use App\Models\Position;
 use App\Models\View;
 
+use Illuminate\Support\Facades\Auth;
+
 class ApartmentController extends Controller
 {
 	/**
@@ -20,8 +22,9 @@ class ApartmentController extends Controller
 	 */
 	public function index()
 	{
-		$apartments = Apartment::all();
-        
+		$userId = Auth::id();
+		$apartments = Apartment::all()->where('user_id', $userId);
+
 		return view('admin.dashboard', compact('apartments'));
 	}
 
