@@ -20,9 +20,9 @@ class ApartmentController extends Controller
 	 */
 	public function index()
 	{
-		// $apartments = Apartment::all();
-		// dd($apartments);
-		// return view('admin.dashboard', compact('apartments'));
+		$apartments = Apartment::all();
+        
+		return view('admin.dashboard', compact('apartments'));
 	}
 
 	/**
@@ -34,6 +34,7 @@ class ApartmentController extends Controller
 	{
 		$services = Service::all(); 
 		$sponsorships = Sponsorship::all();
+		
 		return view('admin.Apartments.create', compact('services','sponsorships'));
 	}
 
