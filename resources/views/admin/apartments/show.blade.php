@@ -23,7 +23,7 @@
             <div class="col-12 col-md-6 pt-4">
                 <div class="d-flex align-items-end mb-3">
                     <h4 class="fw-bold m-0">Prezzo:</h4>
-                    <p class="m-0 ms-1">{{ $apartment->prezzo ? $apartment->prezzo : 'Non specificato' }}</p>
+                    <p class="m-0 ms-1">€ {{ $apartment->prezzo ? $apartment->prezzo : 'Non specificato' }}</p>
                 </div>
 
                 <div class="d-flex align-items-end mb-3">
@@ -59,6 +59,11 @@
                 <div class="mb-3">
                     <h5 class="fw-bold">Descrizione:</h5>
                     <p class="">{{ $apartment->descrizione ? $apartment->descrizione : 'Nessuna descrizione inserita' }}</p>
+                </div>
+
+                <div class="mb-3">
+                    <h5 class="fw-bold">Views:</h5>
+                    <p>{{count($apartment_views) > 0 ? count($apartment_views) : 'Nessun utente ha visualizzato il tuo apprtamento' }}</p>
                 </div>
 
             </div>
