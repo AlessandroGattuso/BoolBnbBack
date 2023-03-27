@@ -61,9 +61,9 @@
                     <p class="">{{ $apartment->descrizione ? $apartment->descrizione : 'Nessuna descrizione inserita' }}</p>
                 </div>
 
-                <div class="mb-3">
-                    <h5 class="fw-bold">Views:</h5>
-                    <p>{{count($apartment_views) > 0 ? count($apartment_views) : 'Nessun utente ha visualizzato il tuo apprtamento' }}</p>
+                <div class="d-flex align-items-end mb-3">
+                    <h5 class="fw-bold m-0">Views:</h5>
+                    <p class="m-0 ms-1">{{count($apartment_views) > 0 ? count($apartment_views) : 'Nessun utente ha visualizzato il tuo apprtamento' }}</p>
                 </div>
 
             </div>
