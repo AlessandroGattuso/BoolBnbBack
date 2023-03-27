@@ -23,9 +23,9 @@
                     <h5 id="2">ID: {{$item->id}}</h5>
                     <p>Descrizione: {{$item->descrizione}}</p>
                     <p>{{$item->slug}}</p>
-                    <a href=""><i class="fa-solid fa-eye"></i></a>
-                    <a href=""><i class="fa-solid fa-pen-to-square"></i></a>
-                    <a href=""><i class="fa-solid fa-trash"></i></a>
+                    <a href="{{route('admin.apartments.show',$item->slug)}}" class="eye"><i class="fa-solid fa-eye fa-2x m-2"></i></a>
+                    <a href="" class="edit"><i class="fa-solid fa-pen-to-square fa-2x m-2"></i></a>
+                    <a href="" class="delete"><i class="fa-solid fa-trash fa-2x m-2"></i></a>
                 </div>
             </div>
             @endforeach
