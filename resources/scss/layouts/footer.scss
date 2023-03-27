@@ -1,0 +1,42 @@
+footer {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	border-top: 1px solid rgb(219, 219, 219);
+
+	.container {
+		#info-links {
+			a {
+				color: grey;
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+
+		#socials-icons {
+			a {
+				color: grey;
+
+				i {
+					font-size: 1.25rem;
+				}
+
+			}
+		}
+
+		.fa-square-facebook:hover {
+			color: #3b5998;
+		}
+
+		.fa-square-twitter:hover {
+			color: #00acee;
+		}
+
+		.fa-square-instagram:hover {
+			color: #dd2a7b;
+		}
+	}
+}

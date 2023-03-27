@@ -1,0 +1,21 @@
+@import './partials/variables';
+
+* {
+	font-family: 'Poppins', sans-serif;
+}
+
+a {
+	text-decoration: none;
+}
+
+.color-blue {
+	color: $brand-blue;
+}
+
+.color-yellow {
+	color: $brand-yellow;
+}
+
+.color-red {
+	color: $brand-red;
+}
