@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container pb-3">
         <div class="row mt-5">
             <div class="col-12 col-md-6">
-                <h2 class="fw-bolder">{{ $apartment->descrizione }}</h2>
+                <h2 class="fw-bolder">{{ $apartment->descrizione ? $apartment->descrizione : 'Nome non specificato' }}</h2>
             </div>
             <div class="col-6 d-flex justify-content-end align-items-center">
                 <a class="btn btn-sm btn-primary me-3" href="{{ route('admin.apartments.index') }}" role="button">Elenco appartamenti</a>
@@ -44,28 +44,58 @@
                 <div class="mb-3">
                     <h5 class="fw-bold">Servizi:</h5>
                     <p class="">
-                        <ul>
-                            @foreach( $apartment->services as $service)
-                                <li>{{$service->nome}}</li>
-                            @endforeach
-                        </ul>
+                        @if(count($apartment->services) > 0)
+                            <ul>
+                                @foreach( $apartment->services as $service)
+                                    <li>{{$service->nome}}</li>
+                                @endforeach
+                            </ul>
+                        @else
+                            <p>Nessun servizio inserito</p>
+                        @endif
                     </p>
                 </div>
 
                 <div class="mb-3">
                     <h5 class="fw-bold">Descrizione:</h5>
-                    <p class="">{{ $apartment->descrizione }}</p>
+                    <p class="">{{ $apartment->descrizione ? $apartment->descrizione : 'Nessuna descrizione inserita' }}</p>
                 </div>
 
             </div>
         </div>
 
         <div class="row">
-            <div class="col-12 col-md-6 pt-4">
-            <div class="mb-3">
-                    <h5 class="fw-bold">Sponsorship:</h5>
-                    <p class="">{{ count($apartment->sponsorships) > 0 ? $apartment->sponsorships : 'Nessuna sponsorships attiva' }}</p>
+            <div class="col-12 col-md-6 pt-5">
+                <div class="mb-3">
+                    <h4 class="fw-bold">Sponsorship attive:</h4>
                 </div>
+
+                <div class="d-md-flex">
+                    @if(count($apartment->sponsorships) > 0)
+                        @foreach( $apartment->sponsorships as $sponsorship)
+                            <div class="card mb-3 me-3" style="width: 18rem;">
+                                <img src="https://picsum.photos/300/200" class="card-img-top" alt="https://picsum.photos/300/200">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-end mb-3">
+                                        <h5 class="card-title m-0 me-2">Tipo: </h5>
+                                        <p class="card-text">{{ $sponsorship->titolo }}</p>
+                                    </div>
+                                    <div class="d-flex align-items-end mb-3">
+                                        <h5 class="card-title m-0 me-2">Prezzo: </h5>
+                                        <p class="card-text">€ {{ $sponsorship->prezzo }}</p>
+                                    </div>
+                                    <div class="d-flex align-items-end mb-3">
+                                        <h5 class="card-title m-0 me-2">Durata: </h5>
+                                        <p class="card-text">{{ $sponsorship->ore_valide }} h</p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    @else
+                        <p>Nessuna sponsorships attiva</p>
+                    @endif
+                </div>
+
             </div>
         </div>
     </div>
