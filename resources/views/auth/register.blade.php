@@ -73,9 +73,6 @@
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
-                                <span class="invalid-feedback d-none" id="password-error">
-                                    <strong>The password confirmation does not match</strong>
-                                </span>
                                 @error('password')
                                 <span class="invalid-feedback" id="laravel-password-error" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -106,7 +103,6 @@
     </div>
 </div>
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
 {!! JsValidator::formRequest("App\Http\Requests\UserRequest") !!}
 
