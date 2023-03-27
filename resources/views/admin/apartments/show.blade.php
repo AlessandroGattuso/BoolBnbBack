@@ -42,9 +42,21 @@
                 </div>
 
                 <div class="mb-3">
+                    <h5 class="fw-bold">Servizi:</h5>
+                    <p class="">
+                        <ul>
+                            @foreach( $apartment->services as $service)
+                                <li>{{$service->nome}}</li>
+                            @endforeach
+                        </ul>
+                    </p>
+                </div>
+
+                <div class="mb-3">
                     <h5 class="fw-bold">Descrizione:</h5>
                     <p class="">{{ $apartment->descrizione }}</p>
                 </div>
+
             </div>
         </div>
     </div>
