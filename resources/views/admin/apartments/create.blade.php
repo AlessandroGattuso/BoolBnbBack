@@ -93,7 +93,7 @@
                         <label for="" class="control-label">
                            <strong>Numero civico*:</strong> 
                            <div class="mb-3 d-flex gap-5">
-                            <input name="numero-civico" type="text" class="form-control" id="formGroupExampleInput" placeholder="Inserisci Indirizzo">
+                            <input name="N_civico" type="text" class="form-control" id="formGroupExampleInput" placeholder="Inserisci Indirizzo">
                           </div>                      
                         </label>
                     </div>
@@ -109,7 +109,7 @@
                         <label for="" class="control-label">
                            <strong>Nazione*:</strong> 
                            <div class="mb-3 d-flex gap-5">
-                            <input name="nazione" type="text" class="form-control" id="formGroupExampleInput" placeholder="Inserisci Indirizzo">
+                            <input name="Nazione" type="text" class="form-control" id="formGroupExampleInput" placeholder="Inserisci Indirizzo">
                           </div>                      
                         </label>
                     </div>
