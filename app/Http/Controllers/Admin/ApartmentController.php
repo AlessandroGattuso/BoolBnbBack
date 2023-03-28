@@ -52,7 +52,7 @@ class ApartmentController extends Controller
 		$data = $request->validated();
 		//dd($request->all());
 
-		$data['slug'] = Apartment::generateSlug($request->descrizione);
+		$data['slug'] = Apartment::generateSlug($request->nome.' '.$request->cognome);
 
 		// if($request->hasFile('cover')){
 		// 		$path = Storage::disk('public')->put('Apartment_images', $request->cover);

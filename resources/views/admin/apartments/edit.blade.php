@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12 my-5">
-            <h2>Modifica appartamento</h2>
+            <h2>Aggiungi nuovo appartamento</h2>
         </div>
         @if($errors->any())
             <div class="alert alert-danger">
@@ -16,104 +16,109 @@
             </div>
         @endif
         <div class="col-12">
-            <form class="was-validated" ction="{{route('admin.apartments.store')}}" method="POST" enctype="multipart/form-data" >
+            <form class="" action="{{route('admin.apartments.update',$apartment->slug)}}" method="POST" enctype="multipart/form-data" >
                 @csrf
                 <div class="form-group my-3">
-                    <label for="" class="control-label">
-                        <strong>Titolo:</strong> 
-                    </label>
-                    <input type="text" name="" id="" class="form-control" placeholder="">
-                    <div class="invalid-feedback">
-                        Devi inserire una Titolo
-                    </div> 
-                </div>
-
-                <div class="form-group my-3">
-                    <label class="form-label" for="">Immagine:</label>
-                    <input type="file" name="" id="" class="form-control">
-                </div>
-
-                <div class="form-group my-3">
                     <label for="validationTextarea" class="form-label">
-                        <strong>Descrizione:</strong> 
+                        <strong>Descrizione*:</strong> 
                     </label>
-                    <textarea class="form-control" id="" placeholder="Inserisci descrizione" required></textarea>
+                    <textarea class="form-control" name="descrizione" id="" placeholder="Inserisci descrizione" rows="2">{{old('apartment->descrizione') ?? $apartment->descrizione}}</textarea>
                     <div class="invalid-feedback">
                         Devi inserire una descrizione
                     </div>                
                 </div>
-
-                <div class="form-group my-3">
-                    <div>
-                        <label  class="control-label" for="quantity">Stanze</label>
-                        <input type="number" id="quantity" name="quantity" min="" max="">
+                <div class="row">
+                    <div class="col-12 col-md-5 mt-2">
+                        <label for="" class="control-label">
+                            <strong>Prezzo*:</strong> 
+                        </label>
+                        <input type="text" name="prezzo" id="" value="{{old('apartment->prezzo') ?? $apartment->prezzo}}" class="form-control" placeholder="" >
                     </div>
-                    <div>
-                        <label  class="control-label" for="quantity">Camere</label>
-                        <input type="number" id="quantity" name="quantity" min="" max="">
-                    </div>
-                    <div>
-                        <label  class="control-label" for="quantity">Bagni</label>
-                        <input type="number" id="quantity" name="quantity" min="" max="">
-                    </div>
-                    <div>
-                        <label  class="control-label" for="quantity">Metri quadri</label>
-                        <input type="number" id="quantity" name="quantity">
+    
+                    <div class="col-12 col-md-5 mt-2">
+                        <label class="control-label" for="">
+                            <strong>Immagine:</strong> 
+                        </label>
+                        <input type="file" value="{{old('apartment->cover') ?? $apartment->cover}}" name="cover" id="" class="form-control">
                     </div>
                 </div>
-
+                <div class="row">
+                    <div class="col-12 col-md-4 mt-3">
+                        <label  class="control-label" for="">
+                            <strong>Stanze*:</strong> 
+                        </label>
+                        <input type="number" id="numero_di_stanze" name="numero_di_stanze" min="" max="" value="{{old('apartment->numero_di_stanze') ?? $apartment->numero_di_stanze}}">
+                    </div>
+                    <div class="col-12 col-md-4 mt-3">
+                        <label  class="control-label" for="">
+                            <strong>Bagni*:</strong> 
+                        </label>
+                        <input type="number" id="numero_di_bagni" name="numero_di_bagni" min="" max="" value="{{old('apartment->numero_di_bagni') ?? $apartment->numero_di_bagni}}">
+                    </div>
+                    <div class="col-12 col-md-4 mt-3">
+                        <label  class="control-label" for="">
+                            <strong>Metri quadri*:</strong> 
+                        </label>
+                        <input type="number" id="metri_quadri" name="metri_quadri" value="{{old('apartment->metri_quadri') ?? $apartment->metri_quadri}}">
+                    </div>
+                </div>
                 <div class="form-group my-3">
-                    <label for="" class="control-label">
+                    <label for="" class="control-label d-flex flex-wrap">
                        <strong>Servizi:</strong> 
                     </label>
                     @foreach($services as $service)
-                    <div class="form-check">        
-                        <input class="form-check-input" type="checkbox" value="{{ $service->id }}" name="">
-                        <label class="form-check-label" for="">{{ $service->nome }}</label>
-                    </div>
+                    <div class="form-check">
+                        @if($errors->any())
+                          <input class="form-check-input" type="checkbox" value="{{ $service->id }}" name="services[]" {{ in_array($service->id, old('services', [])) ? 'checked' : '' }} class="form-check-input" >
+                          <label class="form-check-label">{{ $service->nome }}</label>
+                      @else
+                          <input class="form-check-input" type="checkbox" value="{{ $service->id }}" name="services[]" {{ $apartment->services->contains($service) ? 'checked' : ''}}>
+                          <label class="form-check-label">{{ $service->nome }}</label>
+                      @endif
+                      </div>
                     @endforeach
                 </div>
-
-                <div class="form-group my-3">
-                    <label for="" class="control-label">
-                       <strong>Indirizzo:</strong> 
-                    </label>
-                </div>
-
-                <div class="form-group my-3">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="">
+                <div class="d-flex gap-3">
+                    <div class="form-group my-3">
                         <label for="" class="control-label">
-                        Visualizza
+                           <strong>Indirizzo*:</strong> 
+                           <div class="mb-3 d-flex gap-5">
+                            <input name="indirizzo" type="text" class="form-control" id="formGroupExampleInput" placeholder="Inserisci Indirizzo" value="{{old('apartment->position->indirizzo') ?? $apartment->position->indirizzo}}">
+                          </div>                      
                         </label>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="">
+                    <div class="form-group my-3">
                         <label for="" class="control-label">
-                        Non Visualizzare
+                           <strong>Numero civico*:</strong> 
+                           <div class="mb-3 d-flex gap-5">
+                            <input name="N_civico" type="text" class="form-control" id="formGroupExampleInput" placeholder="Inserisci Indirizzo" value="{{old('apartment->position->N_civico') ?? $apartment->position->N_civico}}">
+                          </div>                      
+                        </label>
+                    </div>
+                    <div class="form-group my-3">
+                        <label for="" class="control-label">
+                           <strong>Città*:</strong> 
+                           <div class="mb-3 d-flex gap-5">
+                            <input name="città" type="text" class="form-control" id="formGroupExampleInput" placeholder="Inserisci Indirizzo" value="{{old('apartment->position->città') ?? $apartment->position->città}}">
+                          </div>                      
+                        </label>
+                    </div>
+                    <div class="form-group my-3">
+                        <label for="" class="control-label">
+                           <strong>Nazione*:</strong> 
+                           <div class="mb-3 d-flex gap-5">
+                            <input name="Nazione" type="text" class="form-control" id="formGroupExampleInput" placeholder="Inserisci Indirizzo" value="{{old('apartment->position->Nazione') ?? $apartment->position->Nazione}}">
+                          </div>                      
                         </label>
                     </div>
                 </div>
-
                 <div class="form-group my-3">
-                    <button type="submit" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Salva</button>
-
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h1 class="modal-title fs-5" id="exampleModalLabel">Richiesta salvataggio</h1>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                              Conferma di voler salvare questo appartamento
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-                              <button type="button" class="btn btn-primary">Salva</button>
-                            </div>
-                          </div>
-                        </div>                      
+                    <div class="form-check form-switch">
+                        <input name="visible" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                        <label class="form-check-label" for="flexSwitchCheckChecked">Visibilità appartamento</label>
+                    </div>
+                    <div class="mt-2">
+                        <button type="submit" class="btn btn-sm btn-primary">Salva</button>
                     </div>
                 </div>
             </form>
