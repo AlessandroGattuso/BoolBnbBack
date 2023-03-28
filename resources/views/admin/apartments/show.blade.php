@@ -8,9 +8,16 @@
             </div>
             <div class="col-12 col-md-3 d-flex justify-content-end align-items-center">
                 <a class="btn btn-sm btn-primary me-3" href="{{ route('admin.apartments.index') }}" role="button">Elenco appartamenti</a>
-                <a class="btn btn-sm btn-warning" href="{{ route('admin.apartments.edit', $apartment->slug) }}" role="button" title="Modifica il progetto">
+                <a class="btn btn-sm btn-warning me-2" href="{{ route('admin.apartments.edit', $apartment->slug) }}" role="button" title="Modifica il progetto">
                     <i class="fa-solid fa-edit"></i>
                 </a>
+                <form action="{{ route('admin.apartments.destroy', $apartment->slug) }}" class="d-inline-block" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-sm btn-danger">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </form>
             </div>
         </div>
         <div class="row mt-3">
