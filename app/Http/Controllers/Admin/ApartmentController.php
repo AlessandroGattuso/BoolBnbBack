@@ -58,7 +58,7 @@ class ApartmentController extends Controller
 		// 		$data['cover'] = $path;
 		// }
 
-	// 	$newApartment = Apartment::create($data);
+		$newApartment = Apartment::create($data);
 
 	// 	$newPosition = new Position();
 	// 	$newPosition->indirizzo = $request->indirizzo;
