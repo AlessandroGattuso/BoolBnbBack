@@ -53,7 +53,7 @@ class ApartmentController extends Controller
 		$data = $request->validated();
 		//dd($request->all());
 
-		$data['slug'] = Apartment::generateSlug($request->nome.' '.$request->cognome);
+		$data['slug'] = Apartment::generateSlug($request->descrizione);
 
 		// if($request->hasFile('cover')){
 		// 		$path = Storage::disk('public')->put('Apartment_images', $request->cover);
@@ -63,15 +63,20 @@ class ApartmentController extends Controller
 		$data['user_id'] =  Auth::id();
 		
 		$apartment = Apartment::create($data);
-	// 	$newPosition = new Position();
-	// 	$newPosition->indirizzo = $request->indirizzo;
-	// 	$newPosition->N_civico = $request->N_civico;
-	// 	$newPosition->Latitudite = $request->Latitudine;
-	// 	$newPosition->Longitudine = $request->Longitudine;
-	// 	$newPosition->città = $request->città;
-	// 	$newPosition->Nazione = $request->Nazione;
+		$newPosition = new Position();
+		$newPosition->indirizzo = $request->indirizzo;
+		$newPosition->N_civico = $request->N_civico;
+		$newPosition->città = $request->città;
+		$newPosition->Nazione = $request->Nazione;
+		
+		$newPosition->Latitudite = $request->Latitudine;
+		$newPosition->Longitudine = $request->Longitudine;
 
-    // $newPosition->position()->save($newPosition);
+		$response = Http::get('https://api.tomtom.com/search/2/geocode/'.$newPosition->indirizzo.', '.$newPosition->città.', '.$newPosition->Nazione.'.json?key=jHDEN9k5THoWgWM8vOFXd5GZ9ELqPIs3');
+    $jsonData = $response->json();
+
+		dd($jsonData);
+    $newPosition->position()->save($newPosition);
 
 		if($request->has('services'))
 				$apartment->services()->attach($request->services);
@@ -124,7 +129,7 @@ class ApartmentController extends Controller
 	{
 		$data = $request->validated();
 
-		$data['slug'] = apartment::generateSlug($request->title);
+		$data['slug'] = apartment::generateSlug($request->descrizione);
 
 		// if($request->hasFile('cover_image')){
 
