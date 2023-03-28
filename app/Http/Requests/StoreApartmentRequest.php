@@ -29,8 +29,7 @@ class StoreApartmentRequest extends FormRequest
             'numero_di_bagni'  => ['required'],
             'metri_quadri'     => ['required'],
             'prezzo'           => ['nullable'],
-            'view_id'          => ['exists:views,id'],
-            'service_id'       => ['exists:services,id'],
+            'services'       => ['exists:services,id'],
             'user_id'          => ['exists:users,id'],
         ];
         

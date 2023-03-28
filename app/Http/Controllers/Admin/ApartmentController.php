@@ -50,6 +50,7 @@ class ApartmentController extends Controller
 	public function store(StoreApartmentRequest $request)
 	{
 		$data = $request->validated();
+		//dd($request->all());
 
 		$data['slug'] = Apartment::generateSlug($request->nome.' '.$request->cognome);
 
@@ -58,7 +59,7 @@ class ApartmentController extends Controller
 		// 		$data['cover'] = $path;
 		// }
 
-		$newApartment = Apartment::create($data);
+		$apartment = Apartment::create($data);
 
 	// 	$newPosition = new Position();
 	// 	$newPosition->indirizzo = $request->indirizzo;
@@ -71,9 +72,10 @@ class ApartmentController extends Controller
     // $newPosition->position()->save($newPosition);
 
 		if($request->has('services'))
-				$newApartment->services()->attach($request->services);
-			
-		return redirect()->route('admin.apartments.show')->with('message', 'Hai aggiunto un nuovo appartamento con successo');
+				$apartment->services()->attach($request->services);
+		
+		$apartment_views = [];
+		return view('admin.apartments.show', compact('apartment', 'apartment_views'))->with('message', 'Hai aggiunto un nuovo appartamento con successo');
 	}
 
 	/**
