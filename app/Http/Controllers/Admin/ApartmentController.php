@@ -38,7 +38,7 @@ class ApartmentController extends Controller
 		$services = Service::all(); 
 		$sponsorships = Sponsorship::all();
 		
-		return view('admin.apartments.create', compact('services','sponsorships'));
+		return view('admin.Apartments.create', compact('services','sponsorships'));
 	}
 
 	/**
@@ -54,26 +54,26 @@ class ApartmentController extends Controller
 		$data['slug'] = Apartment::generateSlug($request->nome.' '.$request->cognome);
 
 		// if($request->hasFile('cover')){
-		// 		$path = Storage::disk('public')->put('apartment_images', $request->cover);
+		// 		$path = Storage::disk('public')->put('Apartment_images', $request->cover);
 		// 		$data['cover'] = $path;
 		// }
-		dd($data);
-		$newApartment = Apartment::create($data);
 
-		// $newPosition = new Position();
-		// $newPosition->indirizzo = $request->indirizzo;
-		// $newPosition->N_civico = $request->N_civico;
-		// $newPosition->Latitudite = $request->Latitudine;
-		// $newPosition->Longitudine = $request->Longitudine;
-		// $newPosition->città = $request->città;
-		// $newPosition->Nazione = $request->Nazione;
+	// 	$newApartment = Apartment::create($data);
+
+	// 	$newPosition = new Position();
+	// 	$newPosition->indirizzo = $request->indirizzo;
+	// 	$newPosition->N_civico = $request->N_civico;
+	// 	$newPosition->Latitudite = $request->Latitudine;
+	// 	$newPosition->Longitudine = $request->Longitudine;
+	// 	$newPosition->città = $request->città;
+	// 	$newPosition->Nazione = $request->Nazione;
 
     // $newPosition->position()->save($newPosition);
 
 		if($request->has('services'))
 				$newApartment->services()->attach($request->services);
 			
-		return redirect()->route('admin.dashboard')->with('message', 'Hai aggiunto un nuovo appartamento con successo');
+		return redirect()->route('admin.apartments.show')->with('message', 'Hai aggiunto un nuovo appartamento con successo');
 	}
 
 	/**

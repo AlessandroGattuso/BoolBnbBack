@@ -16,52 +16,65 @@
             </div>
         @endif
         <div class="col-12">
-            <form class="was-validated" action="{{route('admin.apartments.store')}}" method="POST" enctype="multipart/form-data" >
+            <form class="" action="{{route('admin.apartments.store')}}" method="POST" enctype="multipart/form-data" >
                 @csrf
-
-                <div class="form-group my-3">
-                    <label class="form-label" for="">Immagine:</label>
-                    <input type="file" name="cover" id="" class="form-control">
-                </div>
 
                 <div class="form-group my-3">
                     <label for="validationTextarea" class="form-label">
                         <strong>Descrizione:</strong> 
                     </label>
-                    <textarea class="form-control" name="descrizione" id="" placeholder="Inserisci descrizione" required></textarea>
+                    <textarea class="form-control" name="descrizione" id="" placeholder="Inserisci descrizione" rows="6"></textarea>
                     <div class="invalid-feedback">
                         Devi inserire una descrizione
                     </div>                
                 </div>
 
-                <div class="form-group my-3">
-                    <div>
-                        <label  class="control-label" for="quantity">Stanze</label>
-                        <input type="number" id="quantity" name="numero_di_stanze" min="" max="">
+                <div class="row">
+                    <div class="col-12 col-md-5 mt-2">
+                        <label for="" class="control-label">
+                            <strong>Prezzo:</strong> 
+                        </label>
+                        <input type="text" name="" id="" class="form-control" placeholder="" >
                     </div>
-                    <div>
-                        <label  class="control-label" for="quantity">Camere</label>
-                        <input type="number" id="quantity" name="numero_di_camere" min="" max="">
+    
+                    <div class="col-12 col-md-5 mt-2">
+                        <label class="control-label" for="">
+                            <strong>Immagine:</strong> 
+                        </label>
+                        <input type="file" name="cover" id="" class="form-control">
                     </div>
-                    <div>
-                        <label  class="control-label" for="quantity">Bagni</label>
-                        <input type="number" id="quantity" name="numero_di_bagni" min="" max="">
+                </div>
+
+
+                <div class="row">
+                    <div class="col-12 col-md-4 mt-3">
+                        <label  class="control-label" for="">
+                            <strong>Stanze:</strong> 
+                        </label>
+                        <input type="number" id="numero_di_stanze" name="numero_di_stanze" min="" max="">
                     </div>
-                    <div>
-                        <label  class="control-label" for="quantity">Metri quadri</label>
-                        <input type="number" id="quantity" name="metri_quadri">
+                    <div class="col-12 col-md-4 mt-3">
+                        <label  class="control-label" for="">
+                            <strong>Bagni:</strong> 
+                        </label>
+                        <input type="number" id="numero_di_bagni" name="numero_di_bagni" min="" max="">
+                    </div>
+                    <div class="col-12 col-md-4 mt-3">
+                        <label  class="control-label" for="">
+                            <strong>Metri quadri:</strong> 
+                        </label>
+                        <input type="number" id="metri_quadri" name="metri_quadri">
                     </div>
                 </div>
 
                 <div class="form-group my-3">
-                    <label for="" class="control-label">
+                    <label for="" class="control-label d-flex flex-wrap">
                        <strong>Servizi:</strong> 
                     </label>
                     @foreach($services as $service)
-                    <div class="form-check">        
-                        <input class="form-check-input" type="checkbox" value="{{ $service->id }}" name="">
-                        <label class="form-check-label" for="">{{ $service->nome }}</label>
-                    </div>
+                        <div class="btn btn-sm btn-primary mt-2" for="" id="btn">        
+                            {{ $service->nome }}
+                        </div>
                     @endforeach
                 </div>
 
@@ -70,22 +83,14 @@
                        <strong>Indirizzo:</strong> 
                     </label>
                 </div>
-
+                
                 <div class="form-group my-3">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="">
-                        <label for="" class="control-label">
-                        Visualizza
-                        </label>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                        <label class="form-check-label" for="flexSwitchCheckChecked">Visibilità appartamento</label>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="">
-                        <label for="" class="control-label">
-                        Non Visualizzare
-                        </label>
-                    </div>
-                    <div>
-                        <button type="submit" class="btn btn-primary">Salva</button>
+                    <div class="mt-2">
+                        <button type="submit" class="btn btn-sm btn-primary">Salva</button>
                     </div>
                 </div>
             </form>
