@@ -27,7 +27,7 @@
             @foreach ($apartments as $item)
                 <div class="col-12">
                     <div class="my-5 d-md-flex text-lg-left justify-content-lg-start">
-                        <img class="rounded" src="{{$item->cover}}" alt="{{$item->slug}}">
+                        <img class="rounded" src="{{ $item->cover ? $item->cover : 'https://picsum.photos/400/220' }}" alt="{{$item->slug}}">
                         <div class="ms-md-3">
                             <h5 id="2">ID: {{$item->id}}</h5>
                             <p>Descrizione: {{$item->descrizione}}</p>
