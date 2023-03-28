@@ -73,8 +73,8 @@
                     </label>
                     @foreach($services as $service)
                     <div class="form-check">
-                        <input name="services[]" class="form-check-input" type="checkbox" value={{$service->id}} id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
+                        <input name="services[]" class="form-check-input" type="checkbox" value={{$service->id}} id="{{ $service->nome }}">
+                        <label class="form-check-label" for="{{ $service->nome }}">
                            {{ $service->nome }}
                         </label>
                       </div>
