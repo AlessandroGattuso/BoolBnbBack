@@ -18,6 +18,7 @@
         <div class="col-12">
             <form class="" action="{{route('admin.apartments.update',$apartment->slug)}}" method="POST" enctype="multipart/form-data" >
                 @csrf
+                @method('PUT')
                 <div class="form-group my-3">
                     <label for="validationTextarea" class="form-label">
                         <strong>Descrizione*:</strong> 
