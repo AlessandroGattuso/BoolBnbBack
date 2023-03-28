@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12 my-5">
-            <h2>Aggiungi nuovo appartamento</h2>
+            <h2>Modifica appartamento</h2>
         </div>
         @if($errors->any())
             <div class="alert alert-danger">
