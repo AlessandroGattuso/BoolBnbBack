@@ -26,9 +26,9 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            'nome' => ['string', 'max:255'],
-			'cognome' => ['string', 'max:255'],
-			'data_di_nascita' => ['date'],
+            'nome' => ['nullable','max:255'],
+			'cognome' => ['nullable', 'max:255'],
+			'data_di_nascita' => ['nullable','date'],
 			'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
 			'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ];
