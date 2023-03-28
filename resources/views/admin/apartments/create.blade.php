@@ -21,7 +21,7 @@
 
                 <div class="form-group my-3">
                     <label for="validationTextarea" class="form-label">
-                        <strong>Descrizione:</strong> 
+                        <strong>Descrizione*:</strong> 
                     </label>
                     <textarea class="form-control" name="descrizione" id="" placeholder="Inserisci descrizione" rows="6"></textarea>
                     <div class="invalid-feedback">
@@ -32,7 +32,7 @@
                 <div class="row">
                     <div class="col-12 col-md-5 mt-2">
                         <label for="" class="control-label">
-                            <strong>Prezzo:</strong> 
+                            <strong>Prezzo*:</strong> 
                         </label>
                         <input type="text" name="prezzo" id="" class="form-control" placeholder="" >
                     </div>
@@ -49,19 +49,19 @@
                 <div class="row">
                     <div class="col-12 col-md-4 mt-3">
                         <label  class="control-label" for="">
-                            <strong>Stanze:</strong> 
+                            <strong>Stanze*:</strong> 
                         </label>
                         <input type="number" id="numero_di_stanze" name="numero_di_stanze" min="" max="">
                     </div>
                     <div class="col-12 col-md-4 mt-3">
                         <label  class="control-label" for="">
-                            <strong>Bagni:</strong> 
+                            <strong>Bagni*:</strong> 
                         </label>
                         <input type="number" id="numero_di_bagni" name="numero_di_bagni" min="" max="">
                     </div>
                     <div class="col-12 col-md-4 mt-3">
                         <label  class="control-label" for="">
-                            <strong>Metri quadri:</strong> 
+                            <strong>Metri quadri*:</strong> 
                         </label>
                         <input type="number" id="metri_quadri" name="metri_quadri">
                     </div>
@@ -80,16 +80,40 @@
                       </div>
                     @endforeach
                 </div>
-
-                <div class="form-group my-3">
-                    <label for="" class="control-label">
-                       <strong>Indirizzo:</strong> 
-                       <div class="mb-3">
-                        <input name="indirizzo" type="text" class="form-control" id="formGroupExampleInput" placeholder="Inserisci Indirizzo">
-                      </div>                      
-                    </label>
+                <div class="d-flex gap-3">
+                    <div class="form-group my-3">
+                        <label for="" class="control-label">
+                           <strong>Indirizzo*:</strong> 
+                           <div class="mb-3 d-flex gap-5">
+                            <input name="indirizzo" type="text" class="form-control" id="formGroupExampleInput" placeholder="Inserisci Indirizzo">
+                          </div>                      
+                        </label>
+                    </div>
+                    <div class="form-group my-3">
+                        <label for="" class="control-label">
+                           <strong>Numero civico*:</strong> 
+                           <div class="mb-3 d-flex gap-5">
+                            <input name="numero-civico" type="text" class="form-control" id="formGroupExampleInput" placeholder="Inserisci Indirizzo">
+                          </div>                      
+                        </label>
+                    </div>
+                    <div class="form-group my-3">
+                        <label for="" class="control-label">
+                           <strong>Città*:</strong> 
+                           <div class="mb-3 d-flex gap-5">
+                            <input name="città" type="text" class="form-control" id="formGroupExampleInput" placeholder="Inserisci Indirizzo">
+                          </div>                      
+                        </label>
+                    </div>
+                    <div class="form-group my-3">
+                        <label for="" class="control-label">
+                           <strong>Nazione*:</strong> 
+                           <div class="mb-3 d-flex gap-5">
+                            <input name="nazione" type="text" class="form-control" id="formGroupExampleInput" placeholder="Inserisci Indirizzo">
+                          </div>                      
+                        </label>
+                    </div>
                 </div>
-                
                 <div class="form-group my-3">
                     <div class="form-check form-switch">
                         <input name="visible" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
