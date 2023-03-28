@@ -31,6 +31,7 @@ class StoreApartmentRequest extends FormRequest
             'prezzo'           => ['nullable'],
             'services'       => ['exists:services,id'],
             'user_id'          => ['exists:users,id'],
+            'slug'             =>['required']
         ];
         
     }
