@@ -24,7 +24,14 @@ class StoreApartmentRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'descrizione' => ['string','max: 50'],
+            'slug' => ['string','max: 60'],
+            'numero_di_stanze' => ['numeric','max: 65000'],
+            'metri_quadri' => ['numeric','max: 65000'],
+            'numero_di_bagni' => ['numeric','max: 255'],
+            'cover' => ['string'],
+            'visible' => ['boolean'],
+            'prezzo' => ['decimal']
         ];
     }
 }

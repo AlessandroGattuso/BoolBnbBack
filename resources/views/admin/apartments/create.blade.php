@@ -20,16 +20,6 @@
                 @csrf
 
                 <div class="form-group my-3">
-                    <label for="" class="control-label">
-                        <strong>Titolo:</strong> 
-                    </label>
-                    <input type="text" name="" id="" class="form-control" placeholder="">
-                    <div class="invalid-feedback">
-                        Devi inserire una Titolo
-                    </div> 
-                </div>
-
-                <div class="form-group my-3">
                     <label class="form-label" for="">Immagine:</label>
                     <input type="file" name="cover" id="" class="form-control">
                 </div>
