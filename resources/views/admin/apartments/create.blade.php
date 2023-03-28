@@ -72,15 +72,21 @@
                        <strong>Servizi:</strong> 
                     </label>
                     @foreach($services as $service)
-                        <div class="btn btn-sm btn-primary mt-2" for="" id="btn">        
-                            {{ $service->nome }}
-                        </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                           {{ $service->nome }}
+                        </label>
+                      </div>
                     @endforeach
                 </div>
 
                 <div class="form-group my-3">
                     <label for="" class="control-label">
                        <strong>Indirizzo:</strong> 
+                       <div class="mb-3">
+                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Inserisci Indirizzo">
+                      </div>                      
                     </label>
                 </div>
                 
