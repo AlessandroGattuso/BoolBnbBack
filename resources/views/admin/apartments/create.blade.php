@@ -34,7 +34,7 @@
                         <label for="" class="control-label">
                             <strong>Prezzo:</strong> 
                         </label>
-                        <input type="text" name="" id="" class="form-control" placeholder="" >
+                        <input type="text" name="prezzo" id="" class="form-control" placeholder="" >
                     </div>
     
                     <div class="col-12 col-md-5 mt-2">
@@ -73,7 +73,7 @@
                     </label>
                     @foreach($services as $service)
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <input name="services[]" class="form-check-input" type="checkbox" value={{$service->id}} id="flexCheckDefault">
                         <label class="form-check-label" for="flexCheckDefault">
                            {{ $service->nome }}
                         </label>
@@ -85,14 +85,14 @@
                     <label for="" class="control-label">
                        <strong>Indirizzo:</strong> 
                        <div class="mb-3">
-                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Inserisci Indirizzo">
+                        <input name="indirizzo" type="text" class="form-control" id="formGroupExampleInput" placeholder="Inserisci Indirizzo">
                       </div>                      
                     </label>
                 </div>
                 
                 <div class="form-group my-3">
                     <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                        <input name="visible" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
                         <label class="form-check-label" for="flexSwitchCheckChecked">Visibilità appartamento</label>
                     </div>
                     <div class="mt-2">
