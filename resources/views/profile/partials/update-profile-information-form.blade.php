@@ -1,5 +1,5 @@
 <section>
-    <header>
+    {{-- <header>
         <h2 class="text-secondary">
             {{ __('Profile Information') }}
         </h2>
@@ -7,7 +7,7 @@
         <p class="mt-1 text-muted">
             {{ __("Update your account's profile information and email address.") }}
         </p>
-    </header>
+    </header> --}}
 
     <form id="send-verification" method="post" action="{{ route('verification.send') }}">
         @csrf
