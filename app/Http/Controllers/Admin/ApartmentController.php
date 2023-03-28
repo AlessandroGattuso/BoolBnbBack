@@ -73,7 +73,7 @@ class ApartmentController extends Controller
 		$newPosition->Latitudite = $request->Latitudine;
 		$newPosition->Longitudine = $request->Longitudine;
 
-		$response = Http::get('https://api.tomtom.com/search/2/geocode/'.$newPosition->indirizzo.', '.$newPosition->città.', '.$newPosition->Nazione.'.json?key=jHDEN9k5THoWgWM8vOFXd5GZ9ELqPIs3');
+		$response = Http::get('https://api.tomtom.com/search/2/geocode/'.$newPosition->indirizzo.', '.$newPosition->città.', '.$newPosition->Nazione.'.json?key='.env('TOMTOM_KEY'));
     $jsonData = $response->json();
 
 		dd($jsonData);
