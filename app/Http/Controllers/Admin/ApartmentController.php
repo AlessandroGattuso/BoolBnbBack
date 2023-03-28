@@ -59,8 +59,9 @@ class ApartmentController extends Controller
 		// 		$data['cover'] = $path;
 		// }
 
+		$data['user_id'] =  Auth::id();
+		
 		$apartment = Apartment::create($data);
-
 	// 	$newPosition = new Position();
 	// 	$newPosition->indirizzo = $request->indirizzo;
 	// 	$newPosition->N_civico = $request->N_civico;
