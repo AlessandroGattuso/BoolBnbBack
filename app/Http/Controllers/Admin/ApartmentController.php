@@ -63,26 +63,41 @@ class ApartmentController extends Controller
 
 		$data['user_id'] =  Auth::id();
 		
-		$apartment = Apartment::create($data);
 		$newPosition = new Position();
+
+		$request->validate([
+			'indirizzo' => ['required','string', 'max:255'],
+			'N_civico' => ['required','string', 'max:255'],
+			'città' => ['required','string', 'max:50'],
+			'Nazione' => ['required', 'string', 'max:20'],
+		]);
+		
 		$newPosition->indirizzo = $request->indirizzo;
 		$newPosition->N_civico = $request->N_civico;
 		$newPosition->città = $request->città;
 		$newPosition->Nazione = $request->Nazione;
-		
-		$newPosition->Latitudite = $request->Latitudine;
-		$newPosition->Longitudine = $request->Longitudine;
-
 		$response = Http::get('https://api.tomtom.com/search/2/geocode/'.$newPosition->indirizzo.', '.$newPosition->città.', '.$newPosition->Nazione.'.json?key='.env('TOMTOM_KEY'));
-        $jsonData = $response->json();
+		$jsonPosition = $response->json()['results'][0];
+		
+		if($jsonPosition){
+			$newPosition->Latitudine = $jsonPosition['position']['lat'];
+			$newPosition->Longitudine = $jsonPosition['position']['lon'];
+		}
+		else{
+			return back()->with('error', 'Position not found');
+		}
+		
+		$apartment = Apartment::create($data);
+		
+		$newPosition->apartment_id = $apartment->id;
 
-		dd($jsonData);
-        $newPosition->position()->save($newPosition);
-
+		$newPosition->save();
+		
 		if($request->has('services'))
-				$apartment->services()->attach($request->services);
+			$apartment->services()->attach($request->services);
 		
 		$apartment_views = [];
+
 		return view('admin.apartments.show', compact('apartment', 'apartment_views'))->with('message', 'Hai aggiunto un nuovo appartamento con successo');
 	}
 
