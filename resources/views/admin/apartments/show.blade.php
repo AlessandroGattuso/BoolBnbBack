@@ -34,7 +34,7 @@
                     <div class="col-12">
                         <div>
                             <h5 class="fw-bold">Copertina:</h5>
-                            <img src="{{ asset('storage/' .$apartment->cover)}}" alt="" class="rounded w-100">
+                            <img src="{{($apartment->cover) ? asset('storage/' .$apartment->cover) : 'https://media.istockphoto.com/id/1147544807/it/vettoriale/la-commissione-per-la-immagine-di-anteprima-grafica-vettoriale.jpg?s=612x612&w=0&k=20&c=gsxHNYV71DzPuhyg-btvo-QhhTwWY0z4SGCSe44rvg4='}}" alt="" class="rounded w-100">
                         </div>
                     </div>
 

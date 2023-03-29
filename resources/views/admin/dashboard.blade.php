@@ -37,7 +37,7 @@
                             <div class="apartment_card rounded p-2" title="Visualizza i dettagli dell'appartamento">
                                 <a href="{{route('admin.apartments.show',$item->slug)}}" class="text-black">
                                     <div class="card_img_container">
-                                        <img class="rounded w-100" src="{{ asset('storage/' .$item->cover)}}" alt="{{$item->slug}}">
+                                        <img class="rounded w-100" src="{{($item->cover) ? asset('storage/' .$item->cover) : 'https://media.istockphoto.com/id/1147544807/it/vettoriale/la-commissione-per-la-immagine-di-anteprima-grafica-vettoriale.jpg?s=612x612&w=0&k=20&c=gsxHNYV71DzPuhyg-btvo-QhhTwWY0z4SGCSe44rvg4='}}" alt="{{$item->slug}}">
                                     </div>
                                     <div class="pt-3 d-flex">
                                         <div class="w-75">
