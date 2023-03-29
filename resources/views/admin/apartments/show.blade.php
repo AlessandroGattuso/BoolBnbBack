@@ -34,7 +34,7 @@
                     <div class="col-12">
                         <div>
                             <h5 class="fw-bold">Copertina:</h5>
-                            <img src="{{ $apartment->cover ? $apartment->cover : 'https://picsum.photos/300/200' }}" alt="{{ $apartment->descrizione }}" class="rounded w-100">
+                            <img src="{{ asset('storage/' .$apartment->cover)}}" alt="" class="rounded w-100">
                         </div>
                     </div>
 

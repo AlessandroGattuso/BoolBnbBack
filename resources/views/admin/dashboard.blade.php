@@ -37,7 +37,7 @@
                             <div class="apartment_card rounded p-2" title="Visualizza i dettagli dell'appartamento">
                                 <a href="{{route('admin.apartments.show',$item->slug)}}" class="text-black">
                                     <div class="card_img_container">
-                                        <img class="rounded w-100" src="{{ $item->cover ? $item->cover : 'https://picsum.photos/400/220' }}" alt="{{$item->slug}}">
+                                        <img class="rounded w-100" src="{{ asset('storage/' .$item->cover)}}" alt="{{$item->slug}}">
                                     </div>
                                     <div class="pt-3 d-flex">
                                         <div class="w-75">

@@ -35,6 +35,7 @@ class UpdateApartmentRequest extends FormRequest
 			'città' => ['required','string', 'max:50'],
 			'Nazione' => ['required', 'string', 'max:20'],
             'user_id'          => ['exists:users,id'],
+            'cover'            =>['nullable','image']
         ];
     }
 }
