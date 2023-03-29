@@ -10,7 +10,7 @@
                     <div class="d-flex">
                         <h4 class="num-appartamenti m-0 me-2">Appartamenti aggiunti: <span class="fw-bold">{{count($apartments)}}</span></h4>
                         <a href="{{route('admin.apartments.create')}}" title="Aggiungi un appartamento">
-                            <button class="btn btn-square btn-success mb-3"><i class="fa-solid fa-plus fa-lg"></i></button>
+                            <button class="btn btn-square btn-success"><i class="fa-solid fa-plus fa-lg"></i></button>
                         </a>
                     </div>
                 </div>
