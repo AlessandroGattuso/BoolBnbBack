@@ -107,14 +107,6 @@
                     </div>
                     <div class="form-group my-3">
                         <label for="" class="control-label">
-                           <strong>CAP*:</strong> 
-                           <div class="mb-3 d-flex gap-5">
-                            <input name="città" type="text" class="form-control" id="formGroupExampleInput" placeholder="Inserisci Indirizzo">
-                          </div>                      
-                        </label>
-                    </div>
-                    <div class="form-group my-3">
-                        <label for="" class="control-label">
                            <strong>Nazione*:</strong> 
                            <div class="mb-3 d-flex gap-5">
                             <input name="Nazione" type="text" class="form-control" id="formGroupExampleInput" placeholder="Inserisci Indirizzo">
