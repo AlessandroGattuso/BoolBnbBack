@@ -52,7 +52,7 @@ class ApartmentController extends Controller
 	public function store(StoreApartmentRequest $request)
 	{
 		$data = $request->validated();
-		dd($data);
+		/* dd($data); */
 		$data['slug'] = Apartment::generateSlug($request->descrizione);
 
 		// if($request->hasFile('cover')){
