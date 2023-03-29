@@ -71,13 +71,11 @@
                     <label for="" class="control-label d-flex flex-wrap">
                        <strong>Servizi:</strong> 
                     </label>
-                    @foreach($services as $service)
-                    <div class="form-check">
-                        <input name="services[]" class="form-check-input" type="checkbox" value={{$service->id}} id="{{ $service->nome }}">
-                        <label class="form-check-label" for="{{ $service->nome }}">
-                           {{ $service->nome }}
-                        </label>
-                      </div>
+                    @foreach($services as $service)     
+                    <div class="btn-group mt-2" role="group">
+                        <input name="services[]" type="checkbox" class="btn-check" value="{{$service->id}}" id="{{ $service->nome }}" autocomplete="off" >
+                        <label class="btn btn-outline-primary" for="{{ $service->nome }}">{{ $service->nome }}</label>
+                    </div>
                     @endforeach
                 </div>
 
