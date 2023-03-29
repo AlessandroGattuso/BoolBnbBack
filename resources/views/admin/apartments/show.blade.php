@@ -20,54 +20,63 @@
                 </form>
             </div>
         </div>
-        <div class="row mt-3">
-            <div class="col-12 col-md-6">
-                <div>
-                    <h5 class="fw-bold">Copertina:</h5>
-                    <img src="{{ $apartment->cover ? $apartment->cover : 'https://picsum.photos/300/200' }}" alt="{{ $apartment->descrizione }}" class="rounded w-100">
-                </div>
-            </div>
-            <div class="col-12 col-md-6 pt-4 mt-1">
-                
-                <h5 class="fw-bold m-0 mb-2">Prezzo: <span class="fw-light">&euro; {{ $apartment->prezzo ? $apartment->prezzo : 'Non specificato' }}</span></h5>
-                
-                <h5 class="fw-bold m-0 mb-2">Numero di stanze: <span class="fw-light">{{ $apartment->numero_di_stanze ? $apartment->numero_di_stanze : 'Non specificato' }}</span></h5>
-                
-                <h5 class="fw-bold m-0 mb-2">Numero di bagni: <span class="fw-light">{{ $apartment->numero_di_bagni ? $apartment->numero_di_bagni : 'Non specificato' }}</span></h5>
-
-                <h5 class="fw-bold m-0 mb-2">Metri quadri: <span class="fw-light">{{ $apartment->metri_quadri ? $apartment->metri_quadri : 'Non specificato' }}</span></h5>
-                
-                <h5 class="fw-bold m-0 mb-2">Indirizzo: <span class="fw-light">{{ $apartment->position->indirizzo ? $apartment->position->indirizzo : 'Non specificato' }}</span></h5>
-                
-                <h5 class="fw-bold m-0 mb-2">N. civico: <span class="fw-light">{{ $apartment->position->N_civico ? $apartment->position->N_civico : 'Non specificato' }}</span></h5>
-
-                <h5 class="fw-bold m-0 mb-2">Città: <span class="fw-light">{{ $apartment->position->città ? $apartment->position->città : 'Non specificato' }}</span></h5>
-
-                <div class="mb-3">
-                    <h5 class="fw-bold">Servizi:</h5>
-                    <p class=" m-0">
-                        @if(count($apartment->services) > 0)
-                            <ul>
-                                @foreach( $apartment->services as $service)
-                                    <li>{{$service->nome}}</li>
-                                @endforeach
-                            </ul>
-                        @else
-                            <p>Nessun servizio inserito</p>
-                        @endif
-                    </p>
-                </div>
-
-                <h5 class="fw-bold m-0 mb-2">Descrizione: <span class="fw-light">{{ $apartment->descrizione ? $apartment->descrizione : 'Nessuna descrizione inserita' }}</span></h5>
-                
-                <h5 class="fw-bold m-0" mb-2>Views: <span class="fw-light">{{count($apartment_views) > 0 ? count($apartment_views) : 'Nessun utente ha visualizzato il tuo apprtamento' }}</span></h5>
+        <div class="row mt-2">  
+            <div class="col-12">
+                <h5 class="fw-bold m-0" mb-2>Views: <span class="badge text-bg-primary">{{count($apartment_views) > 0 ? count($apartment_views) : 'Nessun utente ha visualizzato il tuo apprtamento' }}</span></h5>
             </div>
         </div>
-
         <div class="row">
-            <div class="col-12 col-md-6 pt-5">
+            <!-- Appartamento -->
+            <div class="col-12 col-md-6">
+                <div class="row">
+
+                    <!-- Copertina appartamento -->
+                    <div class="col-12">
+                        <div>
+                            <h5 class="fw-bold">Copertina:</h5>
+                            <img src="{{ $apartment->cover ? $apartment->cover : 'https://picsum.photos/300/200' }}" alt="{{ $apartment->descrizione }}" class="rounded w-100">
+                        </div>
+                    </div>
+
+                    <!-- Dettagli appartamento -->
+                    <div class="col-12 col-md-6 pt-4 mt-1">
+                            
+                        <h5 class="fw-bold m-0 mb-2">Prezzo: <span class="fw-light">&euro; {{ $apartment->prezzo ? $apartment->prezzo : 'Non specificato' }}</span></h5>
+                        
+                        <h5 class="fw-bold m-0 mb-2">Stanze: <span class="fw-light">{{ $apartment->numero_di_stanze ? $apartment->numero_di_stanze : 'Non specificato' }}</span></h5>
+                        
+                        <h5 class="fw-bold m-0 mb-2">Bagni: <span class="fw-light">{{ $apartment->numero_di_bagni ? $apartment->numero_di_bagni : 'Non specificato' }}</span></h5>
+
+                        <h5 class="fw-bold m-0 mb-2">Dimensione: <span class="fw-light">{{ $apartment->metri_quadri ? $apartment->metri_quadri : 'Non specificato' }} mq</span></h5>
+                        
+                        <h5 class="fw-bold m-0 mb-2">Indirizzo: <span class="fw-light">{{ $apartment->position->indirizzo ? $apartment->position->indirizzo : 'Via non specificata' }} {{ $apartment->position->N_civico ? $apartment->position->N_civico : 'Non specificato' }}, </span></h5>
+
+                        <h5 class="fw-bold m-0 mb-2">Città: <span class="fw-light">{{ $apartment->position->città ? $apartment->position->città : 'Non specificato' }}</span></h5>
+                    </div>
+                    <!-- Servizi -->
+                    <div class="col-12 col-md-6 pt-4 mt-1">
+                        <div class="mb-3">
+                            <h5 class="fw-bold">Servizi:</h5>
+                            <p class="m-0 overflow-y-scroll">
+                                @if(count($apartment->services) > 0)
+                                    <ul>
+                                        @foreach( $apartment->services as $service)
+                                            <li>{{$service->nome}}</li>
+                                        @endforeach
+                                    </ul>
+                                @else
+                                    <p>Nessun servizio inserito</p>
+                                @endif
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sponsorship -->
+            <div class="col-12 col-md-6">
                 <div class="mb-3">
-                    <h4 class="fw-bold">Sponsorship attive:</h4>
+                    <h5 class="fw-bold">Sponsorship attive:</h5>
                 </div>
 
                 <div class="d-md-flex">
@@ -95,8 +104,12 @@
                         <p>Nessuna sponsorships attiva</p>
                     @endif
                 </div>
-
             </div>
+        </div>
+        <div class="row mt-3">
+            
+            
+            
         </div>
     </div>
 @endsection
