@@ -7,14 +7,14 @@
                 <h2 class="fw-bolder">{{ $apartment->descrizione ? $apartment->descrizione : 'Nome non specificato' }}</h2>
             </div>
             <div class="col-12 col-md-3 d-flex justify-content-end align-items-center">
-                <a class="btn btn-sm btn-primary me-3" href="{{ route('admin.apartments.index') }}" role="button">Elenco appartamenti</a>
-                <a class="btn btn-sm btn-warning me-2" href="{{ route('admin.apartments.edit', $apartment->slug) }}" role="button" title="Modifica il progetto">
+                <a class="btn btn-sm bg_color_light_blue me-3 text-white" href="{{ route('admin.apartments.index') }}" role="button">Elenco appartamenti</a>
+                <a class="btn btn-sm bg_color_yellow  me-2 text-white" href="{{ route('admin.apartments.edit', $apartment->slug) }}" role="button" title="Modifica il progetto">
                     <i class="fa-solid fa-edit"></i>
                 </a>
                 <form action="{{ route('admin.apartments.destroy', $apartment->slug) }}" class="d-inline-block" method="POST">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-sm btn-danger">
+                    <button type="submit" class="btn btn-sm bg_color_red text-white">
                         <i class="fa-solid fa-trash"></i>
                     </button>
                 </form>
