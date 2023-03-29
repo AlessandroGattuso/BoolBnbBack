@@ -15,7 +15,7 @@
                     </div>
                 </div>
                 <div class="col-12">
-                    <h2 class="title-dash">I tuoi appartamenti</h2>
+                    <h2 class="title-dash mt-2">I tuoi appartamenti</h2>
                 </div>
             </div>
         </div>
@@ -36,12 +36,12 @@
                         <div class="col-12 col-md-4 px-4 mb-5">
                             <div class="apartment_card rounded p-2" title="Visualizza i dettagli dell'appartamento">
                                 <a href="{{route('admin.apartments.show',$item->slug)}}" class="text-black">
-                                    <div>
+                                    <div class="card_img_container">
                                         <img class="rounded w-100" src="{{ $item->cover ? $item->cover : 'https://picsum.photos/400/220' }}" alt="{{$item->slug}}">
                                     </div>
                                     <div class="pt-3 d-flex">
                                         <div class="w-75">
-                                            <p class="mb-2 p-0 fw-light">{{$item->numero_di_stanze}} stanze - {{$item->metri_quadri}} m2</p>
+                                            <p class="mb-2 p-0 fw-light">{{$item->numero_di_stanze}} stanze - {{$item->metri_quadri}} mq</p>
                                             <h5 class="fw-bold">{{$item->descrizione}}</h5>
                                             <p class="m-0">{{$item->position->indirizzo}} {{$item->position->N_civico}}, {{$item->position->città}}, {{$item->position->Nazione}}</p>
                                         </div>

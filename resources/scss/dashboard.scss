@@ -4,6 +4,18 @@
 
 .apartment_card {
 
+    .card_img_container {
+        width: 100%;
+        height: 220px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
     &:hover {
         background-color: rgba(128, 128, 128, 0.45);
     }
