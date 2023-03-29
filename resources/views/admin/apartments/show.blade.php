@@ -48,6 +48,21 @@
                     <p class="m-0 ms-1">{{ $apartment->metri_quadri ? $apartment->metri_quadri : 'Non specificato' }}</p>
                 </div>
 
+                <div class="d-flex align-items-end mb-3">
+                    <h4 class="fw-bold m-0">Indirizzo:</h4>
+                    <p class="m-0 ms-1">{{ $apartment->position->indirizzo ? $apartment->position->indirizzo : 'Non specificato' }}</p>
+                </div>
+
+                <div class="d-flex align-items-end mb-3">
+                    <h4 class="fw-bold m-0">N. civico:</h4>
+                    <p class="m-0 ms-1">{{ $apartment->position->N_civico ? $apartment->position->N_civico : 'Non specificato' }}</p>
+                </div>
+
+                <div class="d-flex align-items-end mb-3">
+                    <h4 class="fw-bold m-0">Città:</h4>
+                    <p class="m-0 ms-1">{{ $apartment->position->città ? $apartment->position->città : 'Non specificato' }}</p>
+                </div>
+
                 <div class="mb-3">
                     <h5 class="fw-bold">Servizi:</h5>
                     <p class="">
