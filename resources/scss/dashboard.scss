@@ -1,23 +1,42 @@
-.title-dash{
-    margin-top:30px;
+.title-dash {
+    margin-top: 30px;
 }
 
-.num-appartamenti{
+.apartment_card {
+
+    .card_img_container {
+        width: 100%;
+        height: 220px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    &:hover {
+        background-color: rgba(128, 128, 128, 0.45);
+    }
+}
+
+.num-appartamenti {
     font-size: 15px;
     background-color: white;
     padding: 10px;
-    border:0.5px solid black;
+    border: 0.5px solid black;
+    height: fit-content;
 }
 
-.view{
+.view {
     color: #3FA9F5;
 }
 
-.edit{
+.edit {
     color: #FC9D15;
 }
 
-.delete{
+.delete {
     color: #E33F3D
 }
-
