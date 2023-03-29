@@ -21,8 +21,7 @@
                 @method('PUT')
                 <div class="col-12 col-md-5 mt-2">
                     <label class="control-label" for="">
-                        <strong>Immagine:</strong> 
-                        <img src="{{($apartment->cover) ? asset('storage/' .$apartment->cover) : 'https://media.istockphoto.com/id/1147544807/it/vettoriale/la-commissione-per-la-immagine-di-anteprima-grafica-vettoriale.jpg?s=612x612&w=0&k=20&c=gsxHNYV71DzPuhyg-btvo-QhhTwWY0z4SGCSe44rvg4='}}" alt="">
+                        <img src="{{($apartment->cover) ? asset('storage/' .$apartment->cover) : 'https://media.istockphoto.com/id/1147544807/it/vettoriale/la-commissione-per-la-immagine-di-anteprima-grafica-vettoriale.jpg?s=612x612&w=0&k=20&c=gsxHNYV71DzPuhyg-btvo-QhhTwWY0z4SGCSe44rvg4='}}" class="w-100 mb-4 rounded-4" alt="">
                     </label>
                     <input type="file" value="{{old('apartment->cover') ?? $apartment->cover}}" name="cover" id="" class="form-control">
                 </div>
