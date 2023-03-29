@@ -1,0 +1,23 @@
+.bg_color_light_blue {
+    background-color: #3FA9F5;
+
+    &:hover {
+        background-color: #3a92d1;
+    }
+}
+
+.bg_color_yellow {
+    background-color: #FC9E15;
+
+    &:hover {
+        background-color: #e38c13;
+    }
+}
+
+.bg_color_red {
+    background-color: #E3403D;
+
+    &:hover {
+        background-color: #ce3a38;
+    }
+}
