@@ -52,7 +52,6 @@ class ApartmentController extends Controller
 	public function store(StoreApartmentRequest $request)
 	{
 		$data = $request->validated();
-		//dd($request->all());
 
 		$data['slug'] = Apartment::generateSlug($request->descrizione);
 
@@ -76,10 +75,11 @@ class ApartmentController extends Controller
 		$newPosition->N_civico = $request->N_civico;
 		$newPosition->città = $request->città;
 		$newPosition->Nazione = $request->Nazione;
+
 		$response = Http::get('https://api.tomtom.com/search/2/geocode/'.$newPosition->indirizzo.', '.$newPosition->città.', '.$newPosition->Nazione.'.json?key='.env('TOMTOM_KEY'));
 		$jsonPosition = $response->json()['results'][0];
-		
-		if($jsonPosition){
+
+		if($jsonPosition['position']['lat'] && $jsonPosition['position']['lon']){
 			$newPosition->Latitudine = $jsonPosition['position']['lat'];
 			$newPosition->Longitudine = $jsonPosition['position']['lon'];
 		}
@@ -91,7 +91,7 @@ class ApartmentController extends Controller
 		
 		$newPosition->apartment_id = $apartment->id;
 
-		$newPosition->save();
+		$apartment->position()->save($newPosition);
 		
 		if($request->has('services'))
 			$apartment->services()->attach($request->services);
@@ -143,28 +143,54 @@ class ApartmentController extends Controller
 	 */
 	public function update(UpdateApartmentRequest $request, Apartment $apartment)
 	{
+
 		$data = $request->validated();
+		//$position = Position::all()->where('apartment_id', $apartment->id);
+	
+		// $request->validate([
+		// 	'indirizzo' => ['required','string', 'max:255'],
+		// 	'N_civico' => ['required','numeric', 'max:255'],
+		// 	'città' => ['required','string', 'max:50'],
+		// 	'Nazione' => ['required', 'string', 'max:20'],
+		// ]);
 
-		$data['slug'] = apartment::generateSlug($request->descrizione);
+		$response = Http::get('https://api.tomtom.com/search/2/geocode/'.$request->indirizzo.', '.$request->città.', '.$request->Nazione.'.json?key='.env('TOMTOM_KEY'));
+		$jsonPosition = $response->json()['results'][0];
 
-		// if($request->hasFile('cover_image')){
-
-		// 		if($apartment->cover_image)
-		// 				Storage::delete($apartment->cover_image);  
-				
-
-		// 		$path = Storage::disk('public')->put('apartment_images', $request->cover); 
-		// 		$data['cover'] = $path;
-
-		// }
-
-		$apartment->update($data);
+		if(!($jsonPosition['position']['lat'] && $jsonPosition['position']['lon'])){
+			return back()->with('error', 'Position not found');
+		}
 		
+		$data['slug'] = apartment::generateSlug($request->descrizione);
+		
+		// if($request->hasFile('cover_image')){
+			
+			// 		if($apartment->cover_image)
+			// 				Storage::delete($apartment->cover_image);  
+			
+			
+			// 		$path = Storage::disk('public')->put('apartment_images', $request->cover); 
+			// 		$data['cover'] = $path;
+			
+			// }
+		
+	
+			$apartment->update($data);
+
+			$apartment->position->indirizzo = $request['indirizzo'];
+			$apartment->position->N_civico = $request['N_civico'];
+			$apartment->position->città = $request['città'];
+			$apartment->position->Nazione = $request['Nazione'];
+			$apartment->position->Longitudine = $jsonPosition['position']['lon'];
+			$apartment->position->Latitudine = $jsonPosition['position']['lat'];
+
+			$apartment->push();
+
 		if($request->has('services'))
 				$apartment->services()->sync($request->services);
 		else
 				$apartment->services()->detach();
-
+			
 
 		return redirect()->route('admin.apartments.index')->with('message', "Le modifiche all'appartamento sono state salvate correttamente");
 	}

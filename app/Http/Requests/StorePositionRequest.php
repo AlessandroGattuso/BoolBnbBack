@@ -24,7 +24,10 @@ class StorePositionRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'indirizzo' => ['required','string', 'max:255'],
+			'N_civico' => ['required','numeric', 'max:255'],
+			'città' => ['required','string', 'max:50'],
+			'Nazione' => ['required', 'string', 'max:20'],
         ];
     }
 }
