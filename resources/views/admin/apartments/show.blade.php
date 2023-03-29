@@ -22,7 +22,7 @@
         </div>
         <div class="row mt-2">  
             <div class="col-12">
-                <h5 class="fw-bold m-0" mb-2>Views: <span class="badge text-bg-primary">{{count($apartment_views) > 0 ? count($apartment_views) : 'Nessun utente ha visualizzato il tuo apprtamento' }}</span></h5>
+                <h5 class="fw-bold m-0" mb-2>Views: <span class="badge bg_color_light_blue">{{count($apartment_views) > 0 ? count($apartment_views) : 'Nessun utente ha visualizzato il tuo apprtamento' }}</span></h5>
             </div>
         </div>
         <div class="row mt-3">
