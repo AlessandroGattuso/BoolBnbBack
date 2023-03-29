@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\MessageController as MessageController;
 use App\Http\Controllers\Api\ViewController as ViewController;
+use App\Http\Controllers\Api\ApartmentController as ApartmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,9 @@ use App\Http\Controllers\Api\ViewController as ViewController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+Route::get('/apartments', [ApartmentController::class, 'index']);
+Route::get('/apartments/{slug}', [ApartmentController::class, 'show']);
 
 Route::get('/messages/{apartment}', [MessageController::class, 'index']);
 Route::put('/messages/{apartment}', [MessageController::class, 'store']);
