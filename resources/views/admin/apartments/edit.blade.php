@@ -116,7 +116,7 @@
                 </div>
                 <div class="form-group my-3">
                     <div class="form-check form-switch">
-                        <input name="visible" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" {{old('apartment->visible') ? 'checked' : ''}}>
+                        <input name="visible" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" {{$apartment->visible == 1 ? 'checked' : 'unchecked'}}>
                         <label class="form-check-label" for="flexSwitchCheckChecked">Visibilità appartamento</label>
                     </div>
                     <div class="mt-2">
