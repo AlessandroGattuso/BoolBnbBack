@@ -80,6 +80,7 @@
                       </div>
                     @endforeach
                 </div>
+
                 <div class="d-flex gap-3">
                     <div class="form-group my-3">
                         <label for="" class="control-label">
@@ -123,6 +124,13 @@
                         <button type="submit" class="btn btn-sm btn-primary">Salva</button>
                     </div>
                 </div>
+
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Seleziona Sponsorship</option>
+                    <option value="1">Basic: 24ore</option>
+                    <option value="2">Standard: 72ore</option>
+                    <option value="3">Premium: 144ore</option>
+                </select>
             </form>
         </div>
     </div>
