@@ -11,6 +11,7 @@ use App\Models\Sponsorship;
 use App\Models\Service;
 use App\Models\Position;
 use App\Models\View;
+use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -54,14 +55,16 @@ class ApartmentController extends Controller
 		$data = $request->validated();
 		$data['slug'] = Apartment::generateSlug($request->descrizione);
 
-		// if($request->hasFile('cover')){
-		// 		$path = Storage::disk('public')->put('Apartment_images', $request->cover);
-		// 		$data['cover'] = $path;
-		// }
-
 		$data['user_id'] =  Auth::id();
 		
 		$newPosition = new Position();
+
+		if($request->hasFile('cover')){
+			$path = Storage::disk('public')->put('apartment_images', $request->cover);
+			
+			$data['cover'] = $path;
+		}
+
 
 		$request->validate([
 			'indirizzo' => ['required','string', 'max:255'],
@@ -162,16 +165,16 @@ class ApartmentController extends Controller
 		
 		$data['slug'] = apartment::generateSlug($request->descrizione);
 		
-		// if($request->hasFile('cover_image')){
+		if($request->hasFile('cover')){
 			
-			// 		if($apartment->cover_image)
-			// 				Storage::delete($apartment->cover_image);  
+					if($apartment->cover)
+							Storage::delete($apartment->cover);  
 			
 			
-			// 		$path = Storage::disk('public')->put('apartment_images', $request->cover); 
-			// 		$data['cover'] = $path;
+					$path = Storage::disk('public')->put('apartment_images', $request->cover); 
+					$data['cover'] = $path;
 			
-			// }
+			}
 		
 	
 			$apartment->update($data);

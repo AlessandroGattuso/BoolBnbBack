@@ -19,6 +19,13 @@
             <form class="" action="{{route('admin.apartments.update',$apartment->slug)}}" method="POST" enctype="multipart/form-data" >
                 @csrf
                 @method('PUT')
+                <div class="col-12 col-md-5 mt-2">
+                    <label class="control-label" for="">
+                        <strong>Immagine:</strong> 
+                        <img src="{{asset('storage/' .$apartment->cover)}}" alt="">
+                    </label>
+                    <input type="file" value="{{old('apartment->cover') ?? $apartment->cover}}" name="cover" id="" class="form-control">
+                </div>
                 <div class="form-group my-3">
                     <label for="validationTextarea" class="form-label">
                         <strong>Descrizione*:</strong> 
@@ -36,12 +43,7 @@
                         <input type="text" name="prezzo" id="" value="{{old('apartment->prezzo') ?? $apartment->prezzo}}" class="form-control" placeholder="" >
                     </div>
     
-                    <div class="col-12 col-md-5 mt-2">
-                        <label class="control-label" for="">
-                            <strong>Immagine:</strong> 
-                        </label>
-                        <input type="file" value="{{old('apartment->cover') ?? $apartment->cover}}" name="cover" id="" class="form-control">
-                    </div>
+        
                 </div>
                 <div class="row">
                     <div class="col-12 col-md-4 mt-3">
