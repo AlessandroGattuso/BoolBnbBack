@@ -25,7 +25,7 @@
                 <h5 class="fw-bold m-0" mb-2>Views: <span class="badge text-bg-primary">{{count($apartment_views) > 0 ? count($apartment_views) : 'Nessun utente ha visualizzato il tuo apprtamento' }}</span></h5>
             </div>
         </div>
-        <div class="row">
+        <div class="row mt-3">
             <!-- Appartamento -->
             <div class="col-12 col-md-6">
                 <div class="row">
