@@ -122,34 +122,6 @@
                         <button type="submit" class="btn btn-sm btn-primary">Salva</button>
                     </div>
                 </div>
-
-                <div class="py-4">
-                    <h3>Sponsorizza il tuo appartamento:</h3>
-                </div>
- 
-                <div class="d-flex gap-5 mb-5">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                          <h5 class="card-title">Basic</h5>
-                          <p class="card-text">Al costo di 2.99&euro; sponsorizzi il tuo appartamento per 24H</p>
-                          <a href="#" class="btn btn-success">Attivala!</a>
-                        </div>
-                      </div>
-                      <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                          <h5 class="card-title">Standard</h5>
-                          <p class="card-text">Al costo di 5.99&euro; sponsorizzi il tuo appartamento per 72H</p>
-                          <a href="#" class="btn btn-success">Attivala!</a>
-                        </div>
-                      </div>
-                      <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                          <h5 class="card-title">Premium</h5>
-                          <p class="card-text">Al costo di 9.99&euro; sponsorizzi il tuo appartamento per 144H</p>
-                          <a href="#" class="btn btn-success">Attivala!</a>
-                        </div>
-                      </div>
-                </div>
             </form>
         </div>
     </div>
