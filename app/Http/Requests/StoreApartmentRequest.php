@@ -30,7 +30,7 @@ class StoreApartmentRequest extends FormRequest
             'metri_quadri'     => ['required','numeric'],
             'prezzo'           => ['required','numeric'],
             'cover'            => ['nullable', 'image'],
-            'visible'          => ['nullable', 'boolean'],
+            'visible'          => ['nullable'],
             'services'         => ['exists:services,id'],
             'indirizzo'        => ['required','string', 'max:255'],
 			'N_civico'         => ['required','numeric', 'max:255'],

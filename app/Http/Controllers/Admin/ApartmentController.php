@@ -52,15 +52,15 @@ class ApartmentController extends Controller
 	 */
 	public function store(StoreApartmentRequest $request)
 	{
-		$data = $request->validated();
 		
+		$data = $request->validated();
 		if(!isset($data['visible'])){
-			$data['visible'] = false;
+			$data['visible'] = 0;
 		}
 		else{
-			$data['visible'] = true;
+			$data['visible'] = 1;
 		}
-
+		
 		$data['slug'] = Apartment::generateSlug($request->descrizione);
 
 		$data['user_id'] =  Auth::id();
@@ -72,7 +72,6 @@ class ApartmentController extends Controller
 			
 			$data['cover'] = $path;
 		}
-
 
 		$request->validate([
 			'indirizzo' => ['required','string', 'max:255'],
@@ -173,13 +172,13 @@ class ApartmentController extends Controller
 		}
 
 		$data = $request->validated();
+		
 		if(!isset($data['visible'])){
-			$data['visible'] = false;
+			$data['visible'] = 0;
 		}
 		else{
-			$data['visible'] = true;
+			$data['visible'] = 1;
 		}
-		
 		//$position = Position::all()->where('apartment_id', $apartment->id);
 	
 		// $request->validate([
