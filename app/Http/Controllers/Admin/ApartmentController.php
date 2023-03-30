@@ -162,6 +162,11 @@ class ApartmentController extends Controller
 	public function update(UpdateApartmentRequest $request, Apartment $apartment)
 	{
 
+		$userId = Auth::id();
+		if($userId != $apartment->user_id){
+			return redirect()->route('admin.dashboard')->with('warning', 'Non puoi modificare gli appartamenti di un altro utente');
+		}
+
 		$data = $request->validated();
 		//$position = Position::all()->where('apartment_id', $apartment->id);
 	
