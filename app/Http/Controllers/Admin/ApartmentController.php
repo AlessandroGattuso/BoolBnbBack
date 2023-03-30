@@ -116,6 +116,12 @@ class ApartmentController extends Controller
 	 */
 	public function show(Apartment $apartment)
 	{
+		$userId = Auth::id();
+		if($userId != $apartment->user_id){
+
+			return redirect()->route('admin.dashboard')->with('warning', 'Non puoi visualizzare gli appartamenti di un altro utente');
+		}
+
 		//Controllo sulle view in un determinato periodo
 		$apartment_views = [];
 		$views = View::all();
@@ -127,6 +133,7 @@ class ApartmentController extends Controller
 		}
 
 		return view('admin.apartments.show', compact('apartment', 'apartment_views'));
+
 	}
 
 	/**
@@ -137,6 +144,12 @@ class ApartmentController extends Controller
 	 */
 	public function edit(Apartment $apartment)
 	{
+		$userId = Auth::id();
+		if($userId != $apartment->user_id){
+
+			return redirect()->route('admin.dashboard')->with('warning', 'Non puoi modificare gli appartamenti di un altro utente');
+		}
+		
 		$services = Service::all(); 
 		return view('admin.apartments.edit', compact('apartment', 'services'));
 	}
@@ -150,7 +163,12 @@ class ApartmentController extends Controller
 	 */
 	public function update(UpdateApartmentRequest $request, Apartment $apartment)
 	{
-		
+
+		$userId = Auth::id();
+		if($userId != $apartment->user_id){
+			return redirect()->route('admin.dashboard')->with('warning', 'Non puoi modificare gli appartamenti di un altro utente');
+		}
+
 		$data = $request->validated();
 		if(!isset($data['visible'])){
 			$data['visible'] = false;
@@ -214,7 +232,12 @@ class ApartmentController extends Controller
 	 */
 	public function destroy(Apartment $apartment)
 	{
+		$userId = Auth::id();
+		if($userId != $apartment->user_id){
+			return redirect()->route('admin.dashboard')->with('warning', 'Non puoi modificare gli appartamenti di un altro utente');
+		}
+
 		$apartment->delete();
-    return redirect()->route('admin.apartments.index')->with('message',"L'appartmanento è rimosso correttamente");
+    	return redirect()->route('admin.apartments.index')->with('message',"L'appartmanento è rimosso correttamente");
 	}
 }

@@ -28,6 +28,14 @@
             </div>
         </div>
         @endif
+        @if(session('warning'))
+        <div class="col-12">
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong><i class="fa-solid fa-triangle-exclamation me-2"></i>{{session('warning')}}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+        @endif
 
         <div class="col-12 mt-4">
             <div class="row">
