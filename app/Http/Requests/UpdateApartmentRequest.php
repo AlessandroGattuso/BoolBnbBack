@@ -29,13 +29,14 @@ class UpdateApartmentRequest extends FormRequest
             'numero_di_bagni'  => ['required'],
             'metri_quadri'     => ['required'],
             'prezzo'           => ['nullable'],
-            'services'       => ['exists:services,id'],
-            'indirizzo' => ['required','string', 'max:255'],
-			'N_civico' => ['required','numeric', 'max:255'],
-			'città' => ['required','string', 'max:50'],
-			'Nazione' => ['required', 'string', 'max:20'],
-            'user_id'          => ['exists:users,id'],
-            'cover'            =>['nullable','image']
+            'visible'          => ['nullable', 'boolean'],
+            'cover'            =>['nullable','image'],
+            'services'         => ['exists:services,id'],
+            'indirizzo'        => ['required','string', 'max:255'],
+			'N_civico'         => ['required','numeric', 'max:255'],
+			'città'            => ['required','string', 'max:50'],
+			'Nazione'          => ['required', 'string', 'max:20'],
+            'user_id'          => ['exists:users,id']
         ];
     }
 }

@@ -53,6 +53,11 @@ class ApartmentController extends Controller
 	public function store(StoreApartmentRequest $request)
 	{
 		$data = $request->validated();
+		
+		if(!isset($data['visible'])){
+			$data['visible'] = false;
+		}
+
 		$data['slug'] = Apartment::generateSlug($request->descrizione);
 
 		$data['user_id'] =  Auth::id();
@@ -145,8 +150,12 @@ class ApartmentController extends Controller
 	 */
 	public function update(UpdateApartmentRequest $request, Apartment $apartment)
 	{
-
+		
 		$data = $request->validated();
+		if(!isset($data['visible'])){
+			$data['visible'] = false;
+		}
+		
 		//$position = Position::all()->where('apartment_id', $apartment->id);
 	
 		// $request->validate([
@@ -162,6 +171,7 @@ class ApartmentController extends Controller
 		if(!($jsonPosition['position']['lat'] && $jsonPosition['position']['lon'])){
 			return back()->with('error', 'Position not found');
 		}
+
 		
 		$data['slug'] = apartment::generateSlug($request->descrizione);
 		
@@ -176,7 +186,6 @@ class ApartmentController extends Controller
 			
 			}
 		
-	
 			$apartment->update($data);
 
 			$apartment->position->indirizzo = $request['indirizzo'];
