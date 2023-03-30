@@ -140,8 +140,16 @@ class ApartmentController extends Controller
 	 */
 	public function edit(Apartment $apartment)
 	{
-		$services = Service::all(); 
-		return view('admin.apartments.edit', compact('apartment', 'services'));
+		$userId = Auth::id();
+		if($userId == $apartment->user_id){
+
+			$services = Service::all(); 
+			return view('admin.apartments.edit', compact('apartment', 'services'));
+		}
+		else{
+			return redirect()->route('admin.dashboard')->with('warning', 'Non puoi modificare gli appartamenti di un altro utente');
+		}
+		
 	}
 
 	/**
