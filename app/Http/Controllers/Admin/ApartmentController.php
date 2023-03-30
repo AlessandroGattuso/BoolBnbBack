@@ -111,17 +111,25 @@ class ApartmentController extends Controller
 	 */
 	public function show(Apartment $apartment)
 	{
-		//Controllo sulle view in un determinato periodo
-		$apartment_views = [];
-		$views = View::all();
+		$userId = Auth::id();
+		if($userId == $apartment->user_id){
 
-		foreach($views as $view){
-			if($apartment->id == $view->apartment_id){
-				$apartment_views[] = $view;
+			//Controllo sulle view in un determinato periodo
+			$apartment_views = [];
+			$views = View::all();
+	
+			foreach($views as $view){
+				if($apartment->id == $view->apartment_id){
+					$apartment_views[] = $view;
+				}
 			}
+	
+			return view('admin.apartments.show', compact('apartment', 'apartment_views'));
+		}
+		else{
+			return redirect()->route('admin.dashboard')->with('warning', 'Non puoi visualizzare gli appartamenti di un altro utente');
 		}
 
-		return view('admin.apartments.show', compact('apartment', 'apartment_views'));
 	}
 
 	/**
