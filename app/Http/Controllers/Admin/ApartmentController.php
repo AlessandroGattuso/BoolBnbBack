@@ -57,6 +57,9 @@ class ApartmentController extends Controller
 		if(!isset($data['visible'])){
 			$data['visible'] = false;
 		}
+		else{
+			$data['visible'] = true;
+		}
 
 		$data['slug'] = Apartment::generateSlug($request->descrizione);
 
@@ -172,6 +175,9 @@ class ApartmentController extends Controller
 		$data = $request->validated();
 		if(!isset($data['visible'])){
 			$data['visible'] = false;
+		}
+		else{
+			$data['visible'] = true;
 		}
 		
 		//$position = Position::all()->where('apartment_id', $apartment->id);
