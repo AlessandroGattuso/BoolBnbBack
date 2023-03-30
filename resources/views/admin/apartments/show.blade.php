@@ -100,8 +100,10 @@
                                 </div>
                             </div>
                         @endforeach
+                        <a class="btn btn-sm bg_color_light_blue me-3 text-white" href="{{ route('admin.sponsorships.index', $apartment->slug) }}">Attiva una Sponsorship</a>
                     @else
-                        <p>Nessuna sponsorships attiva</p>
+                        <p class="m-0 me-3">Nessuna sponsorships attiva</p>
+                        <a class="btn btn-sm bg_color_light_blue me-3 text-white" href="{{ route('admin.sponsorships.index', $apartment->slug) }}">Attiva una Sponsorship</a>
                     @endif
                 </div>
             </div>
