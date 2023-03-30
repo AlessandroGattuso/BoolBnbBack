@@ -226,7 +226,12 @@ class ApartmentController extends Controller
 	 */
 	public function destroy(Apartment $apartment)
 	{
+		$userId = Auth::id();
+		if($userId != $apartment->user_id){
+			return redirect()->route('admin.dashboard')->with('warning', 'Non puoi modificare gli appartamenti di un altro utente');
+		}
+
 		$apartment->delete();
-    return redirect()->route('admin.apartments.index')->with('message',"L'appartmanento è rimosso correttamente");
+    	return redirect()->route('admin.apartments.index')->with('message',"L'appartmanento è rimosso correttamente");
 	}
 }
