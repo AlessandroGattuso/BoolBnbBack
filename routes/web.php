@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\ProfileController as ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ApartmentController as ApartmentController;
+use App\Http\Controllers\Admin\SponsorshipController as SponsorshipController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,7 @@ Route::get('/', function () {
 Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(function () {
 	Route::get('/', [ApartmentController::class, 'index'])->name('dashboard');
 	Route::resource('/apartments', ApartmentController::class)->parameters(['apartments' => 'apartment:slug']);
+	Route::resource('/sponsorships', SponsorshipController::class)->parameters(['apartments' => 'apartment:slug']);
 });
 
 Route::middleware('auth')->group(function () {
