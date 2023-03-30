@@ -22,7 +22,10 @@
                             </div>
                         </div>
                         <div class="text-center mb-3">
-                            <button class="btn btn-success w-50">Attiva</button>
+                            <form action="/session" method="POST">
+                                <input type="hidden" name="_token" value="{{csrf_token()}}">
+                                <button class="btn btn-success w-50" type="submit" id="checkout-live-button">Attiva</button>
+                            </form>
                         </div>
                     </div>
                 </div>

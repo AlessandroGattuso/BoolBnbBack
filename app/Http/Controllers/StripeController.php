@@ -39,6 +39,6 @@ class StripeController extends Controller
 
     public function success()
     {
-        return "Yay, It works!!!";
+        return view('admin.stripe.success');
     }
 }
