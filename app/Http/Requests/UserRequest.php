@@ -33,4 +33,17 @@ class UserRequest extends FormRequest
 			'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ];
     }
+
+    public function messages()
+	{
+		return [
+            'data_di_nascita.after' => 'La data di nascita deve essere successiva al 31-12-1899',
+            'data_di_nascita.before' => 'La data di nascita deve essere anteriore ai -13 anni',
+            'email.required' => 'Email obbligatoria',
+            'email.email' => 'L\'e-mail deve essere un indirizzo e-mail valido',
+            'email.unique' => 'L\'e-mail è già stata presa',
+            'password.required' => 'Password obbligatoria',
+            'password.confirmed' => 'La conferma della password non corrisponde',
+		];
+	}
 }
