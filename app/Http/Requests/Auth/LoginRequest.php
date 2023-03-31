@@ -45,7 +45,7 @@ class LoginRequest extends FormRequest
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-                'email' => trans('auth.failed'),
+                'email' => trans('Queste credenziali non corrispondono ai nostri registri'),
             ]);
         }
 
@@ -82,4 +82,13 @@ class LoginRequest extends FormRequest
     {
         return Str::transliterate(Str::lower($this->input('email')).'|'.$this->ip());
     }
+
+    public function messages()
+	{
+		return [
+            'email.required' => 'Email obbligatoria',
+            'email.email' => 'L\'e-mail deve essere un indirizzo e-mail valido',
+            'password.required' => 'Password obbligatoria',
+		];
+	}
 }
