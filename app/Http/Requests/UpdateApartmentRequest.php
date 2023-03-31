@@ -24,10 +24,10 @@ class UpdateApartmentRequest extends FormRequest
     public function rules()
     {
         return [
-            'descrizione'      => ['nullable'],
-            'numero_di_stanze' => ['required'],
-            'numero_di_bagni'  => ['required'],
-            'metri_quadri'     => ['required'],
+            'descrizione'      => ['nullable', 'string', 'max:300'],
+            'numero_di_stanze' => ['required', 'max:65533'],
+            'numero_di_bagni'  => ['required', 'max:254'],
+            'metri_quadri'     => ['required', 'max:65533'],
             'prezzo'           => ['nullable'],
             'visible'          => ['nullable'],
             'cover'            => ['nullable','image'],
