@@ -23,7 +23,7 @@ Route::get('/apartments/{slug}', [ApartmentController::class, 'show']);
 Route::get('/services', [ServiceController::class, 'index']);
 
 Route::get('/messages/{apartment}', [MessageController::class, 'index']);
-Route::put('/messages/{apartment}', [MessageController::class, 'store']);
+Route::put('/messages', [MessageController::class, 'store']);
 Route::delete('/messages/{apartment}', [MessageController::class, 'delete']);
 
 Route::get('/views/{apartment}', [ViewController::class, 'index']);
