@@ -16,6 +16,7 @@ class Apartment extends Model
 		'descrizione',
 		'numero_di_stanze',
 		'numero_di_bagni',
+		'numero_di_letti',
 		'metri_quadri',
 		'cover',
 		'visible',

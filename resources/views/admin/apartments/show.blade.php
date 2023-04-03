@@ -55,7 +55,7 @@
 
                         <h5 class="fw-bold m-0 mb-2">Città: <span class="fw-light">{{ $apartment->position->città ? $apartment->position->città : 'Non specificato' }}</span></h5>
 
-                        <h5 class="fw-bold m-0 mb-2">Visibile: <span class="fw-light">{{ $apartment->visible ? $apartment->visible : 'Non specificato' }}</span></h5>
+                        <h5 class="fw-bold m-0 mb-2">Visibile: <span class="fw-light">@if($apartment->visible == 1) si @else no @endif</span></h5>
 
                     </div>
                     <!-- Servizi -->
