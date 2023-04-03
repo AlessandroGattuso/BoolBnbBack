@@ -135,7 +135,7 @@
             </div>
         </div>
         <div class="row mt-5">
-            <div class="col-12 col-md-3 d-flex justify-content-end align-items-center">
+            <div class="col-12 col-md-3 d-flex">
                 <a class="btn bg_color_light_blue me-3 text-white" href="{{ route('admin.apartments.index') }}" role="button"><i class="fa-solid fa-house"></i></a>
                 <a class="btn bg_color_yellow  me-2 text-white" href="{{ route('admin.apartments.edit', $apartment->slug) }}" role="button" title="Modifica il progetto"><i class="fa-solid fa-pen"></i></a>
                 <form action="{{ route('admin.apartments.destroy', $apartment->slug) }}" class="d-inline-block" method="POST">
