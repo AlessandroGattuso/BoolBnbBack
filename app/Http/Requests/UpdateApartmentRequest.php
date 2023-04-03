@@ -24,14 +24,14 @@ class UpdateApartmentRequest extends FormRequest
     public function rules()
     {
         return [
-            'descrizione'      => ['nullable', 'string', 'max:300'],
+            'descrizione'      => ['required', 'string', 'max:300'],
             'numero_di_stanze' => ['required', 'max:65533'],
             'numero_di_bagni'  => ['required', 'max:254'],
             'metri_quadri'     => ['required', 'max:65533'],
-            'prezzo'           => ['nullable'],
+            'prezzo'           => ['required'],
             'visible'          => ['nullable'],
             'cover'            => ['nullable','image'],
-            'services'         => ['exists:services,id'],
+            'services'         => ['exists:services,id','required'],
             'indirizzo'        => ['required','string', 'max:255'],
 			'N_civico'         => ['required','numeric', 'max:255'],
 			'città'            => ['required','string', 'max:50'],
@@ -39,4 +39,20 @@ class UpdateApartmentRequest extends FormRequest
             'user_id'          => ['exists:users,id']
         ];
     }
+
+    public function messages()
+	{
+		return [
+			'descrizione.required'      =>'Non hai inserito una descrizione',
+            'numero_di_stanze.required' =>'Non hai inserito il numero di stanze',
+            'numero_di_bagni.required'  =>'Non hai inserito il numero di bagni',
+            'metri_quadri.required'     =>'Non hai inserito il numero di Metri quadrati',
+            'prezzo.required'           =>'Non hai inserito il prezzo',
+            'services.required'         => 'Devi inserire almeno un servizio',
+            'indirizzo.required'        => 'Devi inserire un indirizzo',
+            'N_civico.required'         => 'Devi inserire un numero civico',
+            'città.required'            => 'Devi inserire una città',
+            'Nazione.required'          => 'Devi inserire una nazione'
+		];
+	}
 }
