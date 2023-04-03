@@ -24,6 +24,7 @@ class StoreMessageRequest extends FormRequest
 	public function rules()
 	{
 		return [
+			'apartment_id' => ['required'],
 			'contenuto' => ['required'],
 			'nome' => ['required', 'max: 30'],
 			'cognome' => ['required', 'max: 40'],
