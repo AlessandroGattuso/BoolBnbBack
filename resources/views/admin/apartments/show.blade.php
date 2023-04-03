@@ -212,14 +212,14 @@
         </div>
         <div class="row mt-5">
             <div class="col-12 col-md-3 d-flex justify-content-end align-items-center">
-                <a class="btn btn-sm bg_color_light_blue me-3 text-white" href="{{ route('admin.apartments.index') }}" role="button">Torna all'elenco appartamenti</a>
-                <a class="btn btn-sm bg_color_yellow  me-2 text-white" href="{{ route('admin.apartments.edit', $apartment->slug) }}" role="button" title="Modifica il progetto">Modifica dati appartamento</a>
+                <a class="btn bg_color_light_blue me-3 text-white" href="{{ route('admin.apartments.index') }}" role="button"><i class="fa-solid fa-house"></i></a>
+                <a class="btn bg_color_yellow  me-2 text-white" href="{{ route('admin.apartments.edit', $apartment->slug) }}" role="button" title="Modifica il progetto"><i class="fa-solid fa-pen"></i></a>
                 <form action="{{ route('admin.apartments.destroy', $apartment->slug) }}" class="d-inline-block" method="POST">
                     @csrf
                     @method('DELETE')
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary bg_color_red" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                        Elimina appartamento
+                    <button type="button" class="btn text-white bg_color_red" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        <i class="fa-solid fa-trash-can"></i>
                     </button>
                     <!-- Modal --> 
                     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
