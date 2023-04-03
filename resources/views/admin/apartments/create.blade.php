@@ -61,6 +61,12 @@
                     </div>
                     <div class="col-12 col-md-4 mt-3">
                         <label  class="control-label" for="">
+                            <strong>Numero di letti*:</strong> 
+                        </label>
+                        <input type="number" id="numero_di_letti" name="numero_di_letti">
+                    </div>
+                    <div class="col-12 col-md-4 mt-3">
+                        <label  class="control-label" for="">
                             <strong>Metri quadri*:</strong> 
                         </label>
                         <input type="number" id="metri_quadri" name="metri_quadri">

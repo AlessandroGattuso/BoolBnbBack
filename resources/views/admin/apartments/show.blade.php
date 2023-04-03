@@ -47,11 +47,16 @@
                         
                         <h5 class="fw-bold m-0 mb-2">Bagni: <span class="fw-light">{{ $apartment->numero_di_bagni ? $apartment->numero_di_bagni : 'Non specificato' }}</span></h5>
 
+                        <h5 class="fw-bold m-0 mb-2">Letti: <span class="fw-light">{{ $apartment->numero_di_letti ? $apartment->numero_di_letti : 'Non specificato' }}</span></h5>
+
                         <h5 class="fw-bold m-0 mb-2">Dimensione: <span class="fw-light">{{ $apartment->metri_quadri ? $apartment->metri_quadri : 'Non specificato' }} mq</span></h5>
                         
                         <h5 class="fw-bold m-0 mb-2">Indirizzo: <span class="fw-light">{{ $apartment->position->indirizzo ? $apartment->position->indirizzo : 'Via non specificata' }} {{ $apartment->position->N_civico ? $apartment->position->N_civico : 'Non specificato' }}</span></h5>
 
                         <h5 class="fw-bold m-0 mb-2">Città: <span class="fw-light">{{ $apartment->position->città ? $apartment->position->città : 'Non specificato' }}</span></h5>
+
+                        <h5 class="fw-bold m-0 mb-2">Visibile: <span class="fw-light">{{ $apartment->visible ? $apartment->visible : 'Non specificato' }}</span></h5>
+
                     </div>
                     <!-- Servizi -->
                     <div class="col-12 col-md-6 pt-4 mt-1">
