@@ -27,7 +27,7 @@ Route::put('/messages', [MessageController::class, 'store']);
 Route::delete('/messages/{apartment}', [MessageController::class, 'delete']);
 
 Route::get('/views/{apartment}', [ViewController::class, 'index']);
-Route::put('/views/{apartment}', [ViewController::class, 'store']);
+Route::put('/views', [ViewController::class, 'store']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
