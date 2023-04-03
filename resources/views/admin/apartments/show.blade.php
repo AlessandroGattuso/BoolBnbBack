@@ -2,23 +2,8 @@
 
 @section('content')
     <div class="container pb-3">
-        <div class="row mt-5">
-            <div class="col-12 col-md-9">
-                <h2 class="fw-bolder">{{ $apartment->descrizione ? $apartment->descrizione : 'Nome non specificato' }}</h2>
-            </div>
-            <div class="col-12 col-md-3 d-flex justify-content-end align-items-center">
-                <a class="btn btn-sm bg_color_light_blue me-3 text-white" href="{{ route('admin.apartments.index') }}" role="button">Elenco appartamenti</a>
-                <a class="btn btn-sm bg_color_yellow  me-2 text-white" href="{{ route('admin.apartments.edit', $apartment->slug) }}" role="button" title="Modifica il progetto">
-                    <i class="fa-solid fa-edit"></i>
-                </a>
-                <form action="{{ route('admin.apartments.destroy', $apartment->slug) }}" class="d-inline-block" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-sm bg_color_red text-white">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                </form>
-            </div>
+        <div class="col-12 col-md-9">
+            <h2 class="fw-bolder">{{ $apartment->descrizione ? $apartment->descrizione : 'Nome non specificato' }}</h2>
         </div>
         <div class="row mt-2">  
             <div class="col-12">
@@ -147,6 +132,39 @@
                         <a class="btn btn-sm bg_color_light_blue me-3 text-white" href="{{ route('admin.sponsorships.index', $apartment->slug) }}">Attiva una Sponsorship</a>
                     @endif
                 </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-12 col-md-3 d-flex justify-content-end align-items-center">
+                <a class="btn bg_color_light_blue me-3 text-white" href="{{ route('admin.apartments.index') }}" role="button"><i class="fa-solid fa-house"></i></a>
+                <a class="btn bg_color_yellow  me-2 text-white" href="{{ route('admin.apartments.edit', $apartment->slug) }}" role="button" title="Modifica il progetto"><i class="fa-solid fa-pen"></i></a>
+                <form action="{{ route('admin.apartments.destroy', $apartment->slug) }}" class="d-inline-block" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn text-white bg_color_red" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                    <!-- Modal --> 
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Sei sicuro di voler eliminare l'appartamento?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                            <button class="btn btn-primary" type="submit">Si,elimina</button>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+
+                </form>
             </div>
         </div>
     </div>
