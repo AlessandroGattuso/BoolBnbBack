@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\View;
+use App\Models\Apartment;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -38,18 +39,25 @@ class ViewController extends Controller
 	 */
 	public function store(Request $request)
 	{
-		$data = $request->validated();
-		
-		$clientIp = request()->ip();
+		var_dump($request->all());
+		$data = $request->validate([
+			'IP' => 'required|ip',
+			'apartment_id' => ['exists:apartments,id','required'],
+		]);
 
-		if(!(View::where('IP', $clientIp)->count())){
-			$data['clientIp'] = $clientIp;
+		if(!(View::where('IP', $data['IP'])->Where('apartment_id', $data['apartment_id'])->count())){
 	
 			$newView = new View();
 			$newView->fill($data);
 	
 			$newView->save();
+
+			return response()->json([
+				'success'=> true,
+	
+			]);
 		}
+
 	}
 
 	/**
