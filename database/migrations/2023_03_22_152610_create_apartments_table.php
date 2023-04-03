@@ -19,6 +19,7 @@ return new class extends Migration
 			$table->string('slug', 320);
 			$table->unsignedSmallInteger('numero_di_stanze')->default(1);
 			$table->unsignedTinyInteger('numero_di_bagni')->default(1);
+			$table->unsignedTinyInteger('numero_di_letti')->default(1);
 			$table->unsignedSmallInteger('metri_quadri');
 			$table->string('cover')->nullable();
 			$table->boolean('visible')->default(true);
