@@ -31,18 +31,113 @@
                 <div class="row">
 						<!-- Offcanvas messaggi-->
 						<div class="col-12" id="offcanvasMessages">
+							{{-- button --}}
 							<button class="btn message_button_position message_button_style" type="button"
-								data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"
-								title="Invia un messaggio al proprietario"><i class="fa-solid fa-message"></i>
+							data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"
+							title="Invia un messaggio al proprietario">
+								<span class="circle_number">
+									6
+								</span>
+								<i class="fa-solid fa-message"></i>
 							</button>
-
 							<div class="offcanvas offcanvas-end offcanvas_size" tabindex="-1" id="offcanvasRight"
 								aria-labelledby="offcanvasRightLabel">
 								<div class="offcanvas-header">
 									<h4 class="offcanvas-title" id="offcanvasRightLabel">Messaggi di {{ $apartment->descrizione }}</h4>
 								</div>
 								<!-- elenco messaggi -->
-								<div class="offcanvas-body">
+								<div class="offcanvas-body p-3">
+									<div id="messagesContainer" class="bg-light rounded-3 p-3">
+										<div class="message rounded-2 p-2">
+											<div class="userName">
+												<i class="fa-solid fa-circle-user"></i> User Name Surname
+											</div>
+											<div class="userMail my-1">
+												<i class="fa-solid fa-at"></i> user email.com
+											</div>
+											<div class="userMessage d-flex">
+												<i class="fa-solid fa-envelope me-1"></i> <span class="messageText rounded-2 p-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est numquam corrupti obcaecati perferendis? Sunt est deserunt dignissimos modi architecto saepe obcaecati quam, ut rem voluptatem consequatur cupiditate ab exercitationem dolorem?</span>
+											</div>
+										</div> 
+										<div class="message rounded-2 p-2">
+											<div class="userName">
+												<i class="fa-solid fa-circle-user"></i> User Name Surname
+											</div>
+											<div class="userMail my-1">
+												<i class="fa-solid fa-at"></i> user email.com
+											</div>
+											<div class="userMessage d-flex">
+												<i class="fa-solid fa-envelope me-1"></i> <span class="messageText rounded-2 p-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est numquam corrupti obcaecati perferendis? Sunt est deserunt dignissimos modi architecto saepe obcaecati quam, ut rem voluptatem consequatur cupiditate ab exercitationem dolorem?</span>
+											</div>
+										</div> 
+										<div class="message rounded-2 p-2">
+											<div class="userName">
+												<i class="fa-solid fa-circle-user"></i> User Name Surname
+											</div>
+											<div class="userMail my-1">
+												<i class="fa-solid fa-at"></i> user email.com
+											</div>
+											<div class="userMessage d-flex">
+												<i class="fa-solid fa-envelope me-1"></i> <span class="messageText rounded-2 p-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est numquam corrupti obcaecati perferendis? Sunt est deserunt dignissimos modi architecto saepe obcaecati quam, ut rem voluptatem consequatur cupiditate ab exercitationem dolorem?</span>
+											</div>
+										</div> 
+										<div class="message rounded-2 p-2">
+											<div class="userName">
+												<i class="fa-solid fa-circle-user"></i> User Name Surname
+											</div>
+											<div class="userMail my-1">
+												<i class="fa-solid fa-at"></i> user email.com
+											</div>
+											<div class="userMessage d-flex">
+												<i class="fa-solid fa-envelope me-1"></i> <span class="messageText rounded-2 p-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est numquam corrupti obcaecati perferendis? Sunt est deserunt dignissimos modi architecto saepe obcaecati quam, ut rem voluptatem consequatur cupiditate ab exercitationem dolorem?</span>
+											</div>
+										</div> 
+										<div class="message rounded-2 p-2">
+											<div class="userName">
+												<i class="fa-solid fa-circle-user"></i> User Name Surname
+											</div>
+											<div class="userMail my-1">
+												<i class="fa-solid fa-at"></i> user email.com
+											</div>
+											<div class="userMessage d-flex">
+												<i class="fa-solid fa-envelope me-1"></i> <span class="messageText rounded-2 p-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est numquam corrupti obcaecati perferendis? Sunt est deserunt dignissimos modi architecto saepe obcaecati quam, ut rem voluptatem consequatur cupiditate ab exercitationem dolorem?</span>
+											</div>
+										</div> 
+										<div class="message rounded-2 p-2">
+											<div class="userName">
+												<i class="fa-solid fa-circle-user"></i> User Name Surname
+											</div>
+											<div class="userMail my-1">
+												<i class="fa-solid fa-at"></i> user email.com
+											</div>
+											<div class="userMessage d-flex">
+												<i class="fa-solid fa-envelope me-1"></i> <span class="messageText rounded-2 p-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est numquam corrupti obcaecati perferendis? Sunt est deserunt dignissimos modi architecto saepe obcaecati quam, ut rem voluptatem consequatur cupiditate ab exercitationem dolorem?</span>
+											</div>
+										</div> 
+										<div class="message rounded-2 p-2">
+											<div class="userName">
+												<i class="fa-solid fa-circle-user"></i> User Name Surname
+											</div>
+											<div class="userMail my-1">
+												<i class="fa-solid fa-at"></i> user email.com
+											</div>
+											<div class="userMessage d-flex">
+												<i class="fa-solid fa-envelope me-1"></i> <span class="messageText rounded-2 p-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est numquam corrupti obcaecati perferendis? Sunt est deserunt dignissimos modi architecto saepe obcaecati quam, ut rem voluptatem consequatur cupiditate ab exercitationem dolorem?</span>
+											</div>
+										</div> 
+										<div class="message rounded-2 p-2">
+											<div class="userName">
+												<i class="fa-solid fa-circle-user"></i> User Name Surname
+											</div>
+											<div class="userMail my-1">
+												<i class="fa-solid fa-at"></i> user email.com
+											</div>
+											<div class="userMessage d-flex">
+												<i class="fa-solid fa-envelope me-1"></i> <span class="messageText rounded-2 p-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est numquam corrupti obcaecati perferendis? Sunt est deserunt dignissimos modi architecto saepe obcaecati quam, ut rem voluptatem consequatur cupiditate ab exercitationem dolorem?</span>
+											</div>
+										</div> 
+										
+									</div>
 									
 								</div>
 							</div>
