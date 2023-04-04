@@ -29,12 +29,12 @@
                     </div>                
                 </div>
 
-                <div class="row">
+                <div class="row d-flex justify-content-between">
                     <div class="col-12 col-md-5 mt-2">
                         <label for="" class="control-label">
                             <strong>Prezzo*:</strong> 
                         </label>
-                        <input type="text" name="prezzo" id="" class="form-control" placeholder="" >
+                        <input type="text" name="prezzo" id="" class="form-control" placeholder="&euro;/notte" >
                     </div>
     
                     <div class="col-12 col-md-5 mt-2">
@@ -45,37 +45,44 @@
                     </div>
                 </div>
 
+                <hr class="mt-5 mb-5">
 
-                <div class="row">
+                <div class="row mt-4">
+                    <h3 class="mb-4">Dettagli appartamento <i class="fa-solid fa-list"></i></h3>
                     <div class="col-12 col-md-4 mt-3">
-                        <label  class="control-label" for="">
-                            <strong>Stanze*:</strong> 
-                        </label>
-                        <input type="number" id="numero_di_stanze" name="numero_di_stanze" min="" max="">
+                        <div>
+                            <label  class="control-label" for="">
+                                <strong>Stanze*:</strong> 
+                            </label>
+                            <input type="number" id="numero_di_stanze" name="numero_di_stanze" min="" max="">
+                        </div>
+                        <div class="mt-3">
+                            <label  class="control-label" for="">
+                                <strong>Bagni*:</strong> 
+                            </label>
+                            <input class="ms-2" type="number" id="numero_di_bagni" name="numero_di_bagni" min="" max="">
+                        </div>
                     </div>
+    
                     <div class="col-12 col-md-4 mt-3">
-                        <label  class="control-label" for="">
-                            <strong>Bagni*:</strong> 
-                        </label>
-                        <input type="number" id="numero_di_bagni" name="numero_di_bagni" min="" max="">
-                    </div>
-                    <div class="col-12 col-md-4 mt-3">
-                        <label  class="control-label" for="">
-                            <strong>Numero di letti*:</strong> 
-                        </label>
-                        <input type="number" id="numero_di_letti" name="numero_di_letti">
-                    </div>
-                    <div class="col-12 col-md-4 mt-3">
-                        <label  class="control-label" for="">
-                            <strong>Metri quadri*:</strong> 
-                        </label>
-                        <input type="number" id="metri_quadri" name="metri_quadri">
+                        <div>
+                            <label  class="control-label" for="">
+                                <strong>Numero di letti*:</strong> 
+                            </label>
+                            <input  type="number" id="numero_di_letti" name="numero_di_letti">
+                        </div>
+                        <div class="mt-3">
+                            <label  class="control-label" for="">
+                                <strong>Metri quadrati*:</strong> 
+                            </label>
+                            <input class="ms-1"  type="number" id="metri_quadri" name="metri_quadri">
+                        </div>
                     </div>
                 </div>
 
                 <div class="form-group my-3">
-                    <label for="" class="control-label d-flex flex-wrap">
-                       <strong>Servizi:</strong> 
+                    <label for="" class="control-label d-flex flex-wrap mt-5">
+                       <strong>Servizi*:</strong> 
                     </label>
                     @foreach($services as $service)     
                     <div class="btn-group mt-2" role="group">
@@ -85,6 +92,9 @@
                     @endforeach
                 </div>
 
+                <div class="mt-5">
+                    <h3>Posizione <i class="fa-solid fa-location-dot"></i></h3>
+                </div>
                 <div class="d-flex gap-3">
                     <div class="form-group my-3">
                         <label for="" class="control-label">
