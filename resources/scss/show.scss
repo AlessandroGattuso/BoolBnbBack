@@ -38,64 +38,76 @@
 }
 
 .sponsorshipsContainer {
-	.card {
-		border: none;
+	.overflow_container {
+		overflow-x: scroll;
 
-		.card-body {
+		.card_container {
+			width: fit-content;
 
-			.img-container {
-				text-align: center;
+			.card {
+				border: none;
+				width: 190px;
+				height: 300px;
 
-				img {
-					width: 50%;
+				.card-body {
+
+					.img-container {
+						text-align: center;
+
+						img {
+							width: 50%;
+						}
+					}
+				}
+
+				&.sponsorship-Basic {
+					.card-header {
+						background-color: $brand-blue;
+					}
+
+					.card-body {
+						background-color: rgba($brand-blue, 0.3);
+					}
+
+					.card-footer {
+						background-color: $brand-blue;
+					}
+				}
+
+				&.sponsorship-Standard {
+					.card-header {
+						background-color: $brand-yellow;
+					}
+
+					.card-body {
+						background-color: rgba($brand-yellow, 0.3);
+					}
+
+					.card-footer {
+						background-color: $brand-yellow;
+					}
+				}
+
+				&.sponsorship-Premium {
+
+					.card-header {
+						background-color: $brand-red;
+					}
+
+					.card-body {
+						background-color: rgba($brand-red, 0.3);
+					}
+
+					.card-footer {
+						background-color: $brand-red;
+					}
+
 				}
 			}
 		}
-
-		&.sponsorship-Basic {
-			.card-header {
-				background-color: $brand-blue;
-			}
-
-			.card-body {
-				background-color: rgba($brand-blue, 0.3);
-			}
-
-			.card-footer {
-				background-color: $brand-blue;
-			}
-		}
-
-		&.sponsorship-Standard {
-			.card-header {
-				background-color: $brand-yellow;
-			}
-
-			.card-body {
-				background-color: rgba($brand-yellow, 0.3);
-			}
-
-			.card-footer {
-				background-color: $brand-yellow;
-			}
-		}
-
-		&.sponsorship-Premium {
-
-			.card-header {
-				background-color: $brand-red;
-			}
-
-			.card-body {
-				background-color: rgba($brand-red, 0.3);
-			}
-
-			.card-footer {
-				background-color: $brand-red;
-			}
-
-		}
 	}
+
+
 
 }
 
