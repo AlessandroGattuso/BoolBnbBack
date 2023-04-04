@@ -17,7 +17,7 @@ use App\Http\Controllers\Admin\SponsorshipController as SponsorshipController;
 */
 
 Route::get('/', function () {
-	return view('welcome');
+	return view('auth.login');
 });
 Route::get('/checkout', 'App\Http\Controllers\StripeController@checkout')->name('checkout');
 Route::post('/session', 'App\Http\Controllers\StripeController@session')->name('session');
