@@ -100,7 +100,7 @@
                         <h5 class="fw-bold mt-2 d-flex justify-content-between">Prezzo <span>&euro; {{ $apartment->prezzo ? $apartment->prezzo : 'Non specificato' }}<span class="fw-light fs-6"> / notte</span></span></h5>
                         <hr>
                         <!-- Servizi -->
-                       <div class="col-12 col-md-6 mt-1">
+                       <div class="col-12 mt-1">
                            <div class="mb-3">
                                <h5 class="fw-bold">Servizi</h5>
                                <p class="m-0 overflow-y-scroll">
@@ -116,76 +116,78 @@
                                </p>
                            </div>
                        </div>
-                        <!-- Dettagli appartamento -->
-                        <div class="d-flex mb-3">
-                            <div class="text-center me-3 pt-3 border-end border-start px-3">
-                                <div class="d-flex align-items-center border rounded p-2 mb-3 shadow">
-                                    <img class="img-size-40 me-2" src="{{ URL::asset('img/stanze.png')}}" alt="">
-                                    <h5 class="fw-light fs-6"> Stanze</h5>
-                                </div>
-                                <span class="fw-medium fs-4">{{ $apartment->numero_di_stanze ? $apartment->numero_di_stanze : 'Non specificato' }}</span>
-                            </div>
-                            <div class="text-center me-3 pt-3 border-end pe-3">
-                                <div class="d-flex align-items-center border rounded p-2 mb-3 shadow">
-                                    <img class="img-size-40 me-2" src="{{ URL::asset('img/letti.png')}}" alt="">
-                                    <h5 class="fw-light fs-6"> Letti</h5>
-                                </div>
-                                <span class="fw-medium fs-4">{{ $apartment->numero_di_letti ? $apartment->numero_di_letti : 'Non specificato' }}</span>
-                            </div>
-                            <div class="text-center me-3 pt-3 border-end pe-3">
-                                <div class="d-flex align-items-center border rounded p-2 mb-3  shadow">
-                                    <img class="img-size-40 me-2" src="{{ URL::asset('img/bagni(1).png')}}" alt="">
-                                    <h5 class="fw-light fs-6"> Bagni</h5>
-                                </div>
-                                <span class="fw-medium fs-4">{{ $apartment->numero_di_bagni ? $apartment->numero_di_bagni : 'Non specificato' }}</span>
-                            </div>
-                            <div class="text-center me-3 pt-3 border-end pe-3">  
-                                <div class="d-flex align-items-center border rounded p-2 mb-3  shadow">
-                                    <img class="img-size-40 me-2" src="{{ URL::asset('img/dimensione.png')}}" alt="">
-                                    <h5 class="fw-light fs-6"> Dimensione</h5>
-                                </div>
-                                <span class="fw-medium fs-4">{{ $apartment->metri_quadri ? $apartment->metri_quadri : 'Non specificato' }} mq</span>
-                            </div>
+                       
+                       <!-- Dettagli appartamento -->
+                           <div class="d-flex flex-wrap flex-md-nowrap mb-3">
+                               <div class="col-12 col-md-4 text-center me-3 pt-3 border-end ">
+                                   <div class="d-flex align-items-center border rounded p-2 mb-3 me-3 shadow">
+                                       <img class="img-size-40 me-2" src="{{ URL::asset('img/stanze.png')}}" alt="">
+                                       <h5 class="fw-light fs-6"> Stanze</h5>
+                                   </div>
+                                   <span class="fw-medium fs-4">{{ $apartment->numero_di_stanze ? $apartment->numero_di_stanze : 'Non specificato' }}</span>
+                               </div>
+                               <div class="col-12 col-md-4 text-center me-3 pt-3 border-end pe-3">
+                                   <div class="d-flex align-items-center border rounded p-2 mb-3 shadow">
+                                       <img class="img-size-40 me-2" src="{{ URL::asset('img/letti.png')}}" alt="">
+                                       <h5 class="fw-light fs-6"> Letti</h5>
+                                   </div>
+                                   <span class="fw-medium fs-4">{{ $apartment->numero_di_letti ? $apartment->numero_di_letti : 'Non specificato' }}</span>
+                               </div>
+                               <div class="col-12 col-md-4 text-center me-3 pt-3 border-end pe-3">
+                                   <div class="d-flex align-items-center border rounded p-2 mb-3 me-2 shadow">
+                                       <img class="img-size-40 me-2" src="{{ URL::asset('img/bagni(1).png')}}" alt="">
+                                       <h5 class="fw-light fs-6"> Bagni</h5>
+                                   </div>
+                                   <span class="fw-medium fs-4">{{ $apartment->numero_di_bagni ? $apartment->numero_di_bagni : 'Non specificato' }}</span>
+                               </div>
+                               <div class="col-12 col-md-4 text-center me-3 pt-3 pe-3">  
+                                   <div class="d-flex align-items-center border rounded p-2 mb-3  shadow">
+                                       <img class="img-size-40 me-2" src="{{ URL::asset('img/dimensione.png')}}" alt="">
+                                       <h5 class="fw-light fs-6"> Dimensione</h5>
+                                   </div>
+                                   <span class="fw-medium fs-4">{{ $apartment->metri_quadri ? $apartment->metri_quadri : 'Non specificato' }} mq</span>
+                               </div>
+                           </div>
+                       </div>
+                       <h5 class="fw-bold mb-2">Visibile: <span class="fw-light">@if($apartment->visible == 1) si @else no @endif</span></h5>
+                    </div>
+                    
+                    <!-- Sponsorship -->
+                    <div class="col-12 col-md-6">
+                        <div class="mb-3">
+                            <h5 class="fw-bold">Sponsorship attive:</h5>
                         </div>
-                        
-                        <h5 class="fw-bold mb-2">Visibile: <span class="fw-light">@if($apartment->visible == 1) si @else no @endif</span></h5>
+            
+                        <div class="d-md-flex">
+                            @if(count($apartment->sponsorships) > 0)
+                                @foreach( $apartment->sponsorships as $sponsorship)
+                                    <div class="card mb-3 me-3" style="width: 18rem;">
+                                        <img src="https://picsum.photos/300/200" class="card-img-top" alt="https://picsum.photos/300/200">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-end mb-3">
+                                                <h5 class="card-title m-0 me-2">Tipo: </h5>
+                                                <p class="card-text">{{ $sponsorship->titolo }}</p>
+                                            </div>
+                                            <div class="d-flex align-items-end mb-3">
+                                                <h5 class="card-title m-0 me-2">Prezzo: </h5>
+                                                <p class="card-text">€ {{ $sponsorship->prezzo }}</p>
+                                            </div>
+                                            <div class="d-flex align-items-end mb-3">
+                                                <h5 class="card-title m-0 me-2">Durata: </h5>
+                                                <p class="card-text">{{ $sponsorship->ore_valide }} h</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                                <a class="btn btn-sm bg_color_light_blue me-3 text-white" href="{{ route('admin.sponsorships.index', $apartment->slug) }}">Attiva una Sponsorship</a>
+                            @else
+                                <p class="m-0 me-3">Nessuna sponsorships attiva</p>
+                                <a class="btn btn-sm bg_color_light_blue me-3 text-white" href="{{ route('admin.sponsorships.index', $apartment->slug) }}">Attiva una Sponsorship</a>
+                            @endif
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Sponsorship -->
-                <div class="col-12 col-md-6">
-                    <div class="mb-3">
-                        <h5 class="fw-bold">Sponsorship attive:</h5>
-                    </div>
-    
-                    <div class="d-md-flex">
-                        @if(count($apartment->sponsorships) > 0)
-                            @foreach( $apartment->sponsorships as $sponsorship)
-                                <div class="card mb-3 me-3" style="width: 18rem;">
-                                    <img src="https://picsum.photos/300/200" class="card-img-top" alt="https://picsum.photos/300/200">
-                                    <div class="card-body">
-                                        <div class="d-flex align-items-end mb-3">
-                                            <h5 class="card-title m-0 me-2">Tipo: </h5>
-                                            <p class="card-text">{{ $sponsorship->titolo }}</p>
-                                        </div>
-                                        <div class="d-flex align-items-end mb-3">
-                                            <h5 class="card-title m-0 me-2">Prezzo: </h5>
-                                            <p class="card-text">€ {{ $sponsorship->prezzo }}</p>
-                                        </div>
-                                        <div class="d-flex align-items-end mb-3">
-                                            <h5 class="card-title m-0 me-2">Durata: </h5>
-                                            <p class="card-text">{{ $sponsorship->ore_valide }} h</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                            <a class="btn btn-sm bg_color_light_blue me-3 text-white" href="{{ route('admin.sponsorships.index', $apartment->slug) }}">Attiva una Sponsorship</a>
-                        @else
-                            <p class="m-0 me-3">Nessuna sponsorships attiva</p>
-                            <a class="btn btn-sm bg_color_light_blue me-3 text-white" href="{{ route('admin.sponsorships.index', $apartment->slug) }}">Attiva una Sponsorship</a>
-                        @endif
-                    </div>
-                </div>
             </div>
         </div>
     </div>
