@@ -59,7 +59,7 @@
                         <!-- Copertina appartamento -->
                         <div class="col-12 position-relative">
                             <div>
-                                <img src="{{($apartment->cover) ? asset('storage/' .$apartment->cover) : 'https://media.istockphoto.com/id/1147544807/it/vettoriale/la-commissione-per-la-immagine-di-anteprima-grafica-vettoriale.jpg?s=612x612&w=0&k=20&c=gsxHNYV71DzPuhyg-btvo-QhhTwWY0z4SGCSe44rvg4='}}" alt="" class="rounded w-100" style="max-height: 300px">
+                                <img src="{{($apartment->cover) ? asset('storage/' .$apartment->cover) : 'https://media.istockphoto.com/id/1147544807/it/vettoriale/la-commissione-per-la-immagine-di-anteprima-grafica-vettoriale.jpg?s=612x612&w=0&k=20&c=gsxHNYV71DzPuhyg-btvo-QhhTwWY0z4SGCSe44rvg4='}}" alt="" class="rounded w-100 max-height">
                             </div>
                             <div class="row mt-2 me-3">
                                 <div class="col-12 col-md-3 mb-2 d-flex">
