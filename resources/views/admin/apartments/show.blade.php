@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container pb-3">
-        <div class="col-12 col-md-9 d-flex">
+        <div class="col-12 col-md-9 d-flex mt-4">
             <a href="{{ route('admin.apartments.index') }}" role="button"><i class="fa-solid fa-circle-arrow-left fs-3 me-2 mt-2 btn-hover" style="color: #3FA9F5"></i></a>
             <h2 class="fw-bolder">{{ $apartment->descrizione ? $apartment->descrizione : 'Nome non specificato' }}</h2>
         </div>
