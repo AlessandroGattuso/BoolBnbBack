@@ -24,17 +24,79 @@
 	}
 }
 
-.max-height{
+.max-height {
 	max-height: 450px;
 	object-fit: cover;
 }
 
-.img-size{
+.img-size {
 	height: 25px;
 }
 
-.img-size-40{
+.img-size-40 {
 	height: 40px;
+}
+
+.sponsorshipsContainer {
+	.card {
+		border: none;
+
+		.card-body {
+
+			.img-container {
+				text-align: center;
+
+				img {
+					width: 50%;
+				}
+			}
+		}
+
+		&.sponsorship-Basic {
+			.card-header {
+				background-color: $brand-blue;
+			}
+
+			.card-body {
+				background-color: rgba($brand-blue, 0.3);
+			}
+
+			.card-footer {
+				background-color: $brand-blue;
+			}
+		}
+
+		&.sponsorship-Standard {
+			.card-header {
+				background-color: $brand-yellow;
+			}
+
+			.card-body {
+				background-color: rgba($brand-yellow, 0.3);
+			}
+
+			.card-footer {
+				background-color: $brand-yellow;
+			}
+		}
+
+		&.sponsorship-Premium {
+
+			.card-header {
+				background-color: $brand-red;
+			}
+
+			.card-body {
+				background-color: rgba($brand-red, 0.3);
+			}
+
+			.card-footer {
+				background-color: $brand-red;
+			}
+
+		}
+	}
+
 }
 
 #offcanvasMessages {
