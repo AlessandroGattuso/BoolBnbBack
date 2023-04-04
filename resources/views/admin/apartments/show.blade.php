@@ -154,37 +154,51 @@
                     
                     <!-- Sponsorship -->
                     <div class="col-12 col-md-6">
-                        <div class="mb-3">
+                        <div class="mb-1">
                             <h5 class="fw-bold">Sponsorship attive:</h5>
                         </div>
             
-                        <div class="d-md-flex">
-                            @if(count($apartment->sponsorships) > 0)
-                                @foreach( $apartment->sponsorships as $sponsorship)
-                                    <div class="card mb-3 me-3" style="width: 18rem;">
-                                        <img src="https://picsum.photos/300/200" class="card-img-top" alt="https://picsum.photos/300/200">
-                                        <div class="card-body">
-                                            <div class="d-flex align-items-end mb-3">
-                                                <h5 class="card-title m-0 me-2">Tipo: </h5>
-                                                <p class="card-text">{{ $sponsorship->titolo }}</p>
+                    <div class="col-12">
+                        @if(count($apartment->sponsorships) > 0)
+                            <div class="row sponsorshipsContainer px-3 ">
+                                <div class="col-12 d-md-flex overflow_container pb-2">
+                                    @foreach( $apartment->sponsorships as $sponsorship)
+                                    <div class="card_container m-2 p-0">
+                                        <!-- Card -->
+                                        <div class="card sponsorship-{{ $sponsorship->titolo}} w-md-100">
+                                            <!-- Header -->
+                                            <div class="card-header text-center text-white">
+                                                <h3 class="mb-0"> {{ $sponsorship->titolo }} </h3>
                                             </div>
-                                            <div class="d-flex align-items-end mb-3">
-                                                <h5 class="card-title m-0 me-2">Prezzo: </h5>
-                                                <p class="card-text">€ {{ $sponsorship->prezzo }}</p>
+                                            <!-- Body -->
+                                            <div class="card-body py-5">
+                                                <div class="img-container mb-2 h-100">
+                                                    <img src="{{ URL::asset('img/vetrina-'.$sponsorship->id.'.png')}}" alt="">
+                                                </div>
                                             </div>
-                                            <div class="d-flex align-items-end mb-3">
-                                                <h5 class="card-title m-0 me-2">Durata: </h5>
-                                                <p class="card-text">{{ $sponsorship->ore_valide }} h</p>
+                                            <!-- Footer -->
+                                            <div class="card-footer d-flex justify-content-center">
+                                                <div class="price">
+                                                    <strong class="fs-2 text-white">
+                                                        {{ $sponsorship->ore_valide }} h
+                                                    </strong>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                @endforeach
-                                <a class="btn btn-sm bg_color_light_blue me-3 text-white" href="{{ route('admin.sponsorships.index', $apartment->slug) }}">Attiva una Sponsorship</a>
-                            @else
-                                <p class="m-0 me-3">Nessuna sponsorships attiva</p>
-                                <a class="btn btn-sm bg_color_light_blue me-3 text-white" href="{{ route('admin.sponsorships.index', $apartment->slug) }}">Attiva una Sponsorship</a>
-                            @endif
-                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-12">
+                                    <a class="btn btn-sm bg_color_light_blue me-3 text-white" href="{{ route('admin.sponsorships.index', $apartment->slug) }}">Attiva una Sponsorship</a>
+                                </div>
+                            </div>
+                        @else
+                            <p class="m-0 me-3">Nessuna sponsorships attiva</p>
+                            <a class="btn btn-sm bg_color_light_blue me-3 text-white" href="{{ route('admin.sponsorships.index', $apartment->slug) }}">Attiva una Sponsorship</a>
+                        @endif
+                    </div>
                     </div>
                 </div>
                 
