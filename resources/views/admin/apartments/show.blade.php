@@ -161,11 +161,11 @@
                     <div class="col-12">
                         @if(count($apartment->sponsorships) > 0)
                             <div class="row sponsorshipsContainer px-3 ">
-                                <div class="col-12 d-flex overflow_container pb-2">
+                                <div class="col-12 d-md-flex overflow_container pb-2">
                                     @foreach( $apartment->sponsorships as $sponsorship)
-                                    <div class="card_container mx-2 p-0">
+                                    <div class="card_container m-2 p-0">
                                         <!-- Card -->
-                                        <div class="card sponsorship-{{ $sponsorship->titolo}}">
+                                        <div class="card sponsorship-{{ $sponsorship->titolo}} w-md-100">
                                             <!-- Header -->
                                             <div class="card-header text-center text-white">
                                                 <h3 class="mb-0"> {{ $sponsorship->titolo }} </h3>
