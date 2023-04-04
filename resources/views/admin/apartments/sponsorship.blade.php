@@ -8,9 +8,9 @@
 			</div>
 				{{-- ciclo del sponsorship --}}
             @foreach( $sponsorships as $sponsorship)
-                <div class="col-12 col-md-4 pt-5 my-3">
+                <div class="col-12 col-lg-4 pt-5 my-3">
 							{{-- card --}}
-                    <div class="card mb-3 mx-3 sponsorship-{{ $sponsorship->titolo}}" style="width: 18rem;">
+                    <div class="card mb-3 mx-3 sponsorship-{{ $sponsorship->titolo}}">
 								{{-- header  --}}
 								<div class="card-header text-center text-white">
 									<h3 class="mb-0"> {{ $sponsorship->titolo }} </h3>
