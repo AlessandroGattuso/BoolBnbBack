@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Validation\Rule;
 
 class LoginRequest extends FormRequest
 {
@@ -27,10 +28,18 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => ['required', 'string', 'email'],
-            'password' => ['required', 'string'],
+            'email' => ['required', 'string', 'email', 'exists:users,email'],
+            'password' => ['required', function ($attribute, $value, $fail) {
+                    $credentials = $this->only('email', 'password');
+
+                    if (!Auth::attempt($credentials)) {
+                        $fail('Le tue credenziali sono errate');
+                    }
+                }
+            ],
         ];
     }
+
 
     /**
      * Attempt to authenticate the request's credentials.
@@ -45,7 +54,8 @@ class LoginRequest extends FormRequest
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-                'email' => trans('Queste credenziali non corrispondono ai nostri registri'),
+                'email' => trans('Questa e-mail non è valida'),
+                'password' => trans('La password non è valida'),
             ]);
         }
 
@@ -88,7 +98,9 @@ class LoginRequest extends FormRequest
 		return [
             'email.required' => 'Email obbligatoria',
             'email.email' => 'L\'e-mail deve essere un indirizzo e-mail valido',
+            'email.exists' => 'L\'e-mail non esiste nei nostri registri',
             'password.required' => 'Password obbligatoria',
+            'failed' => __('The :attribute does not match your current password.'),
 		];
 	}
 }
