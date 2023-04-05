@@ -9,8 +9,8 @@
                     <h2 class="m-0">Ciao <span class="text-capitalize">{{$userName}}</span></h2>
                     <div class="d-flex">
                         <h4 class="num-appartamenti m-0 me-2">Appartamenti aggiunti: <span class="fw-bold">{{count($apartments)}}</span></h4>
-                        <a href="{{route('admin.apartments.create')}}" title="Aggiungi un appartamento">
-                            <button class="btn btn-square btn-success"><i class="fa-solid fa-plus fa-lg"></i></button>
+                        <a href="{{route('admin.apartments.create')}}" title="Aggiungi un appartamento" class="d-flex align-items-center px-1 rounded-1" id="addAp">
+                           <img src="{{ URL::asset('/img/home-plus.png')}}" alt="" id="home-plus">
                         </a>
                     </div>
                 </div>
