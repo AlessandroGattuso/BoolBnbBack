@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Sponsorship;
 
 
 class StripeController extends Controller
@@ -12,8 +13,11 @@ class StripeController extends Controller
         return view('admin.stripe.checkout');
     }
 
-    public function session()
+    public function session($sponsorship_id)
     {
+        $sponsorship = Sponsorship::where('id', $sponsorship_id)->first();
+        $sponsorship->prezzo = str_replace(".", "", $sponsorship->prezzo);
+        /* dd($sponsorship->prezzo); */
         \Stripe\Stripe::setApiKey(config('stripe.sk'));
 
         $session = \Stripe\Checkout\Session::create([
@@ -22,9 +26,9 @@ class StripeController extends Controller
                     'price_data' => [
                         'currency'     => 'eur',
                         'product_data' => [
-                            'name' => 'Appartamento',
+                            'name' => $sponsorship->titolo,
                         ],
-                        'unit_amount'  => 1000,
+                        'unit_amount'  => $sponsorship->prezzo,
                     ],
                     'quantity'   => 1,
                 ],

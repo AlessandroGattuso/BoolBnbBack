@@ -2,10 +2,9 @@
 
 @section('content')
     <div class="container w-75" id="sponsorshipsContainer">
-		{{ $apartment}}
 		 <div class="row mt-5 px-4">
 			<div class="col-12">
-				<h1 class="text-center mb-0">SPONSORIZZA E METTI IN VETRINA IL TUO APPARTEMENTO</h1>
+				<h1 class="text-center mb-0">SPONSORIZZA E METTI IN VETRINA IL TUO APPARTAMENTO</h1>
 			</div>
 				{{-- ciclo del sponsorship --}}
             @foreach( $sponsorships as $sponsorship)
@@ -52,7 +51,7 @@
 							</div>
 							{{-- submit --}}
 							<div class="text-center mb-3">
-								 <form action="/session" method="POST">
+								 <form action="/session/{{$sponsorship->id}}" method="POST">
 									  <input type="hidden" name="_token" value="{{csrf_token()}}">
 									  <button class="btn btn-success w-50" type="submit" id="checkout-live-button">Attiva</button>
 								 </form>

@@ -15,8 +15,7 @@ class SponsorshipController extends Controller
     
     public function index($slug)
     {
-        $apartment = Apartment::all()->where('slug', $slug);
-        /* dd($apartment); */
+        $apartment = Apartment::where('slug', $slug)->first();
         $sponsorships = Sponsorship::all();
         
 		return view('admin.apartments.sponsorship', compact('sponsorships', 'apartment'));

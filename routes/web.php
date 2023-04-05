@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\ProfileController as ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ApartmentController as ApartmentController;
 use App\Http\Controllers\Admin\SponsorshipController as SponsorshipController;
+use App\Http\Controllers\StripeController as StripeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,7 @@ Route::get('/', function () {
 	return view('auth.login');
 });
 Route::get('/checkout', 'App\Http\Controllers\StripeController@checkout')->name('checkout');
-Route::post('/session', 'App\Http\Controllers\StripeController@session')->name('session');
+Route::post('/session/{sponsorship_id}', [StripeController::class, 'session' ])->name('session');
 Route::get('/success', 'App\Http\Controllers\StripeController@success')->name('success');
 
 Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(function () {
