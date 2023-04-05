@@ -43,7 +43,18 @@ class StripeController extends Controller
 
     public function success($sponsorship_id, $apartment_id)
     {
-        
+        $sponsorship = Sponsorship::where('id', $sponsorship_id)->first();
+        $data_inizio = date('Y-m-d');
+        if($sponsorship->ore_valide == 24){
+            $data_scadenza = date('Y-m-d', strtotime($data_inizio. ' + 1 days'));
+        }
+        elseif ($sponsorship->ore_valide == 72) {
+            $data_scadenza = date('Y-m-d', strtotime($data_inizio. ' + 3 days'));
+        }
+        else{
+            $data_scadenza = date('Y-m-d', strtotime($data_inizio. ' + 6 days'));
+        }
+        dd($data_inizio, $data_scadenza, $apartment_id, $sponsorship_id);
         /* dd($sponsorship_id, $apartment_id); */
         return view('admin.stripe.success');
     }
