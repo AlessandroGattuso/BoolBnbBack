@@ -41,7 +41,7 @@
             <div class="row">
                 @if(count($apartments) > 0)
                     @foreach ($apartments as $item)
-                        <div class="col-12 col-md-4 px-4 mb-5">
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 px-2 mb-5">
                             <div class="apartment_card rounded p-2" title="Visualizza i dettagli dell'appartamento">
                                 <a href="{{route('admin.apartments.show',$item->slug)}}" class="text-black">
                                     <div class="card_img_container">
