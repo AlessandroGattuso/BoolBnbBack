@@ -46,6 +46,7 @@ class StripeController extends Controller
     {
         $sponsorship = Sponsorship::where('id', $sponsorship_id)->first();
         $apartment = Apartment::where('id', $apartment_id)->first();
+        $slug = $apartment->slug;
         $data_inizio = date('Y-m-d');
 
         if($sponsorship->ore_valide == 24){
@@ -66,10 +67,10 @@ class StripeController extends Controller
             'apartment_id' => $apartment_id,
             'sponsorship_id' => $sponsorship_id
         );
-        dd($newSponsorship);
-        $apartment->sponsorships()->attach($newSponsorship);
+        /* dd($newSponsorship);
+        $apartment->sponsorships()->attach($newSponsorship); */
         /* dd($apartment->sponsorships); */
         
-        return view('admin.stripe.success');
+        return view('admin.stripe.success', compact('slug'));
     }
 }
