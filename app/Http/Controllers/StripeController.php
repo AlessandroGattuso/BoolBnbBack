@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Sponsorship;
+use App\Models\Apartment;
 
 
 class StripeController extends Controller
@@ -44,7 +45,9 @@ class StripeController extends Controller
     public function success($sponsorship_id, $apartment_id)
     {
         $sponsorship = Sponsorship::where('id', $sponsorship_id)->first();
+        $apartment = Apartment::where('id', $apartment_id)->first();
         $data_inizio = date('Y-m-d');
+
         if($sponsorship->ore_valide == 24){
             $data_scadenza = date('Y-m-d', strtotime($data_inizio. ' + 1 days'));
         }
@@ -54,8 +57,19 @@ class StripeController extends Controller
         else{
             $data_scadenza = date('Y-m-d', strtotime($data_inizio. ' + 6 days'));
         }
-        dd($data_inizio, $data_scadenza, $apartment_id, $sponsorship_id);
-        /* dd($sponsorship_id, $apartment_id); */
+        $apartment_id = (int)$apartment_id;
+        $sponsorship_id = (int)$sponsorship_id;
+
+        $newSponsorship = array(
+            'data_inizio' => $data_inizio,
+            'data_scadenza' => $data_scadenza,
+            'apartment_id' => $apartment_id,
+            'sponsorship_id' => $sponsorship_id
+        );
+        dd($newSponsorship);
+        $apartment->sponsorships()->attach($newSponsorship);
+        /* dd($apartment->sponsorships); */
+        
         return view('admin.stripe.success');
     }
 }
