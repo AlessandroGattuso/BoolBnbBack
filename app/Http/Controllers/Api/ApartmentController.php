@@ -18,23 +18,29 @@ class ApartmentController extends Controller
     }
 
     public function getFilteredApartments(Request $request){
-        $apartments = Apartment::with('services', 'sponsorships', 'position')
-                                ->where('numero_di_letti', '>=',$request['minBeds'])
-                                ->where('numero_di_bagni', '>=',$request['minBaths'])
-                                ->where('visible', 1)
-                                ->paginate();
+    
+        $apartments = Apartment::with('sponsorships', 'position')
+                                    ->where('numero_di_letti', '>=',$request['minBeds'])
+                                    ->where('numero_di_bagni', '>=',$request['minBaths'])
+                                    ->where('visible', 1)
+                                    ->paginate();
         
         $result = [];
         if($request['services'] != null){
-            foreach($request['services'] as $service){
-               foreach($apartments as $apartment){
+            $flag2 = true;
+
+            foreach($apartments as $apartment){
+                foreach($request['services'] as $service){
+                    $flag1 = false;
                     foreach($apartment['services'] as $apartService){
-                        if($apartService->nome == $service){
-                            array_push($result,$apartment);
-                            break;
-                        }
+                        if($apartService->nome == $service)
+                            $flag1 = true;
                     }
-               }
+                    if(!$flag1)
+                        $flag2 = false;
+                }
+                if($flag2 == true)
+                    array_push($result,$apartment);
             };
             return response()->json([
                 'success' => true,
