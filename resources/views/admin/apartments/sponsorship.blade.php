@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container w-75" id="sponsorshipsContainer">
+		{{ $apartment}}
 		 <div class="row mt-5 px-4">
 			<div class="col-12">
 				<h1 class="text-center mb-0">SPONSORIZZA E METTI IN VETRINA IL TUO APPARTEMENTO</h1>

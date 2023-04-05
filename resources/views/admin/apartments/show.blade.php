@@ -191,12 +191,12 @@
                             </div>
                             <div class="row mt-3">
                                 <div class="col-12">
-                                    <a class="btn btn-sm bg_color_light_blue me-3 text-white" href="{{ route('admin.sponsorships.index', $apartment->slug) }}">Attiva una Sponsorship</a>
+                                    <a class="btn btn-sm bg_color_light_blue me-3 text-white" href="{{ route('admin.sponsorships', ['slug' => $apartment->slug]) }}">Attiva una Sponsorship</a>
                                 </div>
                             </div>
                         @else
                             <p class="m-0 me-3">Nessuna sponsorships attiva</p>
-                            <a class="btn btn-sm bg_color_light_blue me-3 text-white" href="{{ route('admin.sponsorships.index', $apartment->slug) }}">Attiva una Sponsorship</a>
+                            <a class="btn btn-sm bg_color_light_blue me-3 text-white" href="{{ route('admin.sponsorships', ['slug' => $apartment->slug]) }}">Attiva una Sponsorship</a>
                         @endif
                     </div>
                     </div>
