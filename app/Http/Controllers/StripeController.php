@@ -65,11 +65,14 @@ class StripeController extends Controller
             'data_inizio' => $data_inizio,
             'data_scadenza' => $data_scadenza,
             'apartment_id' => $apartment_id,
-            'sponsorship_id' => $sponsorship_id
+            'sponsorship_id' => $sponsorship_id,
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+
         );
-        /* dd($newSponsorship);
-        $apartment->sponsorships()->attach($newSponsorship); */
-        /* dd($apartment->sponsorships); */
+        /* dd($newSponsorship); */
+        $apartment->sponsorships()->attach($newSponsorship);
+        dd($apartment->sponsorships);
         
         return view('admin.stripe.success', compact('slug'));
     }
