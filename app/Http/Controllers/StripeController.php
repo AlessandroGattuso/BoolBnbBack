@@ -13,7 +13,7 @@ class StripeController extends Controller
         return view('admin.stripe.checkout');
     }
 
-    public function session($sponsorship_id)
+    public function session($sponsorship_id, $apartment_id)
     {
         $sponsorship = Sponsorship::where('id', $sponsorship_id)->first();
         $sponsorship->prezzo = str_replace(".", "", $sponsorship->prezzo);
@@ -34,15 +34,17 @@ class StripeController extends Controller
                 ],
             ],
             'mode'        => 'payment',
-            'success_url' => route('success'),
+            'success_url' => route('success', ['sponsorship_id'=> $sponsorship_id, 'apartment_id' => $apartment_id]),
             'cancel_url'  => route('checkout'),
         ]);
 
         return redirect()->away($session->url);
     }
 
-    public function success()
+    public function success($sponsorship_id, $apartment_id)
     {
+        
+        /* dd($sponsorship_id, $apartment_id); */
         return view('admin.stripe.success');
     }
 }

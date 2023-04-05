@@ -51,7 +51,7 @@
 							</div>
 							{{-- submit --}}
 							<div class="text-center mb-3">
-								 <form action="/session/{{$sponsorship->id}}" method="POST">
+								 <form action="/session/{{$sponsorship->id}}/{{$apartment->id}}" method="POST">
 									  <input type="hidden" name="_token" value="{{csrf_token()}}">
 									  <button class="btn btn-success w-50" type="submit" id="checkout-live-button">Attiva</button>
 								 </form>

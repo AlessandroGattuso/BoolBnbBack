@@ -21,8 +21,8 @@ Route::get('/', function () {
 	return view('auth.login');
 });
 Route::get('/checkout', 'App\Http\Controllers\StripeController@checkout')->name('checkout');
-Route::post('/session/{sponsorship_id}', [StripeController::class, 'session' ])->name('session');
-Route::get('/success', 'App\Http\Controllers\StripeController@success')->name('success');
+Route::post('/session/{sponsorship_id}/{apartment_id}', [StripeController::class, 'session' ])->name('session');
+Route::get('/success/{sponsorship_id}/{apartment_id}', 'App\Http\Controllers\StripeController@success')->name('success');
 
 Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(function () {
 	Route::get('/', [ApartmentController::class, 'index'])->name('dashboard');
