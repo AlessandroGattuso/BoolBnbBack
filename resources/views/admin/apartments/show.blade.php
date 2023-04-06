@@ -32,7 +32,11 @@
 							<div class="offcanvas offcanvas-end offcanvas_size w-75" data-bs-backdrop="static" tabindex="-1" id="offcanvasRight"
 								aria-labelledby="offcanvasRightLabel">
 								<div class="offcanvas-header">
+									@if (count($apartment->messages) > 0)
 									<h4 class="offcanvas-title" id="offcanvasRightLabel">Messaggi di {{ $apartment->descrizione }}</h4>
+									@else
+									<h4 class="offcanvas-title" id="offcanvasRightLabel"> Non hai ricevuto messaggi per questo appartamento </h4>
+									@endif
                                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 								</div>
 								<!-- elenco messaggi -->
@@ -40,7 +44,7 @@
 									<div id="messagesContainer" class="bg-light rounded-3 p-3 ">
 										{{-- ciclo dei messaggi --}}
 										@foreach( $apartment->messages as $message)
-											<div class="message rounded-2 p-2 w-100 position-relative">
+											<div class="message rounded-2 p-3 position-relative">
 												<div class="userName">
 													<i class="fa-solid fa-circle-user"></i> User: {{ $message->nome}} {{ $message->cognome}}
 												</div>
@@ -52,7 +56,7 @@
                                                         <i class="fa-solid fa-envelope me-1"></i>
                                                         <label for="" class="form-label"> Messaggio:</label>
                                                     </div>
-                                                    <p class="messageText rounded-2 p-3 w-50"> {{ $message->contenuto }} </p>
+                                                    <p class="messageText rounded-2 p-3"> {{ $message->contenuto }} </p>
 												</div>
                                                 {{-- <form method="post" action="{{ route('message.destroy') }}" class="p-6"> 
 
