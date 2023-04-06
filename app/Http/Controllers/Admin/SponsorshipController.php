@@ -12,16 +12,13 @@ use Illuminate\Support\Facades\Auth;
 
 class SponsorshipController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    
+    public function index($slug)
     {
+        $apartment = Apartment::where('slug', $slug)->first();
         $sponsorships = Sponsorship::all();
         
-		return view('admin.apartments.sponsorship', compact('sponsorships'));
+		return view('admin.apartments.sponsorship', compact('sponsorships', 'apartment'));
 
     }
 }

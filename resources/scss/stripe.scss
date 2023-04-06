@@ -1,0 +1,15 @@
+@import './partials/variables';
+
+.success_img {
+    max-width: 200px;
+}
+
+.success_button {
+    background-color: $brand-blue;
+    color: white;
+
+    &:hover {
+        border: 2px solid $brand-blue;
+        font-weight: 600;
+    }
+}
