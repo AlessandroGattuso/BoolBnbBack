@@ -8,6 +8,7 @@
 @endpush --}}
 @section('content')
 <div class="container">
+	<h2>Visualizzazioni nel tempo</h2>
 	<canvas id="myChart"></canvas>
 </div>
 @endsection
@@ -15,6 +16,8 @@
 {{-- <script src="path/to/chartjs/dist/chart.umd.js"></script> --}}
 <script type="text/javascript">
 	const views = @JSON($views);
+	const apartments = @JSON($apartments);
+	const slug = @JSON($slug);
 	// console.log(views);
 
 </script>

@@ -28,8 +28,10 @@ Route::get('/success/{sponsorship_id}/{apartment_id}', 'App\Http\Controllers\Str
 Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(function () {
 	Route::get('/', [ApartmentController::class, 'index'])->name('dashboard');
 	Route::resource('/apartments', ApartmentController::class)->parameters(['apartments' => 'apartment:slug']);
+
 	Route::get('/sponsorships/{slug}', [SponsorshipController::class, 'index' ])->name('sponsorships');
-	Route::resource('/views', ViewsController::class)->parameters(['apartments' => 'apartment:slug']);
+  Route::get('/views/{apartment_slug}', [ViewsController::class, 'index'])->name('views');
+
 });
 
 Route::middleware('auth')->group(function () {

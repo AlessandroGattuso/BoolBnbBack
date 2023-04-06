@@ -76,7 +76,7 @@
                             </div>
                             <div class="row mt-2 me-3">
                                 <div class="col-12 col-md-3 mb-2 d-flex">
-                                    <h5 class="fw-bold mt-2 ms-4 position-absolute top-0 start-0" mb-2><span class="badge bg_color_light_blue"><i class="fa-solid fa-eye me-2"></i> {{count($apartment_views) > 0 ? count($apartment_views) : 'Nessun utente ha visualizzato il tuo apprtamento' }}</span></h5>
+                                    <a href="{{ route('admin.views', ['apartment_slug'=>$apartment->slug]) }}" class="fw-bold mt-2 ms-4 position-absolute top-0 start-0" mb-2><span class="badge bg_color_light_blue"><i class="fa-solid fa-chart-simple me-2"></i>{{count($apartment_views) > 0 ? count($apartment_views) : 'Nessun utente ha visualizzato il tuo apprtamento' }}</span></a>
                                     <div class="mb-4 me-4 position-absolute bottom-0 end-0">
                                         <a class="btn bg_color_yellow  me-1 text-white" href="{{ route('admin.apartments.edit', $apartment->slug) }}" role="button" title="Modifica il progetto"><i class="fa-solid fa-pen"></i></a>
                                         <form action="{{ route('admin.apartments.destroy', $apartment->slug) }}" class="d-inline-block" method="POST">

@@ -17,10 +17,12 @@ class ViewsController extends Controller
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
-	public function index()
+	public function index($slug)
 	{
+		// dd($slug);
 		$views = View::all();
+		$apartments = Apartment::all();
 
-		return view('admin.apartments.views', compact('views'));
+		return view('admin.apartments.views', compact('views', 'apartments', 'slug'));
 	}
 }
