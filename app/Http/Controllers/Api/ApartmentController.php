@@ -45,15 +45,19 @@ class ApartmentController extends Controller
                                     ->paginate();
         $apartments = [];
         foreach($apartmentsRes as $apartment){
+            //var_dump($this->distance($request['latitude'], $request['longitude'], $apartment->position->Latitudine,  $apartment->position->Longitudine));
             if($this->distance($request['latitude'], $request['longitude'], $apartment->position->Latitudine,  $apartment->position->Longitudine) <= $request['range'])
                 array_push($apartments, $apartment);
         }
-
+        foreach($apartments as $ap){
+            //var_dump($ap->slug);
+        }
         $result = [];
         if($request['services'] != null){
-            $flag2 = true;
-
+        
             foreach($apartments as $apartment){
+                $flag2 = false;
+                $flag3 = true;
                 foreach($request['services'] as $service){
                     $flag1 = false;
                     foreach($apartment['services'] as $apartService){
@@ -61,17 +65,27 @@ class ApartmentController extends Controller
                             $flag1 = true;
                     }
                     if(!$flag1)
-                        $flag2 = false;
+                        $flag3 = false;
+                    if($flag1 && $flag3)
+                        $flag2 = true;
                 }
-                if($flag2 == true)
+                if($flag2 && $flag3)
                     array_push($result,$apartment);
             };
+            // var_dump(' . ');
+            // var_dump(' . ');
+            // var_dump(' . ');
+            // foreach($result as $res){
+            //     var_dump($res->slug);
+            // }
+            // dump('fine');
             return response()->json([
                 'success' => true,
                 'apartments' => $result
             ]);
         }
         else{
+            //dump('fine');
             return response()->json([
                 'success' => true,
                 'apartments' => $apartments
