@@ -24,38 +24,51 @@
 							<button class="btn message_button_position message_button_style" type="button"
 							data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"
 							title="Invia un messaggio al proprietario">
-								<span class="circle_number">
+								{{-- <span class="circle_number">
 									{{ count($apartment->messages )}}
-								</span>
+								</span> --}}
 								<i class="fa-solid fa-message"></i>
 							</button>
-							<div class="offcanvas offcanvas-end offcanvas_size" tabindex="-1" id="offcanvasRight"
+							<div class="offcanvas offcanvas-end offcanvas_size w-75" data-bs-backdrop="static" tabindex="-1" id="offcanvasRight"
 								aria-labelledby="offcanvasRightLabel">
 								<div class="offcanvas-header">
 									<h4 class="offcanvas-title" id="offcanvasRightLabel">Messaggi di {{ $apartment->descrizione }}</h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 								</div>
 								<!-- elenco messaggi -->
 								<div class="offcanvas-body p-3">
-									<div id="messagesContainer" class="bg-light rounded-3 p-3">
+									<div id="messagesContainer" class="bg-light rounded-3 p-3 ">
 										{{-- ciclo dei messaggi --}}
 										@foreach( $apartment->messages as $message)
-											<div class="message rounded-2 p-2">
+											<div class="message rounded-2 p-2 w-100 position-relative">
 												<div class="userName">
-													<i class="fa-solid fa-circle-user"></i> {{ $message->nome}} {{ $message->cognome}}
+													<i class="fa-solid fa-circle-user"></i> User: {{ $message->nome}} {{ $message->cognome}}
 												</div>
 												<div class="userMail my-1">
-													<i class="fa-solid fa-at"></i> {{ $message->email }}
+													<i class="fa-solid fa-at"></i> Email: {{ $message->email }}
 												</div>
-												<div class="userMessage d-flex">
-													<i class="fa-solid fa-envelope me-1"></i> <span class="messageText rounded-2 p-3"> {{ $message->contenuto }} </span>
+												<div class="userMessage">
+                                                    <div>
+                                                        <i class="fa-solid fa-envelope me-1"></i>
+                                                        <label for="" class="form-label"> Messaggio:</label>
+                                                    </div>
+                                                    <p class="messageText rounded-2 p-3 w-50"> {{ $message->contenuto }} </p>
 												</div>
-											</div> 	
-										@endforeach					
-									</div>								
-								</div>
-							</div>
-						</div>
-                
+                                                {{-- <form method="post" action="{{ route('message.destroy') }}" class="p-6"> 
+
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button type="submit" class="btn btn-sm btn-square me-2 position-absolute bottom-0 end-0">
+                                                        <i class="fa-solid fa-trash-can"></i>
+                                                    </button>
+                                                {{-- </form --}}
+											</div>
+                                            @endforeach	
+                                        </div>								
+                                    </div>
+                                </div>
+                            </div>
+                            
                         <!-- Copertina appartamento -->
                         <div class="col-12 position-relative">
                             <div>

@@ -38,6 +38,7 @@
 }
 
 .sponsorshipsContainer {
+
 	.overflow_container {
 		overflow-x: scroll;
 
@@ -149,8 +150,8 @@
 		margin-right: 2rem;
 		margin-bottom: 2rem;
 		position: fixed;
-		bottom: 0;
-		right: 0;
+		bottom: 50px;
+		right: 0px;
 
 		.circle_number {
 			background-color: $brand-red;
