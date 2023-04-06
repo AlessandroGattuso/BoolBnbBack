@@ -1,6 +1,42 @@
 @import './partials/variables';
 
 #sponsorshipsContainer {
+	.button-sponsorship-Basic {
+		background-color: $brand-blue;
+		color: white;
+
+		&:hover {
+			color: black;
+			background-color: transparent;
+			border: 2px solid $brand-blue;
+			font-weight: 500;
+		}
+	}
+
+	.button-sponsorship-Standard {
+		background-color: $brand-yellow;
+		color: white;
+
+		&:hover {
+			color: black;
+			background-color: transparent;
+			border: 2px solid $brand-yellow;
+			font-weight: 500;
+		}
+	}
+
+	.button-sponsorship-Premium {
+		background-color: $brand-red;
+		color: white;
+
+		&:hover {
+			color: black;
+			background-color: transparent;
+			border: 2px solid $brand-red;
+			font-weight: 500;
+		}
+	}
+
 	.card {
 		border: none;
 
