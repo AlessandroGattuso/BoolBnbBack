@@ -48,6 +48,8 @@ class ApartmentController extends Controller
             if($this->distance($request['latitude'], $request['longitude'], $apartment->position->Latitudine,  $apartment->position->Longitudine) <= $request['range'])
                 array_push($apartments, $apartment);
         }
+
+        $result = [];
         if($request['services'] != null){
             $flag2 = true;
 
