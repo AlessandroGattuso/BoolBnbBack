@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ApartmentController as ApartmentController;
 use App\Http\Controllers\Admin\SponsorshipController as SponsorshipController;
 use App\Http\Controllers\StripeController as StripeController;
+use App\Http\Controllers\Admin\ViewsController as ViewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,7 @@ Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(
 	Route::get('/', [ApartmentController::class, 'index'])->name('dashboard');
 	Route::resource('/apartments', ApartmentController::class)->parameters(['apartments' => 'apartment:slug']);
 	Route::get('/sponsorships/{slug}', [SponsorshipController::class, 'index' ])->name('sponsorships');
+	Route::resource('/views', ViewsController::class)->parameters(['apartments' => 'apartment:slug']);
 });
 
 Route::middleware('auth')->group(function () {

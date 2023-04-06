@@ -9,8 +9,8 @@
                     <h2 class="m-0">Ciao <span class="text-capitalize">{{$userName}}</span></h2>
                     <div class="d-flex">
                         <h4 class="num-appartamenti m-0 me-2">Appartamenti aggiunti: <span class="fw-bold">{{count($apartments)}}</span></h4>
-                        <a href="{{route('admin.apartments.create')}}" title="Aggiungi un appartamento">
-                            <button class="btn btn-square btn-success"><i class="fa-solid fa-plus fa-lg"></i></button>
+                        <a href="{{route('admin.apartments.create')}}" title="Aggiungi un appartamento" class="d-flex align-items-center px-1 rounded-1" id="addAp">
+                           <img src="{{ URL::asset('/img/home-plus.png')}}" alt="" id="home-plus">
                         </a>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
             <div class="row">
                 @if(count($apartments) > 0)
                     @foreach ($apartments as $item)
-                        <div class="col-12 col-md-4 px-4 mb-5">
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 px-2 mb-5">
                             <div class="apartment_card rounded p-2" title="Visualizza i dettagli dell'appartamento">
                                 <a href="{{route('admin.apartments.show',$item->slug)}}" class="text-black">
                                     <div class="card_img_container">
