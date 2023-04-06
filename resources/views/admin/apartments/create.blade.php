@@ -51,13 +51,13 @@
                     <h3 class="mb-4">Dettagli appartamento <i class="fa-solid fa-list"></i></h3>
                     <div class="col-12 col-md-4 mt-3">
                         <div>
-                            <label  class="control-label" for="">
+                            <label  class="control-label col-md-12" for="">
                                 <strong>Stanze*:</strong> 
                             </label>
                             <input type="number" id="numero_di_stanze" name="numero_di_stanze" min="" max="">
                         </div>
                         <div class="mt-3">
-                            <label  class="control-label" for="">
+                            <label  class="control-label col-md-12" for="">
                                 <strong>Bagni*:</strong> 
                             </label>
                             <input class="ms-2" type="number" id="numero_di_bagni" name="numero_di_bagni" min="" max="">
@@ -66,13 +66,13 @@
     
                     <div class="col-12 col-md-4 mt-3">
                         <div>
-                            <label  class="control-label" for="">
+                            <label  class="control-label col-md-12" for="">
                                 <strong>Numero di letti*:</strong> 
                             </label>
                             <input  type="number" id="numero_di_letti" name="numero_di_letti">
                         </div>
                         <div class="mt-3">
-                            <label  class="control-label" for="">
+                            <label  class="control-label col-md-12" for="">
                                 <strong>Metri quadrati*:</strong> 
                             </label>
                             <input class="ms-1"  type="number" id="metri_quadri" name="metri_quadri">
@@ -95,7 +95,7 @@
                 <div class="mt-5">
                     <h3>Posizione <i class="fa-solid fa-location-dot"></i></h3>
                 </div>
-                <div class="d-flex gap-3">
+                <div class="gap-3 col-12 d-lg-flex">
                     <div class="form-group my-3">
                         <label for="" class="control-label">
                            <strong>Indirizzo*:</strong> 
