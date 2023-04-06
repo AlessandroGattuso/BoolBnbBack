@@ -7,7 +7,7 @@
 
 @endpush --}}
 @section('content')
-<div class="container">
+<div class="container p-4 bg-light rounded-5 mt-3">
 	<h2>Visualizzazioni nel tempo</h2>
 	<canvas id="myChart"></canvas>
 </div>

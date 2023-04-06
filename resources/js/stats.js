@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 const ctx = document.getElementById('myChart');
 console.log(views);
 console.log(slug);
@@ -59,7 +60,12 @@ axios.get(`http://127.0.0.1:8000/api/apartments/${slug}`).then((response) => {
 			datasets: [{
 				label: '# of Votes',
 				data: countsArray,
-				borderWidth: 1
+				borderWidth: 1,
+				backgroundColor: [
+					'#3FA9F580',
+					'#FC9E1580',
+					'#E3403D80'
+				]
 			}]
 		},
 		options: {
