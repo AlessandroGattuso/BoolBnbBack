@@ -1,5 +1,17 @@
 @import './partials/variables';
 
+.button-sponsorship-Basic {
+	background-color: $brand-blue;
+	color: white;
+
+	&:hover {
+		color: black;
+		background-color: white;
+		border: 2px solid $brand-blue;
+		font-weight: 500;
+	}
+}
+
 .bg_color_light_blue {
 	background-color: $brand-blue;
 
@@ -39,7 +51,7 @@
 
 .sponsorshipsContainer {
 	.overflow_container {
-		overflow-x: scroll;
+		overflow: auto;
 
 		.card_container {
 			width: fit-content;

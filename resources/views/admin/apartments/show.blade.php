@@ -174,9 +174,9 @@
                     <div class="col-12">
                         @if(count($apartment->sponsorships) > 0)
                             <div class="row sponsorshipsContainer px-3 ">
-                                <div class="col-12 d-md-flex overflow_container pb-2">
+                                <div class="col-12 d-md-flex overflow_container p-0 ps-2 pb-2">
                                     @foreach( $apartment->sponsorships as $sponsorship)
-                                    <div class="card_container m-2 p-0">
+                                    <div class="card_container m-0 p-2">
                                         <!-- Card -->
                                         <div class="card sponsorship-{{ $sponsorship->titolo}} w-md-100">
                                             <!-- Header -->
@@ -204,12 +204,12 @@
                             </div>
                             <div class="row mt-3">
                                 <div class="col-12">
-                                    <a class="btn btn-sm bg_color_light_blue me-3 text-white" href="{{ route('admin.sponsorships.index', $apartment->slug) }}">Attiva una Sponsorship</a>
+                                    <a class="btn btn-sm button-sponsorship-Basic me-3" href="{{ route('admin.sponsorships', ['slug' => $apartment->slug]) }}">Attiva una Sponsorship</a>
                                 </div>
                             </div>
                         @else
                             <p class="m-0 me-3">Nessuna sponsorships attiva</p>
-                            <a class="btn btn-sm bg_color_light_blue me-3 text-white" href="{{ route('admin.sponsorships.index', $apartment->slug) }}">Attiva una Sponsorship</a>
+                            <a class="btn btn-sm button-sponsorship-Basic me-3" href="{{ route('admin.sponsorships', ['slug' => $apartment->slug]) }}">Attiva una Sponsorship</a>
                         @endif
                     </div>
                     </div>
