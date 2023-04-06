@@ -28,7 +28,7 @@ Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(
 	Route::get('/', [ApartmentController::class, 'index'])->name('dashboard');
 	Route::resource('/apartments', ApartmentController::class)->parameters(['apartments' => 'apartment:slug']);
 	Route::resource('/sponsorships', SponsorshipController::class)->parameters(['apartments' => 'apartment:slug']);
-	Route::resource('/views', ViewsController::class)->parameters(['apartments' => 'apartment:slug']);
+	Route::get('/views/{apartment_slug}', [ViewsController::class, 'index'])->name('views');
 });
 
 Route::middleware('auth')->group(function () {
