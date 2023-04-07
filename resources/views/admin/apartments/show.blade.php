@@ -1,3 +1,4 @@
+
 @extends('layouts.layout')
 
 @section('content')
@@ -43,7 +44,7 @@
 								<div class="offcanvas-body p-3">
 									<div id="messagesContainer" class="bg-light rounded-3 p-3 ">
 										{{-- ciclo dei messaggi --}}
-										@foreach( $apartment->messages as $message)
+										@foreach( $apartment->messages->reverse() as $message)
 											<div class="message rounded-2 p-3 position-relative">
 												<div class="userName">
 													<i class="fa-solid fa-circle-user"></i> User: {{ $message->nome}} {{ $message->cognome}}
@@ -52,11 +53,16 @@
 													<i class="fa-solid fa-at"></i> Email: {{ $message->email }}
 												</div>
 												<div class="userMessage">
-                                                    <div>
-                                                        <i class="fa-solid fa-envelope me-1"></i>
-                                                        <label for="" class="form-label"> Messaggio:</label>
-                                                    </div>
-                                                    <p class="messageText rounded-2 p-3"> {{ $message->contenuto }} </p>
+													<div>
+														<i class="fa-solid fa-envelope me-1"></i>
+														<label for="" class="form-label"> Messaggio:</label>
+													</div>
+													<p class="messageText rounded-2 p-3 pt-4"> 
+														<span class="date_message">
+															{{ $message->created_at }}
+														</span>
+														{{ $message->contenuto }}
+													</p>
 												</div>
                                                 {{-- <form method="post" action="{{ route('message.destroy') }}" class="p-6"> 
 
@@ -66,6 +72,7 @@
                                                         <i class="fa-solid fa-trash-can"></i>
                                                     </button>
                                                 {{-- </form --}}
+												
 											</div>
                                             @endforeach	
                                         </div>								
