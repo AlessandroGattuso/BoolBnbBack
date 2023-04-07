@@ -52,22 +52,22 @@
                     <div class="col-12 col-md-4 mt-3">
                         <div>
                             <label  class="control-label" for="">
-                                <strong>Stanze*:</strong> 
+                                <strong>Num. Stanze*:</strong> 
                             </label>
                             <input type="number" id="numero_di_stanze" name="numero_di_stanze" min="" max="">
                         </div>
                         <div class="mt-3">
                             <label  class="control-label" for="">
-                                <strong>Bagni*:</strong> 
+                                <strong>Num. Bagni*:</strong> 
                             </label>
-                            <input class="ms-2" type="number" id="numero_di_bagni" name="numero_di_bagni" min="" max="">
+                            <input type="number" id="numero_di_bagni" name="numero_di_bagni" min="" max="">
                         </div>
                     </div>
     
                     <div class="col-12 col-md-4 mt-3">
                         <div>
                             <label  class="control-label" for="">
-                                <strong>Numero di letti*:</strong> 
+                                <strong>Numero di Letti*:</strong> 
                             </label>
                             <input  type="number" id="numero_di_letti" name="numero_di_letti">
                         </div>
@@ -75,7 +75,7 @@
                             <label  class="control-label" for="">
                                 <strong>Metri quadrati*:</strong> 
                             </label>
-                            <input class="ms-1"  type="number" id="metri_quadri" name="metri_quadri">
+                            <input  type="number" id="metri_quadri" name="metri_quadri">
                         </div>
                     </div>
                 </div>
@@ -92,8 +92,9 @@
                     @endforeach
                 </div>
 
-                <div class="mt-5">
-                    <h3>Posizione <i class="fa-solid fa-location-dot"></i></h3>
+                <div class="mt-5 d-flex">
+                    <h3>Posizione</h3>
+                    <img class="img-size" src="{{ URL::asset('img/home-where.png')}}" alt="">
                 </div>
                 <div class="d-flex gap-3">
                     <div class="form-group my-3">
