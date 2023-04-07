@@ -1,17 +1,17 @@
 @extends('layouts.layout')
 
 @section('content')
-    <div class="container pb-3">
-        <div class="col-12 col-md-9 d-flex mt-4">
-            <a href="{{ route('admin.apartments.index') }}" role="button"><i class="fa-solid fa-circle-arrow-left fs-3 me-2 mt-2 btn-hover" style="color: #3FA9F5"></i></a>
+    <div class="container container p-4 bg-light rounded-5 mt-4">
+        <div class="col-12 col-md-9 d-flex">
+            <a href="{{ route('admin.apartments.index') }}" role="button"><i class="fa-solid fa-circle-arrow-left fs-3 me-2 mt-2 btn-hover color-blue"></i></a>
             <h2 class="fw-bolder">{{ $apartment->descrizione ? $apartment->descrizione : 'Nome non specificato' }}</h2>
         </div>
 
         <!-- Posizione appartamento -->
-        <div class="col-12 col-md-6 mt-2 d-flex">
+        <div class="col-12 col-md-6 mt-2 d-flex" id="position">
             <img class="img-size" src="{{ URL::asset('img/home-where.png')}}" alt="">
-            <h5 class="fw-bold m-0 mb-2 fs-6"><span class="fw-light me-2">{{ $apartment->position->indirizzo ? $apartment->position->indirizzo : 'Via non specificata' }} {{ $apartment->position->N_civico ? $apartment->position->N_civico : 'Non specificato' }},</span></h5>
-            <h5 class="fw-bold m-0 mb-2 fs-6"><span class="fw-light">{{ $apartment->position->città ? $apartment->position->città : 'Non specificato' }}</span></h5>
+            <h5 class="fw-bold m-0 fs-6"><span class="fw-light mx-1">{{ $apartment->position->indirizzo ? $apartment->position->indirizzo : 'Via non specificata' }} {{ $apartment->position->N_civico ? $apartment->position->N_civico : 'Non specificato' }},</span></h5>
+            <h5 class="fw-bold m-0 fs-6"><span class="fw-light">{{ $apartment->position->città ? $apartment->position->città : 'Non specificato' }}</span></h5>
         </div>
         
         <div class="row mt-3">
