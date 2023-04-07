@@ -54,13 +54,13 @@
                             <label  class="control-label col-12" for="">
                                 <strong>Num. Stanze*:</strong> 
                             </label>
-                            <input type="number" id="numero_di_stanze" name="numero_di_stanze" min="" max="">
+                            <input class="form-control w-25" type="number" id="numero_di_stanze" name="numero_di_stanze" min="" max="">
                         </div>
                         <div class="mt-3">
                             <label  class="control-label col-12" for="">
                                 <strong>Num. Bagni*:</strong> 
                             </label>
-                            <input class="" type="number" id="numero_di_bagni" name="numero_di_bagni" min="" max="">
+                            <input class="form-control w-25" type="number" id="numero_di_bagni" name="numero_di_bagni" min="" max="">
                         </div>
                     </div>
     
@@ -69,13 +69,13 @@
                             <label  class="control-label col-12" for="">
                                 <strong>Numero di Letti*:</strong> 
                             </label>
-                            <input  type="number" id="numero_di_letti" name="numero_di_letti">
+                            <input class="form-control w-25"  type="number" id="numero_di_letti" name="numero_di_letti">
                         </div>
                         <div class="mt-3">
                             <label  class="control-label col-12" for="">
                                 <strong>Metri quadrati*:</strong> 
                             </label>
-                            <input  type="number" id="metri_quadri" name="metri_quadri">
+                            <input class="form-control w-25" type="number" id="metri_quadri" name="metri_quadri">
                         </div>
                     </div>
                 </div>
