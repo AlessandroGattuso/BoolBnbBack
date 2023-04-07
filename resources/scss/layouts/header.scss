@@ -1,3 +1,5 @@
+@import '../partials/variables';
+
 header {
 	position: fixed;
 	top: 0;
@@ -11,6 +13,19 @@ header {
 				font-weight: 600;
 				margin-bottom: 0;
 			}
+		}
+	}
+
+	#navbarDropdown {
+		i {
+			position: relative;
+			top: 1px;
+			font-size: 1.2rem;
+			margin-right: .25rem;
+		}
+
+		&:hover {
+			color: $brand-blue;
 		}
 	}
 }

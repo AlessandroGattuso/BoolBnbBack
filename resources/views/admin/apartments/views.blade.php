@@ -7,8 +7,9 @@
 
 @endpush --}}
 @section('content')
-<div class="container p-4 bg-light rounded-5 mt-3">
-	<h2>Visualizzazioni nel tempo</h2>
+<div class="container p-4 bg-light rounded-5 mt-4" id="viewsContainer">
+	<a href="{{route('admin.apartments.show',$slug)}}" role="button"><i class="fa-solid fa-circle-arrow-left fs-3 me-2 mt-2 btn-hover" style="color: #3FA9F5"></i></a>
+	<h2 class="text-center">Visualizzazioni nel tempo</h2>
 	<canvas id="myChart"></canvas>
 </div>
 @endsection
