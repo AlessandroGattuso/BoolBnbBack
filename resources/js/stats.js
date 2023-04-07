@@ -52,6 +52,19 @@ axios.get(`http://127.0.0.1:8000/api/apartments/${slug}`).then((response) => {
 		// console.log(datesArray);
 		console.log(countsArray);
 	};
+	let totalviews = 0;
+	for (let i = 0; i < countsArray.length; i++) {
+		totalviews = totalviews + countsArray[i]
+	}
+
+	let media = totalviews / countsArray.length;
+
+	let md = media.toFixed(2);
+
+	console.log(media);
+	datesArray.push('media views per giorno');
+	countsArray.push(md);
+	console.log(totalviews);
 	// console.log(datesArray);
 	new Chart(ctx, {
 		type: 'bar',
