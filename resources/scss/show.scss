@@ -156,6 +156,16 @@
 				.userMessage {
 					.messageText {
 						background-color: rgba(255, 255, 255, 0.5);
+						position: relative;
+
+						.date_message {
+							font-size: .6rem;
+							font-weight: 600;
+							position: absolute;
+							top: .5rem;
+							left: 1rem;
+							color: rgb(150, 150, 150);
+						}
 					}
 				}
 			}
