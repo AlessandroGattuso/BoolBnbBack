@@ -11,10 +11,48 @@ class ApartmentController extends Controller
 {
     public function index(){
         $apartments = Apartment::with('services', 'sponsorships', 'position')->where('visible', 1)->paginate();
+       
+        $apartments = $this->getApartmentsBySponsor($apartments);
+        
         return response()->json([
             'success' => true,
             'apartments' => $apartments
         ]);
+    }
+
+    public function getApartmentsBySponsor($apartments){
+
+        $NotSpons = [];
+        $Basic = [];
+        $Standard = [];
+        $Premium = [];
+
+        foreach($apartments as $apartment){
+            $flag = null;
+            if(count($apartment->sponsorships)){
+                foreach($apartment->sponsorships as $sponsor){
+                    if($sponsor->nome == 'Basic' && $flag != 's' && $flag != 'p')
+                        $flag = 'b';
+                    elseif($sponsor->nome == 'Standard' && $flag != 'p')
+                        $flag = 's';
+                    else
+                        $flag = 'p';
+                }
+                if($flag == 'b')
+                    array_push($Basics, $apartment);
+                elseif($flag == 's')
+                    array_push($Standard, $apartment);
+                else
+                    array_push($Premium, $apartment);
+                
+            }
+            else{
+                array_push($NotSpons, $apartment);
+            }
+        }
+
+        return array_merge($Premium, $Standard, $Basic, $NotSpons);
+
     }
 
     public function distance($lat1, $lon1, $lat2, $lon2) {
@@ -43,7 +81,10 @@ class ApartmentController extends Controller
                                     ->where('numero_di_bagni', '>=',$request['minBaths'])
                                     ->where('visible', 1)
                                     ->paginate();
+
+        $apartmentsRes = $this->getApartmentsBySponsor($apartmentsRes);
         $apartments = [];
+
         foreach($apartmentsRes as $apartment){
             if($this->distance($request['latitude'], $request['longitude'], $apartment->position->Latitudine,  $apartment->position->Longitudine) <= $request['range'])
                 array_push($apartments, $apartment);
