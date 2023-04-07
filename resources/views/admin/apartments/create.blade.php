@@ -51,28 +51,28 @@
                     <h3 class="mb-4">Dettagli appartamento <i class="fa-solid fa-list"></i></h3>
                     <div class="col-12 col-md-4 mt-3">
                         <div>
-                            <label  class="control-label" for="">
+                            <label  class="control-label col-12" for="">
                                 <strong>Num. Stanze*:</strong> 
                             </label>
                             <input type="number" id="numero_di_stanze" name="numero_di_stanze" min="" max="">
                         </div>
                         <div class="mt-3">
-                            <label  class="control-label" for="">
+                            <label  class="control-label col-12" for="">
                                 <strong>Num. Bagni*:</strong> 
                             </label>
-                            <input type="number" id="numero_di_bagni" name="numero_di_bagni" min="" max="">
+                            <input class="" type="number" id="numero_di_bagni" name="numero_di_bagni" min="" max="">
                         </div>
                     </div>
     
                     <div class="col-12 col-md-4 mt-3">
                         <div>
-                            <label  class="control-label" for="">
+                            <label  class="control-label col-12" for="">
                                 <strong>Numero di Letti*:</strong> 
                             </label>
                             <input  type="number" id="numero_di_letti" name="numero_di_letti">
                         </div>
                         <div class="mt-3">
-                            <label  class="control-label" for="">
+                            <label  class="control-label col-12" for="">
                                 <strong>Metri quadrati*:</strong> 
                             </label>
                             <input  type="number" id="metri_quadri" name="metri_quadri">
@@ -96,7 +96,7 @@
                     <h3>Posizione</h3>
                     <img class="img-size" src="{{ URL::asset('img/home-where.png')}}" alt="">
                 </div>
-                <div class="d-flex gap-3">
+                <div class="d-lg-flex gap-3">
                     <div class="form-group my-3">
                         <label for="" class="control-label">
                            <strong>Indirizzo*:</strong> 
