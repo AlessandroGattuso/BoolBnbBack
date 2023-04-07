@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-<div class="container">
+<div class="container bg-light rounded-5 mt-4 p-4">
     <div class="row">
         <div class="col-12">
             <div class="row">
@@ -42,12 +42,12 @@
                 @if(count($apartments) > 0)
                     @foreach ($apartments as $item)
                         <div class="col-12 col-sm-6 col-md-4 col-lg-3 px-2 mb-5">
-                            <div class="apartment_card rounded p-2" title="Visualizza i dettagli dell'appartamento">
+                            <div class="apartment_card rounded-4" title="Visualizza i dettagli dell'appartamento">
                                 <a href="{{route('admin.apartments.show',$item->slug)}}" class="text-black">
                                     <div class="card_img_container">
-                                        <img class="rounded w-100" src="{{($item->cover) ? asset('storage/' .$item->cover) : 'https://media.istockphoto.com/id/1147544807/it/vettoriale/la-commissione-per-la-immagine-di-anteprima-grafica-vettoriale.jpg?s=612x612&w=0&k=20&c=gsxHNYV71DzPuhyg-btvo-QhhTwWY0z4SGCSe44rvg4='}}" alt="{{$item->slug}}">
+                                        <img class="rounded-top w-100" src="{{($item->cover) ? asset('storage/' .$item->cover) : 'https://media.istockphoto.com/id/1147544807/it/vettoriale/la-commissione-per-la-immagine-di-anteprima-grafica-vettoriale.jpg?s=612x612&w=0&k=20&c=gsxHNYV71DzPuhyg-btvo-QhhTwWY0z4SGCSe44rvg4='}}" alt="{{$item->slug}}">
                                     </div>
-                                    <div class="pt-3 d-flex">
+                                    <div class="p-2 d-flex bg-white rounded-bottom">
                                         <div class="w-75">
                                             <p class="mb-2 p-0 fw-light">{{$item->numero_di_stanze}} stanze - {{$item->metri_quadri}} mq</p>
                                             <h5 class="fw-bold">{{$item->descrizione}}</h5>

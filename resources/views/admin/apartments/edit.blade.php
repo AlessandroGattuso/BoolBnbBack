@@ -1,9 +1,9 @@
 @extends('layouts.layout')
 
 @section('content')
-<div class="container">
+<div class="container bg-light rounded-5 mt-4 p-4">
     <div class="row">
-        <div class="col-12 my-5">
+        <div class="col-12 my-3">
             <h2>Modifica i dati dell'appartamento</h2>
         </div>
         @if($errors->any())
