@@ -52,20 +52,20 @@
 
                 <hr class="mt-5 mb-5">
 
-                <div class="row mt-4">
+                <div class="row mt-4 d-flex">
                     <h3 class="mb-4">Dettagli appartamento <i class="fa-solid fa-list"></i></h3>
                     <div class="col-12 col-md-4 mt-3">
                         <div>
                             <label  class="control-label col-12" for="">
                                 <strong>Num. Stanze*:</strong> 
                             </label>
-                            <input type="number" id="numero_di_stanze" name="numero_di_stanze" min="" max="" value="{{old('apartment->numero_di_stanze') ?? $apartment->numero_di_stanze}}">
+                            <input class="form-control w-25" type="number" id="numero_di_stanze" name="numero_di_stanze" min="" max="" value="{{old('apartment->numero_di_stanze') ?? $apartment->numero_di_stanze}}">
                         </div>
                         <div class="mt-3">
                             <label  class="control-label col-12" for="">
                                 <strong>Num. Bagni*:</strong> 
                             </label>
-                            <input class="" type="number" id="numero_di_bagni" name="numero_di_bagni" min="" max="" value="{{old('apartment->numero_di_bagni') ?? $apartment->numero_di_bagni}}">
+                            <input class="form-control w-25" type="number" id="numero_di_bagni" name="numero_di_bagni" min="" max="" value="{{old('apartment->numero_di_bagni') ?? $apartment->numero_di_bagni}}">
                         </div>
                     </div>
     
@@ -74,13 +74,13 @@
                             <label  class="control-label col-12" for="">
                                 <strong>Numero di Letti*:</strong> 
                             </label>
-                            <input  type="number" id="numero_di_letti" name="numero_di_letti" value="{{old('apartment->numero_di_letti') ?? $apartment->numero_di_letti}}">
+                            <input class="form-control w-25"  type="number" id="numero_di_letti" name="numero_di_letti" value="{{old('apartment->numero_di_letti') ?? $apartment->numero_di_letti}}">
                         </div>
                         <div class="mt-3">
                             <label  class="control-label col-12" for="">
                                 <strong>Metri quadrati*:</strong> 
                             </label>
-                            <input  type="number" id="metri_quadri" name="metri_quadri" value="{{old('apartment->metri_quadri') ?? $apartment->metri_quadri}}">
+                            <input class="form-control w-25"   type="number" id="metri_quadri" name="metri_quadri" value="{{old('apartment->metri_quadri') ?? $apartment->metri_quadri}}">
                         </div>
                     </div>
                 </div>
