@@ -216,10 +216,28 @@
                             <a class="btn btn-sm button-sponsorship-Basic me-3" href="{{ route('admin.sponsorships', ['slug' => $apartment->slug]) }}">Attiva una Sponsorship</a>
                         @endif
                     </div>
-                    </div>
+						  <div class="col-12">
+							<div id="map"></div>
+						  </div>
+                  </div>
                 </div>
                 
             </div>
         </div>
     </div>
 @endsection
+
+{{-- <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.23.0/maps/maps-web.min.js"></script>
+
+<script type="text/javascript">
+	// let center = [4, 43.4];
+	// const map = tt.map({
+	// 	key: 'RyyEkTjOzu8ryYUL5416kcB3qFRzzpOR',
+	// 	container: 'map',
+	// 	center: center,
+	// 	zoom: 10
+	// })
+	// map.on('load', () => {
+	// 	new tt.Marker().setLngLat(center).addTo(map)
+	// })
+</script> --}}
