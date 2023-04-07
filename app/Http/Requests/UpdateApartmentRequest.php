@@ -44,17 +44,9 @@ class UpdateApartmentRequest extends FormRequest
     public function messages()
 	{
 		return [
-			'descrizione.required'      =>'Non hai inserito una descrizione',
-            'numero_di_stanze.required' =>'Non hai inserito il numero di stanze',
-            'numero_di_bagni.required'  =>'Non hai inserito il numero di bagni',
-            'numero_di_letti.required'  =>'Non hai inserito il numero di letti',
-            'metri_quadri.required'     =>'Non hai inserito il numero di Metri quadrati',
-            'prezzo.required'           =>'Non hai inserito il prezzo',
-            'services.required'         => 'Devi inserire almeno un servizio',
-            'indirizzo.required'        => 'Devi inserire un indirizzo',
-            'N_civico.required'         => 'Devi inserire un numero civico',
-            'città.required'            => 'Devi inserire una città',
-            'Nazione.required'          => 'Devi inserire una nazione'
+			'required'      =>'Questo campo è obbligatorio',
+            'max'           => 'Questo campo non deve superare :max',
+            'min'           => 'Questo campo deve essere almeno :min',
 		];
 	}
 }
