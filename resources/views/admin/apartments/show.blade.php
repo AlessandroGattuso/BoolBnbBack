@@ -135,34 +135,34 @@
                        </div>
                        
                        <!-- Dettagli appartamento -->
-                           <div class="d-flex flex-wrap flex-md-nowrap mb-3">
-                               <div class="col-12 col-md-4 text-center me-3 pt-3 border-end ">
-                                   <div class="d-flex align-items-center border rounded p-2 mb-3 me-3 shadow">
+                           <div class="row flex-wrap mb-3">
+                               <div class="col-6 col-lg-4 col-xl-3 text-center pt-3">
+                                   <div class="d-flex align-items-center border rounded pt-2 pe-0 pb-2 ps-2 mb-3 me-3 shadow bg-white">
                                        <img class="img-size-40 me-2" src="{{ URL::asset('img/stanze.png')}}" alt="">
                                        <h5 class="fw-light fs-6"> Stanze</h5>
                                    </div>
                                    <span class="fw-medium fs-4">{{ $apartment->numero_di_stanze ? $apartment->numero_di_stanze : 'Non specificato' }}</span>
                                </div>
-                               <div class="col-12 col-md-4 text-center me-3 pt-3 border-end pe-3">
-                                   <div class="d-flex align-items-center border rounded p-2 mb-3 shadow">
+                               <div class="col-6 col-lg-4 col-xl-3 text-center pt-3 pe-3">
+                                   <div class="d-flex align-items-center border rounded p-2 mb-3 shadow bg-white">
                                        <img class="img-size-40 me-2" src="{{ URL::asset('img/letti.png')}}" alt="">
                                        <h5 class="fw-light fs-6"> Letti</h5>
                                    </div>
                                    <span class="fw-medium fs-4">{{ $apartment->numero_di_letti ? $apartment->numero_di_letti : 'Non specificato' }}</span>
                                </div>
-                               <div class="col-12 col-md-4 text-center me-3 pt-3 border-end pe-3">
-                                   <div class="d-flex align-items-center border rounded p-2 mb-3 me-2 shadow">
+                               <div class="col-6 col-lg-4 col-xl-3 text-center pt-3 pe-3">
+                                   <div class="d-flex align-items-center border rounded p-2 mb-3 me-2 shadow bg-white">
                                        <img class="img-size-40 me-2" src="{{ URL::asset('img/bagni(1).png')}}" alt="">
                                        <h5 class="fw-light fs-6"> Bagni</h5>
                                    </div>
                                    <span class="fw-medium fs-4">{{ $apartment->numero_di_bagni ? $apartment->numero_di_bagni : 'Non specificato' }}</span>
                                </div>
-                               <div class="col-12 col-md-4 text-center me-3 pt-3 pe-3">  
-                                   <div class="d-flex align-items-center border rounded p-2 mb-3  shadow">
+                               <div class="col-6 col-lg-4 col-xl-3 text-center pt-3 pe-3">  
+                                   <div class="d-flex align-items-center border rounded p-2 mb-3  shadow bg-white">
                                        <img class="img-size-40 me-2" src="{{ URL::asset('img/dimensione.png')}}" alt="">
-                                       <h5 class="fw-light fs-6"> Dimensione</h5>
+                                       <h5 class="fw-light fs-6"> Mq</h5>
                                    </div>
-                                   <span class="fw-medium fs-4">{{ $apartment->metri_quadri ? $apartment->metri_quadri : 'Non specificato' }} mq</span>
+                                   <span class="fw-medium fs-4">{{ $apartment->metri_quadri ? $apartment->metri_quadri : 'Non specificato' }} </span>
                                </div>
                            </div>
                        </div>
