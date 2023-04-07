@@ -178,7 +178,7 @@
                     <div class="col-12">
                         @if(count($apartment->sponsorships) > 0)
                             <div class="row sponsorshipsContainer px-3 ">
-                                <div class="col-12 d-md-flex overflow_container p-0 ps-2 pb-2">
+                                <div class="col-12 d-flex overflow_container p-0 ps-2 pb-2">
                                     @foreach( $apartment->sponsorships as $sponsorship)
                                     <div class="card_container m-0 p-2">
                                         <!-- Card -->
@@ -188,7 +188,7 @@
                                                 <h3 class="mb-0"> {{ $sponsorship->titolo }} </h3>
                                             </div>
                                             <!-- Body -->
-                                            <div class="card-body py-5">
+                                            <div class="card-body">
                                                 <div class="img-container mb-2 h-100">
                                                     <img src="{{ URL::asset('img/vetrina-'.$sponsorship->id.'.png')}}" alt="">
                                                 </div>
@@ -196,7 +196,7 @@
                                             <!-- Footer -->
                                             <div class="card-footer d-flex justify-content-center">
                                                 <div class="price">
-                                                    <strong class="fs-2 text-white">
+                                                    <strong class="text-white">
                                                         {{ $sponsorship->ore_valide }} h
                                                     </strong>
                                                 </div>

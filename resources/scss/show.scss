@@ -61,7 +61,16 @@
 				width: 190px;
 				height: 300px;
 
+				h3 {
+					font-size: 1.5rem;
+				}
+
+				strong {
+					font-size: 1.5rem;
+				}
+
 				.card-body {
+					padding: 3rem 0rem;
 
 					.img-container {
 						text-align: center;
@@ -200,7 +209,68 @@
 	}
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (max-width: 1200px) {
+	.sponsorshipsContainer {
+		.overflow_container {
+			overflow: auto;
+
+			.card_container {
+				width: fit-content;
+
+				.card {
+					border: none;
+					width: 125px;
+					height: 211px;
+
+					h3 {
+						font-size: 1rem;
+					}
+
+					strong {
+						font-size: 1rem;
+					}
+
+					.card-body {
+						padding: 2rem 0rem;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 992px) {
+	.sponsorshipsContainer {
+		.overflow_container {
+			overflow: auto;
+
+			.card_container {
+				width: fit-content;
+
+				.card {
+					border: none;
+					width: 109px;
+					height: 182px;
+
+					h3 {
+						font-size: 1rem;
+					}
+
+					strong {
+						font-size: 1rem;
+					}
+
+					.card-body {
+						padding: 1.4rem 0rem;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+@media screen and (max-width: 600px) {
 	.offcanvas_size {
 		width: 500px;
 	}
