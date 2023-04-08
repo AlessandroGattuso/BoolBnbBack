@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row mt-5 d-flex">
             <div class="col-12 text-center">
-                <h1>Vuoi tornare alla dashboard senza effettuare l'Upgrade?</h1>
+                <h1>Vuoi tornare alla dashboard senza effettuare la Sponsorship?</h1>
                 <a class="btn btn-warning w-25" href="{{route('admin.dashboard')}}">Torna alla Dashboard</a>
             </div>
             <form action="/session" method="POST" class="text-center mt-5">
