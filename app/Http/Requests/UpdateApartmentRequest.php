@@ -25,15 +25,15 @@ class UpdateApartmentRequest extends FormRequest
     {
         return [
             'descrizione'      => ['required', 'string', 'max:300'],
-            'numero_di_stanze' => ['required', 'max:65533'],
-            'numero_di_bagni'  => ['required', 'max:254'],
-            'numero_di_letti'  => ['required','numeric','max:200'],
-            'metri_quadri'     => ['required', 'max:65533'],
-            'prezzo'           => ['required'],
+            'numero_di_stanze' => ['required', 'numeric', 'min:1', 'max:65533'],
+            'numero_di_bagni'  => ['required', 'numeric', 'min:1', 'max:254'],
+            'numero_di_letti'  => ['required', 'numeric', 'min:1', 'max:200'],
+            'metri_quadri'     => ['required', 'numeric', 'min:1', 'max:65533'],
+            'prezzo'           => ['required', 'numeric', 'min:1'],
             'visible'          => ['nullable'],
             'cover'            => ['nullable','image'],
             'services'         => ['exists:services,id','required'],
-            'indirizzo'        => ['required','string', 'max:255'],
+            'indirizzo'        => ['required','string', 'min:1', 'max:255'],
 			'N_civico'         => ['required','numeric', 'max:255'],
 			'città'            => ['required','string', 'max:50'],
 			'Nazione'          => ['required', 'string', 'max:20'],
@@ -45,8 +45,8 @@ class UpdateApartmentRequest extends FormRequest
 	{
 		return [
 			'required'      =>'Questo campo è obbligatorio',
-            'max'           => 'Questo campo non deve superare :max',
-            'min'           => 'Questo campo deve essere almeno :min',
+            'max'           => 'Questo campo non deve superare di :max',
+            'min'           => 'Questo campo deve essere almeno di :min',
 		];
 	}
 }
