@@ -68,7 +68,7 @@ axios.get(`http://127.0.0.1:8000/api/apartments/${slug}`).then((response) => {
 		data: {
 			labels: datesArray,
 			datasets: [{
-				label: 'Numero di views',
+				label: '',
 				data: countsArray,
 				borderWidth: 1,
 				backgroundColor: [
@@ -84,10 +84,16 @@ axios.get(`http://127.0.0.1:8000/api/apartments/${slug}`).then((response) => {
 					beginAtZero: true
 				}
 			},
+			tooltips: {
+				enabled: false
+			},
+			legend: {
+				display: false
+			}
 		},
 		plugins: {
 			legend: {
-				display: true,
+				display: false,
 				labels: {
 					color: 'rgb(5, 99, 132)'
 				}
