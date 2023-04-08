@@ -26,45 +26,42 @@ axios.get(`http://127.0.0.1:8000/api/apartments/${slug}`).then((response) => {
 
 		// console.log(yymmdd);
 		// contatore views
-		let count = 0;
-		let sameday = 0;
+		let count = 1;
 
 		// se l'apartment id della view ciclata è = all'id dell'apartment attuale...
 		if (views[i].apartment_id == aparId) {
-			console.log(views[i].apartment_id);
 
 			// se la data della view attuale non è presente nell'array delle date...
 			if (!datesArray.includes(yymmdd)) {
-				count++
+				// ...pusho il contatore nell'array
 				countsArray.push(count);
 				// ...pusho la data nell'array
 				datesArray.push(yymmdd);
 
-				sameday++;
 
 			} else { // altrimenti...
-				// ...aumento contatore views
-				countsArray[sameday]++;
+				// ...aumento contatore views nella posizione attuale di 1
+				countsArray[countsArray.length - 1]++;
 			}
 
 		}
 
-		// console.log(datesArray);
-		console.log(countsArray);
+
 	};
 	let totalviews = 0;
+	// calcolo il totale delle views dell'array count 
 	for (let i = 0; i < countsArray.length; i++) {
 		totalviews = totalviews + countsArray[i]
 	}
-
+	// calcolo la media delle views
 	let media = totalviews / countsArray.length;
-
+	// massimo due decimali
 	let md = media.toFixed(2);
 
-	console.log(media);
+
 	datesArray.push('media views per giorno');
 	countsArray.push(md);
-	console.log(totalviews);
+
 	// console.log(datesArray);
 	new Chart(ctx, {
 		type: 'bar',
